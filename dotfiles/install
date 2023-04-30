@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+script_location=$(dirname $(realpath $0))
+
+bash $script_location/scripts/bootstrap-local-env.sh
+bash $script_location/scripts/update-dotfiles.sh

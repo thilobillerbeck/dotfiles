@@ -1,0 +1,94 @@
+Host db2
+	HostName tg.dm.informatik.tu-darmstadt.de
+	Port 9022
+	User tbillerbeck
+
+Host *
+	ForwardAgent no
+	ForwardX11 no
+	ForwardX11Trusted yes
+	User thilo
+	Port 22
+	ServerAliveInterval 60
+	ServerAliveCountMax 30
+
+Host 158.101.179.53
+	IdentityFile ~/.ssh/id_thilo-billerbeck-com
+
+Host burns matrix
+	HostName burns.thilo-billerbeck.com
+
+Host lisa bart burns homer marge
+
+Host github.com
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/id_github-com
+	IdentitiesOnly yes
+
+Host *.thilo-billerbeck.com
+	User root
+	IdentityFile ~/.ssh/id_thilo-billerbeck-com
+
+Host krusty.thilo-billerbeck.com
+	User opc
+	AddressFamily inet
+
+Host skinner.thilo-billerbeck.com
+	User opc
+
+Host 130.61.97.198
+	User opc
+	IdentityFile ~/.ssh/id_thilo-billerbeck-com
+
+Host avocadoom.de
+	User thilo
+	IdentityFile ~/.ssh/id_thilo-billerbeck-com
+
+Host *.avocadoom.de
+	User thilo
+	IdentityFile ~/.ssh/id_thilo-billerbeck-com
+
+Host *.officerent.de
+	User thilo
+	IdentityFile ~/.ssh/id_thilo-billerbeck-com
+
+Host mail
+	HostName mail.officerent.de
+
+Host *.tu-darmstadt.de
+	IdentityFile ~/.ssh/id_tu-darmstadt-de
+
+Host *.rwth-aachen.de
+	IdentityFile ~/.ssh/id_tu-darmstadt-de
+
+Host *.tobias-neidig.de
+	IdentityFile ~/.ssh/id_tobias-neidig-de
+
+Host *.darmstadt.ccc.de
+	IdentityFile ~/.ssh/id_darmstadt-ccc-de
+
+Host ssh.dev.azure.com
+	IdentityFile ~/.ssh/id_azure-com
+	IdentitiesOnly yes
+	HostkeyAlgorithms +ssh-rsa
+	PubkeyAcceptedKeyTypes +ssh-rsa
+
+Host 192.168.50.54
+	User thilo
+	IdentityFile ~/.ssh/id_avocadoom-laptop
+
+Host *.tailscale.net
+	User thilo
+	IdentityFile ~/.ssh/id_tailscale
+
+Host digitaltwinservice.de
+	User tb12zysu
+	IdentityFile ~/.ssh/id_digitaltwinservice-de
+
+Host thilo-pc
+	HostName thilo-pc.thilobillerbeck.github.beta.tailscale.net
+
+Host *.relaix.net
+	User tbillerbeck
+	IdentityFile ~/.ssh/id_relaix-net

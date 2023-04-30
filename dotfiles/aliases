@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+alias pub-ipv4="curl ip4.clerie.de"
+alias serve="python -m SimpleHTTPServer 8080"
+alias week='date +%V'
+alias path='echo -e ${PATH//:/\\n}'
+alias distro='cat /etc/*-release'
+alias reload='source ~/.zshrc'
+alias undo-git-reset-head="git reset 'HEAD@{1}'"
+alias update-local="bash $HOME/.dotfiles/install"
+alias fix-ssh-key-permissions="bash $HOME/.dotfiles/scripts/fix-ssh-key-permissions.sh"

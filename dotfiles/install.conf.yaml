@@ -1,0 +1,75 @@
+- defaults:
+    link:
+      relink: true
+
+- clean:
+    ~/:
+      force: true
+
+- link:
+    ~/.bash_profile:
+      path: bash_profile
+      force: true
+    ~/.bashrc:
+      path: bashrc
+      force: true
+    ~/.bash_logout:
+      path: bash_logout
+      force: true
+    ~/.zshrc:
+      path: zshrc
+      force: true
+    ~/.zshenv:
+      path: zshenv
+      force: true
+    ~/.gitconfig:
+      path: gitconfig
+      force: true
+    #    ~/.config/gtk-3.0/settings.ini:
+    #      path: gtk-3.ini
+    #      force: true
+    ~/.config/nano/nanorc:
+      path: nanorc
+      force: true
+    ~/.config/locale.conf:
+      path: locale.conf
+      force: true
+    ~/.aliases:
+      path: aliases
+      force: true
+    ~/.alacritty.yml:
+      path: alacritty.yml
+      force: true
+    ~/.config/htop/htoprc:
+      path: htoprc
+      force: true
+    ~/.config/starship.toml:
+      path: starship.toml
+      force: true
+    ~/.config/nvim/init.vim:
+      path: init.vim
+      force: true
+    ~/.config/chromium-flags.conf:
+      path: chromium-flags.conf
+      force: true
+    ~/.config/chrome-flags.conf:
+      path: chromium-flags.conf
+      force: true
+    ~/.config/vivaldi-stable.conf:
+      path: chromium-flags.conf
+      force: true
+    ~/.var/app/com.google.Chrome/config/chrome-flags.conf:
+      path: chromium-flags.conf
+      force: true
+    ~/.ssh/config:
+      path: ssh-config
+      force: true
+    ~/.config/beets/config.yaml:
+      path: beets.yaml
+      force: true
+    ~/.config/pipewire/pipewire.conf:
+      path: pipewire.conf
+      force: true
+    ~/.config/topgrade.toml:
+      path: topgrade.toml
+      force: true
