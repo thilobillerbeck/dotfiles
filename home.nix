@@ -31,6 +31,14 @@ in {
       pkgs.htop
       pkgs.rustup
       pkgs.nixfmt
+      pkgs.nodejs
+      pkgs.bun
+      pkgs.deno
+      pkgs.devbox
+      pkgs.tldr
+      pkgs.flutter
+      pkgs.direnv
+      (import (fetchTarball https://github.com/cachix/devenv/archive/v0.6.2.tar.gz)).default
       (pkgs.nerdfonts.override {
         fonts = [ "JetBrainsMono" "FiraCode" "FiraMono" ];
       })
