@@ -44,7 +44,11 @@ in {
       plugins = map (x: {
         name = "plugins/${x}";
         tags = [ "from:oh-my-zsh" ];
-      }) omz-plugins;
+      }) omz-plugins ++ [
+        {
+          name = "chisui/zsh-nix-shell";
+        }
+      ];
     };
   };
 }
