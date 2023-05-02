@@ -11,7 +11,7 @@ let
       mkdir $out/bin
       for bin in ${pkg}/bin/*; do
        wrapped_bin=$out/bin/$(basename $bin)
-       echo "exec ${lib.getExe nixgl.auto.nixGLDefault} $bin \$@" > $wrapped_bin
+       echo -e "#!/bin/bash\nexec ${lib.getExe nixgl.auto.nixGLDefault} $bin \$@" > $wrapped_bin
        chmod +x $wrapped_bin
       done
     '';
@@ -245,15 +245,14 @@ in {
         window.opacity = 1;
         font = {
           normal = {
-            family = "FiraMono Nerd Font";
+            family = "JetbrainsMono NFM";
             style = "Regular";
           };
           bold = {
-            family = "FiraMono Nerd Font";
+            family = "JetbrainsMono NFM";
             style = "Bold";
           };
           size = 14;
-          offset = { x = 1; };
         };
         cursor.style.shape = "Beam";
         colors = {
