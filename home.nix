@@ -59,11 +59,8 @@ in {
       }))
       (nixGLWrap
         (pkgs.google-chrome.override { commandLineArgs = chromeArgs; }))
-      (pkgs.writeShellScriptBin "ssh-fix-permissions" ''
-        chmod 700 ~/.ssh
-        chmod 600 ~/.ssh/*
-        chmod 644 -f ~/.ssh/*.pub ~/.ssh/authorized_keys ~/.ssh/known_hosts
-      '')
+      (pkgs.writeShellScriptBin "ssh-fix-permissions" (builtins.readFile ./scripts/ssh-fix-permissions.sh))
+      (pkgs.writeShellScriptBin "yt-dlp-audio" (builtins.readFile ./scripts/yt-dlp-audio.sh))
     ];
     file = {
       ".config/nano/nanorc".text = ''

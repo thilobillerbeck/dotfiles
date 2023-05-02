@@ -1,10 +1,8 @@
 { config, pkgs, lib, ... }:
 let
   omz-plugins = [
-    "asdf"
     "git"
     "archlinux"
-    "brew"
     "composer"
     "colored-man-pages"
     "extract"
