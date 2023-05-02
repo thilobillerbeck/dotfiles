@@ -58,8 +58,10 @@ in {
       '')
     ];
     file = {
-      ".config/nano/nanorc".source = ./dotfiles/nanorc;
-      ".config/locale.conf".source = ./dotfiles/locale.conf;
+      ".config/nano/nanorc".text = ''
+        set linenumbers
+        include "/usr/share/nano/*.nanorc"
+      '';
       ".ssh/config".source = ./dotfiles/ssh-config;
     };
     sessionVariables = {
