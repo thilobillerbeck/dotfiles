@@ -1,7 +1,14 @@
 { config, pkgs, lib, ... }:
 let
-  chromeArgs =
-    "--force-dark-mode --enable-features=WebUIDarkMode --enable-smooth-scrolling --ozone-platform-hint=auto --ignore-gpu-blocklist --enable-gpu-rasterization --enable-zero-copy";
+  chromeArgs = lib.strings.concatStringsSep " " [
+    "--force-dark-mode"
+    "--enable-features=WebUIDarkMode"
+    "--enable-smooth-scrolling"
+    "--ozone-platform-hint=auto"
+    "--ignore-gpu-blocklist"
+    "--enable-gpu-rasterization"
+    "--enable-zero-copy"
+  ];
   nixgl = import <nixgl> { };
   nixGLWrap = pkg:
     pkgs.runCommand "${pkg.name}-nixgl-wrapper" { } ''
@@ -20,7 +27,8 @@ in {
   targets.genericLinux.enable = true;
   news.display = "silent";
 
-  imports = map (n: "${./programs}/${n}") (builtins.attrNames (builtins.readDir ./programs));
+  imports = map (n: "${./programs}/${n}")
+    (builtins.attrNames (builtins.readDir ./programs));
 
   home = {
     username = "thilo";
@@ -39,8 +47,8 @@ in {
       pkgs.devbox
       pkgs.tldr
       pkgs.flutter
-      pkgs.direnv
-      (import (fetchTarball https://github.com/cachix/devenv/archive/v0.6.2.tar.gz)).default
+      (import (fetchTarball
+        "https://github.com/cachix/devenv/archive/v0.6.2.tar.gz")).default
       (pkgs.nerdfonts.override {
         fonts = [ "JetBrainsMono" "FiraCode" "FiraMono" ];
       })

@@ -11,7 +11,6 @@ let
     "gradle"
     "node"
     "npm"
-    "nvm"
     "rbenv"
     "sudo"
     "direnv"
@@ -39,16 +38,17 @@ in {
       undo-git-reset-head = "git reset 'HEAD@{1}'";
       update-local = "bash $HOME/.dotfiles/install";
     };
+    plugins = [{
+      name = "bun";
+      file = "completions/bun.zsh";
+      src = pkgs.bun;
+    }];
     zplug = {
       enable = true;
       plugins = map (x: {
         name = "plugins/${x}";
         tags = [ "from:oh-my-zsh" ];
-      }) omz-plugins ++ [
-        {
-          name = "chisui/zsh-nix-shell";
-        }
-      ];
+      }) omz-plugins;
     };
   };
 }
