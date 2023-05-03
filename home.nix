@@ -20,6 +20,7 @@
     ./programs/vscode.nix
     ./programs/yt-dlp.nix
     ./programs/zsh.nix
+    ./programs/go.nix
     ./packages.nix
   ];
 
@@ -47,7 +48,16 @@
           done
         '';
       };
+      setNodeGlobalDir = {
+        after = [ "writeBoundary" "createXdgUserDirectories" ];
+        before = [ ];
+        data = ''
+          mkdir -p ${config.home.homeDirectory}/.node-global
+          ${pkgs.nodejs}/bin/npm config set prefix ${config.home.homeDirectory}/.node-global
+        '';
+      };
     };
+    sessionPath = [ "${config.home.homeDirectory}/.node-global/bin" ];
   };
   xdg = {
     enable = true;
