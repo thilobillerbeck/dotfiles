@@ -8,6 +8,8 @@ let
     "--ignore-gpu-blocklist"
     "--enable-gpu-rasterization"
     "--enable-zero-copy"
+    "--force-device-scale-factor=1.0"
+    "--use-gl=desktop"
   ];
   nixGLWrap = import ./utils/nixGLWrap.nix { inherit pkgs lib; };
 in {
@@ -50,11 +52,6 @@ in {
         (builtins.readFile ./scripts/ssh-fix-permissions.sh))
       (pkgs.writeShellScriptBin "yt-dlp-audio"
         (builtins.readFile ./scripts/yt-dlp-audio.sh))
-      (pkgs.writeShellScriptBin "craft" ((pkgs.fetchFromGitHub {
-        owner = "codemonauts";
-        repo = "docker-craft-cms-dev-env";
-        rev = "5053d61654bc720fd61e011642e925a99d81baa0";
-        hash = "sha256-VNL/cyECDx0FSn2xMHMQDbJ3d0y7SEKPZ2EzotQy/PA=";
-      }) + /bin/craft))
+      (callPackage pkgs/docker-craft-cms-dev-env.nix { inherit lib; })
     ];
 }
