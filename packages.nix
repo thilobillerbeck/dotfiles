@@ -29,6 +29,7 @@ in {
       hcloud
       tea
       dgraph
+      nix-init
       nodePackages.nodemon
       pocketbase
       surrealdb
