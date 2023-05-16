@@ -1,10 +1,8 @@
 { config, pkgs, lib, ... }:
 
-let nixGLWrap = import ./../utils/nixGLWrap.nix { inherit pkgs lib; };
-in {
+{
   programs.alacritty = {
     enable = true;
-    package = (nixGLWrap pkgs.alacritty);
     settings = {
       window = {
         decorations = "full";
