@@ -9,6 +9,7 @@
     ./../programs/bat.nix
     ./../programs/beets.nix
     ./../programs/command-not-found.nix
+    ./../programs/dircolors.nix
     ./../programs/direnv.nix
     ./../programs/fzf.nix
     ./../programs/git.nix
