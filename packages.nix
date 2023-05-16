@@ -32,6 +32,8 @@
         (builtins.readFile ./scripts/ssh-fix-permissions.sh))
       (pkgs.writeShellScriptBin "yt-dlp-audio"
         (builtins.readFile ./scripts/yt-dlp-audio.sh))
+      (pkgs.writeShellScriptBin "nix-shell-init"
+        (builtins.readFile ./scripts/nix-shell-init.sh))
       (callPackage pkgs/docker-craft-cms-dev-env.nix { inherit lib; })
     ];
 }
