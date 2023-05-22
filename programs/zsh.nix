@@ -36,11 +36,6 @@ in {
       undo-git-reset-head = "git reset 'HEAD@{1}'";
       update-local = "bash $HOME/.dotfiles/install";
     };
-    plugins = [{
-      name = "bun";
-      file = "completions/bun.zsh";
-      src = pkgs.bun;
-    }];
     zplug = {
       enable = true;
       plugins = map (x: {
@@ -48,5 +43,8 @@ in {
         tags = [ "from:oh-my-zsh" ];
       }) omz-plugins;
     };
+    initExtra = ''
+      eval $(${pkgs.thefuck}/bin/thefuck --alias)
+    '';
   };
 }

@@ -17,7 +17,6 @@
     ./../programs/neovim.nix
     ./../programs/starship.nix
     ./../programs/topgrade.nix
-    ./../programs/vscode.nix
     ./../programs/yt-dlp.nix
     ./../programs/zsh.nix
     ./../programs/go.nix
@@ -61,4 +60,11 @@
   };
 
   programs.home-manager.enable = true;
+
+  nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
 }

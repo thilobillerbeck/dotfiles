@@ -22,6 +22,11 @@
       nodePackages.nodemon
       pocketbase
       surrealdb
+      thefuck
+      corefonts
+      vistafonts
+      hub
+      httpie
     ] ++ [
       (import (fetchTarball
         "https://github.com/cachix/devenv/archive/v0.6.2.tar.gz")).default
