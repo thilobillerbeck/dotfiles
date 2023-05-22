@@ -10,7 +10,6 @@ let
     "--enable-gpu-rasterization"
     "--enable-zero-copy"
     "--force-device-scale-factor=1.0"
-    "--use-gl=desktop"
   ];
   nixGLWrap = import ./../utils/nixGLWrap.nix { inherit pkgs lib; };
 in {
@@ -35,9 +34,4 @@ in {
     }))
     (nixGLWrap (pkgs.google-chrome.override { commandLineArgs = chromeArgs; }))
   ];
-
-  xdg = {
-    enable = true;
-    mime.enable = true;
-  };
 }
