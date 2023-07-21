@@ -19,7 +19,7 @@
       rerere = { enabled = "1"; };
       core = {
         whitespace = "fix,-indent-with-non-tab,trailing-space,cr-at-eol";
-        excludesfile = "~/.gitignore-rab";
+        excludesfile = "~/.gitignore";
         autocrlf = "input";
       };
       apply = { whitespace = "nowarn"; };

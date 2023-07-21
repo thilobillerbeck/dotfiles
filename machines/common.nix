@@ -33,6 +33,7 @@
         include "/usr/share/nano/*.nanorc"
       '';
       ".ssh/config".source = ./../dotfiles/ssh-config;
+      ".gitignore".source = ./../dotfiles/.gitignore;
     };
     sessionVariables = {
 
