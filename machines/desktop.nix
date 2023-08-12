@@ -12,25 +12,18 @@ let
     "--force-device-scale-factor=1.0"
     "--use-gl=desktop"
   ];
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-in {  
+in {
   imports = [
     ./common.nix
   ];
 
+  gtk = {
+    enable = true;
+    theme = {
+      name = "adw-gtk3-dark";
+      package = pkgs.adw-gtk3;
+    };
+  };
+
   news.display = "silent";
-
-  programs.vscode.package = (pkgs.vscode.override {
-    commandLineArgs =
-      "--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --gtk-version=4";
-  });
-
-  home.packages = with pkgs; [
-    (pkgs.vivaldi.override {
-      proprietaryCodecs = true;
-      enableWidevine = true;
-      commandLineArgs = chromeArgs;
-    })
-    (pkgs.google-chrome.override { commandLineArgs = chromeArgs; })
-  ];
 }

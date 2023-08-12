@@ -21,7 +21,7 @@
       nix-init
       nodePackages.nodemon
       pocketbase
-      surrealdb
+      # surrealdb
       thefuck
       corefonts
       vistafonts
