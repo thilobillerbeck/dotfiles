@@ -24,8 +24,8 @@ in {
     enable = true;
     enableAutosuggestions = true;
     enableCompletion = true;
-    enableSyntaxHighlighting = true;
     enableVteIntegration = true;
+    syntaxHighlighting.enable = true;
     shellAliases = {
       pub-ipv4 = "curl ip4.clerie.de";
       serve = "python -m SimpleHTTPServer 8080";

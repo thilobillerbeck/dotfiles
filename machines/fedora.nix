@@ -17,13 +17,4 @@ in {
     ./common.nix
     ./../wrappers/fedora.nix
   ];
-
-  targets.genericLinux.enable = true;
-  news.display = "silent";
-
-  programs.alacritty.package = (nixGLWrap pkgs.alacritty);
-
-  home.packages = with pkgs; [
-    
-  ];
 }
