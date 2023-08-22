@@ -71,8 +71,11 @@ in {
         ];
       })
       google-chrome
+      chromium
       vscode
       discord
+      quickemu
+      quickgui
     ] else [ ]) ++ (if config.machine.isGnome then [
       gnomeExtensions.blur-my-shell
       gnomeExtensions.dash-to-panel
