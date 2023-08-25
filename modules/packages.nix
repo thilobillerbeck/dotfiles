@@ -49,6 +49,7 @@ in {
       nixpkgs-fmt
       toolbox
       distrobox
+      ddev
     ] ++ (if config.machine.isGraphical then [
       (pkgs.nerdfonts.override {
         fonts = [ "JetBrainsMono" "FiraCode" "FiraMono" ];
