@@ -1,0 +1,13 @@
+diff --git a/quickget b/quickget
+index 756eb82..19998d0 100755
+--- a/quickget
++++ b/quickget
+@@ -2133,7 +2133,7 @@ function get_windows() {
+     # - https://www.itechtics.com/windows-11-download-iso/
+     #  0 : Prompt for a manual ISO download
+     #  1 : Download automatically
+-    local AUTO_DOWNLOAD=1
++    local AUTO_DOWNLOAD=0
+     local DOWNLOAD_URL=""
+
+     if [ ${AUTO_DOWNLOAD} -eq 1 ]; then

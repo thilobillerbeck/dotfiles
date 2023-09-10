@@ -10,6 +10,16 @@ let
   }) {};
 in {
   config = {
+    nixpkgs.overlays = [
+      (final: prev: {
+        quickemu = prev.quickemu.overrideAttrs (old: {
+          patches = (old.patches or []) ++ [
+            ./../patches/quickemu.patch
+          ];
+        });
+      })
+    ];
+
     home.packages = with pkgs; [
       up
       rbenv
@@ -54,6 +64,7 @@ in {
       distrobox
       ddev
       act
+      mkcert
     ] ++ (if config.machine.isGraphical then [
       (pkgs.nerdfonts.override {
         fonts = [ "JetBrainsMono" "FiraCode" "FiraMono" ];
