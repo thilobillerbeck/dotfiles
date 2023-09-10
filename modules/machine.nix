@@ -71,7 +71,6 @@ with lib;
         '';
         ".ssh/config".source = ./../dotfiles/ssh-config;
         ".gitignore".source = ./../dotfiles/.gitignore;
-      } // mkIf config.machine.noiseSuppression.enable {
         ".config/pipewire/pipewire.conf.d/99-noise-suppression.conf".text = ''
           context.modules = [{
             name = libpipewire-module-filter-chain
