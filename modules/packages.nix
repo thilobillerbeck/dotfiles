@@ -41,6 +41,9 @@ in {
         (builtins.readFile ./../scripts/yt-dlp-audio.sh))
       (pkgs.writeShellScriptBin "nix-shell-init"
         (builtins.readFile ./../scripts/nix-shell-init.sh))
+      (pkgs.writeShellScriptBin "http-server" ''
+        ${pkgs.caddy}/bin/caddy file-server --listen :2345
+      '')
       (callPackage ./../pkgs/docker-craft-cms-dev-env.nix {
         inherit lib;
       })
@@ -49,11 +52,13 @@ in {
       nixpkgs-fmt
       toolbox
       distrobox
+      ddev
+      act
     ] ++ (if config.machine.isGraphical then [
       (pkgs.nerdfonts.override {
         fonts = [ "JetBrainsMono" "FiraCode" "FiraMono" ];
       })
-      anki
+      # anki
       corefonts
       vistafonts
       jetbrains.webstorm
@@ -73,6 +78,8 @@ in {
       google-chrome
       vscode
       discord
+      obsidian
+      chromium
     ] else [ ]) ++ (if config.machine.isGnome then [
       gnomeExtensions.blur-my-shell
       gnomeExtensions.dash-to-panel
