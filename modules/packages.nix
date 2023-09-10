@@ -54,6 +54,9 @@ in {
       (pkgs.writeShellScriptBin "http-server" ''
         ${pkgs.caddy}/bin/caddy file-server --listen :2345
       '')
+      (pkgs.writeShellScriptBin "nix-build-default" ''
+        nix-build -E 'with import <nixpkgs> { }; callPackage ./default.nix { }'
+      '')
       (callPackage ./../pkgs/docker-craft-cms-dev-env.nix {
         inherit lib;
       })
