@@ -10,6 +10,16 @@ let
   }) {};
 in {
   config = {
+    nixpkgs.overlays = [
+      (final: prev: {
+        quickemu = prev.quickemu.overrideAttrs (old: {
+          patches = (old.patches or []) ++ [
+            ./../patches/quickemu.patch
+          ];
+        });
+      })
+    ];
+
     home.packages = with pkgs; [
       up
       rbenv
@@ -50,6 +60,7 @@ in {
       toolbox
       distrobox
       ddev
+      mkcert
     ] ++ (if config.machine.isGraphical then [
       (pkgs.nerdfonts.override {
         fonts = [ "JetBrainsMono" "FiraCode" "FiraMono" ];
@@ -77,6 +88,7 @@ in {
       discord
       quickemu
       quickgui
+      obsidian
     ] else [ ]) ++ (if config.machine.isGnome then [
       gnomeExtensions.blur-my-shell
       gnomeExtensions.dash-to-panel
