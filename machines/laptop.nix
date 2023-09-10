@@ -20,18 +20,11 @@ in {
   targets.genericLinux.enable = true;
   news.display = "silent";
 
-  programs.vscode.package = (nixGLWrap (pkgs.vscode.override {
-    commandLineArgs =
-      "--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --gtk-version=4";
-  }));
-  programs.alacritty.package = (nixGLWrap pkgs.alacritty);
-
-  home.packages = with pkgs; [
-    (nixGLWrap (pkgs.vivaldi.override {
-      proprietaryCodecs = true;
-      enableWidevine = true;
-      commandLineArgs = chromeArgs;
-    }))
-    (nixGLWrap (pkgs.google-chrome.override { commandLineArgs = chromeArgs; }))
-  ];
+  gtk = {
+    enable = true;
+    theme = {
+      name = "adw-gtk3-dark";
+      package = pkgs.adw-gtk3;
+    };
+  };
 }
