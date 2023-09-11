@@ -11,6 +11,11 @@
         pre_sudo = false;
         cleanup = true;
         skip_notify = true;
+        disable = [
+          "bun"
+          "tldr"
+          "flutter"
+        ];
       };
       firmware = { upgrade = true; };
     };
