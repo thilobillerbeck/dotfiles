@@ -68,6 +68,10 @@ in {
       ddev
       act
       mkcert
+      pulumi
+      dagger
+      kubectl
+      pulumiPackages.pulumi-language-nodejs
     ] ++ (if config.machine.isGraphical then [
       (pkgs.nerdfonts.override {
         fonts = [ "JetBrainsMono" "FiraCode" "FiraMono" ];
@@ -97,6 +101,7 @@ in {
       chromium
       quickemu
       quickgui
+      trilium-desktop
     ] else [ ]) ++ (if config.machine.isGnome then [
       gnomeExtensions.blur-my-shell
       gnomeExtensions.dash-to-panel

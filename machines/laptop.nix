@@ -1,30 +1,41 @@
 { config, pkgs, lib, ... }:
 
-let
-  chromeArgs = lib.strings.concatStringsSep " " [
-    "--force-dark-mode"
-    "--enable-features=WebUIDarkMode"
-    "--enable-smooth-scrolling"
-    "--ozone-platform-hint=auto"
-    "--ignore-gpu-blocklist"
-    "--enable-gpu-rasterization"
-    "--enable-zero-copy"
-    "--force-device-scale-factor=1.0"
-  ];
-  nixGLWrap = import ./../utils/nixGLWrap.nix { inherit pkgs lib; };
-in {
+{
   imports = [
-    ./common.nix
+    ./../modules/machine.nix
   ];
 
-  targets.genericLinux.enable = true;
-  news.display = "silent";
+  machine = {
+      username = "thilo";
+      isGeneric = false;
+      nixPackage = pkgs.nixUnstable;
+      isGnome = false;
+      noiseSuppression.enable = true;
+      isGraphical = true;
+  };
 
-  gtk = {
+  wayland.windowManager.sway = {
     enable = true;
-    theme = {
-      name = "adw-gtk3-dark";
-      package = pkgs.adw-gtk3;
+    config = rec {
+      modifier = "Mod4";
+      # Use kitty as default terminal
+      terminal = "alacritty";
+      bars = [];
     };
+  };
+
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-vaapi
+      obs-teleport
+      droidcam-obs
+      obs-gstreamer
+      obs-shaderfilter
+      obs-command-source
+      obs-move-transition
+      advanced-scene-switcher
+    ];
   };
 }
