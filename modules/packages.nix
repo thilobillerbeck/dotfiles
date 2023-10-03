@@ -60,6 +60,9 @@ in {
       (callPackage ./../pkgs/docker-craft-cms-dev-env.nix {
         inherit lib;
       })
+      (callPackage ./../pkgs/toggl-time-grouper/package.nix {
+        inherit lib;
+      })
       (import (fetchTarball
         "https://github.com/cachix/devenv/archive/v0.6.2.tar.gz")).default
       nixpkgs-fmt

@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+
+import pandas as pd
+import sys
+from pathlib import Path
+
+df = pd.read_csv(sys.argv[1])
+
+df = df.drop(columns=['User', 'Email', 'Billable', 'Tags', 'Amount ()', 'Start time', 'End date', 'End time'])
+df['Duration'] = pd.to_timedelta(df['Duration'])
+df['Start date'] = pd.to_datetime(df['Start date'])
+
+df = df.groupby(['Project','Description','Start date'])['Duration'].sum()
+
+df.to_csv(Path(sys.argv[1]).stem + '-grouped.csv')
