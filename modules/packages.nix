@@ -105,6 +105,7 @@ in {
       quickemu
       quickgui
       trilium-desktop
+      anki
     ] else [ ]) ++ (if config.machine.isGnome then [
       gnomeExtensions.blur-my-shell
       gnomeExtensions.dash-to-panel

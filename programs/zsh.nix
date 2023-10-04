@@ -45,6 +45,9 @@ in {
     };
     initExtra = ''
       eval $(${pkgs.thefuck}/bin/thefuck --alias)
+      [ -d ~/.npm-global ] || mkdir ~/.npm-global
+      ${pkgs.nodejs}/bin/npm config set prefix '~/.npm-global'
+      export PATH=~/.npm-global/bin:$PATH
     '';
   };
 }
