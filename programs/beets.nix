@@ -2,7 +2,7 @@
 
 {
   programs.beets = {
-    enable = true;
+    enable = false;
     settings = {
       directory = "~/Music/dj/Library";
       library = "~/Music/dj/library.db";

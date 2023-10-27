@@ -1,14 +1,7 @@
 { config, pkgs, lib, ... }:
 
 with lib;
-let
-  nix-software-center = import (pkgs.fetchFromGitHub {
-    owner = "vlinkz";
-    repo = "nix-software-center";
-    rev = "0.1.2";
-    sha256 = "xiqF1mP8wFubdsAQ1BmfjzCgOD3YZf7EGWl9i69FTls=";
-  }) {};
-in {
+{
   config = {
     nixpkgs.overlays = [
       (final: prev: {
@@ -72,7 +65,6 @@ in {
       act
       mkcert
       pulumi
-      dagger
       kubectl
       pulumiPackages.pulumi-language-nodejs
     ] ++ (if config.machine.isGraphical then [
@@ -88,19 +80,24 @@ in {
       dbeaver
       insomnia
       onlyoffice-bin
-      nix-software-center
       spotify
       (lutris.override {
+        extraLibraries = pkgs: [
+         gnome3.adwaita-icon-theme
+        ];
         extraPkgs = pkgs: [
           wineWowPackages.full
           winetricks
+	  gnome3.adwaita-icon-theme
         ];
       })
+      bottles
+      protontricks
+      heroic
       google-chrome
       chromium
       vscode
       discord
-      obsidian
       chromium
       quickemu
       quickgui

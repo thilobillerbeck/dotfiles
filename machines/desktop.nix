@@ -9,8 +9,11 @@
       username = "thilo";
       isGeneric = false;
       nixPackage = pkgs.nixUnstable;
-      isGnome = true;
+      isGnome = false;
       noiseSuppression.enable = true;
       isGraphical = true;
   };
+
+  services.kdeconnect.enable = true;
+  services.kdeconnect.indicator = true;
 }

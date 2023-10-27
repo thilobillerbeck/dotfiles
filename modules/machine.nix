@@ -136,6 +136,10 @@ with lib;
       '';
     };
 
+    nixpkgs.config.permittedInsecurePackages = [
+      "electron-24.8.6"
+    ];
+
     gtk = {
       enable = config.machine.isGnome;
       theme = {
