@@ -6,7 +6,7 @@ with lib;
     nixpkgs.overlays = [
       (final: prev: {
         quickemu = prev.quickemu.overrideAttrs (old: {
-          patches = (old.patches or []) ++ [
+          patches = (old.patches or [ ]) ++ [
             ./../patches/quickemu.patch
           ];
         });
@@ -56,8 +56,6 @@ with lib;
       (callPackage ./../pkgs/toggl-time-grouper/package.nix {
         inherit lib;
       })
-      (import (fetchTarball
-        "https://github.com/cachix/devenv/archive/v0.6.2.tar.gz")).default
       nixpkgs-fmt
       toolbox
       distrobox
@@ -67,6 +65,7 @@ with lib;
       pulumi
       kubectl
       pulumiPackages.pulumi-language-nodejs
+      ncdu
     ] ++ (if config.machine.isGraphical then [
       (pkgs.nerdfonts.override {
         fonts = [ "JetBrainsMono" "FiraCode" "FiraMono" ];
@@ -83,12 +82,12 @@ with lib;
       spotify
       (lutris.override {
         extraLibraries = pkgs: [
-         gnome3.adwaita-icon-theme
+          gnome3.adwaita-icon-theme
         ];
         extraPkgs = pkgs: [
           wineWowPackages.full
           winetricks
-	  gnome3.adwaita-icon-theme
+          gnome3.adwaita-icon-theme
         ];
       })
       bottles

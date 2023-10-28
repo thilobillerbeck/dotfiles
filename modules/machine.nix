@@ -32,11 +32,6 @@ with lib;
         default = false;
         description = "Whether the system is generic or not";
       };
-      nixPackage = mkOption {
-        type = types.package;
-        default = pkgs.nixUnstable;
-        description = "The version of nix to use";
-      };
       isGraphical = mkOption {
         type = types.bool;
         default = false;
@@ -56,7 +51,6 @@ with lib;
   };
 
   config = {
-    nixpkgs.config.allowUnfree = true;
     news.display = "silent";
     targets.genericLinux.enable = config.machine.isGeneric;
 
@@ -130,15 +124,11 @@ with lib;
     programs.home-manager.enable = true;
 
     nix = {
-      package = config.machine.nixPackage;
+      package = mkDefault pkgs.nixUnstable;
       extraOptions = ''
         experimental-features = nix-command flakes
       '';
     };
-
-    nixpkgs.config.permittedInsecurePackages = [
-      "electron-24.8.6"
-    ];
 
     gtk = {
       enable = config.machine.isGnome;
@@ -149,3 +139,4 @@ with lib;
     };
   };
 }
+
