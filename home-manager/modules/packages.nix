@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 with lib;
 {
@@ -66,6 +66,7 @@ with lib;
       kubectl
       pulumiPackages.pulumi-language-nodejs
       ncdu
+      inputs.devenv.packages.x86_64-linux.devenv
     ] ++ (if config.machine.isGraphical then [
       (pkgs.nerdfonts.override {
         fonts = [ "JetBrainsMono" "FiraCode" "FiraMono" ];
@@ -102,6 +103,7 @@ with lib;
       quickgui
       trilium-desktop
       anki
+      inputs.nix-software-center.packages.x86_64-linux.nix-software-center
     ] else [ ]) ++ (if config.machine.isGnome then [
       gnomeExtensions.blur-my-shell
       gnomeExtensions.dash-to-panel

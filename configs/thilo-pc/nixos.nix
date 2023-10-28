@@ -152,8 +152,4 @@
   nixpkgs.config.permittedInsecurePackages = [
     "electron-24.8.6"
   ];
-  environment.systemPackages = with nixpkgs; [
-    inputs.nix-software-center.packages.x86_64-linux.nix-software-center
-    inputs.devenv.packages.x86_64-linux.devenv
-  ];
 }

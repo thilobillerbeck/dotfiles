@@ -13,14 +13,19 @@
     devenv.url = "github:cachix/devenv";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
-    nixosConfigurations.thilo-pc = nixpkgs.lib.nixosSystem {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+    let
       system = "x86_64-linux";
-      modules = [
-        home-manager.nixosModules.home-manager
-        ./configs/thilo-pc/nixos.nix
-        ./configs/thilo-pc/home.nix
-      ];
+    in
+    {
+      nixosConfigurations.thilo-pc = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          home-manager.nixosModules.home-manager
+          ./configs/thilo-pc/nixos.nix
+          ./configs/thilo-pc/home.nix
+        ];
+        specialArgs = { inherit inputs; };
+      };
     };
-  };
 }
