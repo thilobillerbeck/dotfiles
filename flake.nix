@@ -16,6 +16,7 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
     in
     {
       nixosConfigurations.thilo-pc = nixpkgs.lib.nixosSystem {
@@ -26,6 +27,11 @@
           ./configs/thilo-pc/home.nix
         ];
         specialArgs = { inherit inputs; };
+      };
+      homeConfigurations."thilo@thilo-pc-win" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./home-manager/machines/wsl.nix ];
+        extraSpecialArgs = { inherit inputs; };
       };
     };
 }

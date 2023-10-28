@@ -8,7 +8,6 @@
   machine = {
       username = "thilo";
       isGeneric = true;
-      nixPackage = pkgs.nixUnstable;
       isGnome = false;
       noiseSuppression.enable = false;
       isGraphical = false;
