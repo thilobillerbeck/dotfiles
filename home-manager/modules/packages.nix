@@ -104,6 +104,7 @@ with lib;
       trilium-desktop
       anki
       inputs.nix-software-center.packages.x86_64-linux.nix-software-center
+      jetbrains-toolbox
     ] else [ ]) ++ (if config.machine.isGnome then [
       gnomeExtensions.blur-my-shell
       gnomeExtensions.dash-to-panel
