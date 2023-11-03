@@ -149,6 +149,7 @@
   time.hardwareClockInLocalTime = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [ "root" "thilo" ];
 
   nixpkgs.config.permittedInsecurePackages = [
     "electron-24.8.6"

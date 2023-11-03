@@ -9,7 +9,16 @@ df = pd.read_csv(sys.argv[1])
 df = df.drop(columns=['User', 'Email', 'Billable', 'Tags', 'Amount ()', 'Start time', 'End date', 'End time'])
 df['Duration'] = pd.to_timedelta(df['Duration'])
 df['Start date'] = pd.to_datetime(df['Start date'])
+df['duration_dec'] = df['Duration'].dt.total_seconds() / 3600
+df.rename(columns={
+    'Project': 'project',
+    'Description': 'description',
+    'Start date': 'day',
+    'Duration': 'duration'
+}, inplace=True)
 
-df = df.groupby(['Project','Description','Start date'])['Duration'].sum()
+df = df.groupby(['project','description','day'], as_index=False).agg({'duration': 'sum'})
+df['duration'] = round(df['duration'].dt.total_seconds() / 60 / 60, 2)
+print("Total hours are: ", round(df['duration'].sum(), 2))
 
-df.to_csv(Path(sys.argv[1]).stem + '-grouped.csv')
+df.to_csv(Path(sys.argv[1]).stem + '-grouped.csv', index=False)
