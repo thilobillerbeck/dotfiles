@@ -28,6 +28,15 @@
         ];
         specialArgs = { inherit inputs; };
       };
+      nixosConfigurations.thilo-laptop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          home-manager.nixosModules.home-manager
+          ./configs/thilo-laptop/nixos.nix
+          ./configs/thilo-laptop/home.nix
+        ];
+        specialArgs = { inherit inputs; };
+      };
       homeConfigurations."thilo@thilo-pc-win" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./configs/wsl/home.nix ];
