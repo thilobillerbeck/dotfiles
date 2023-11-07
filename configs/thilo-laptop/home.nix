@@ -12,7 +12,6 @@
     machine = {
       username = "thilo";
       isGeneric = false;
-      nixPackage = pkgs.nixUnstable;
       isGnome = false;
       noiseSuppression.enable = true;
       isGraphical = true;
@@ -20,7 +19,7 @@
 
     programs.obs-studio = {
       enable = true;
-      plugins = with pkgs.obs-studio-plugins; [
+      /* plugins = with pkgs.obs-studio-plugins; [
         obs-vaapi
         obs-teleport
         droidcam-obs
@@ -29,7 +28,7 @@
         obs-command-source
         obs-move-transition
         advanced-scene-switcher
-      ];
+      ]; */
     };
   };
 }
