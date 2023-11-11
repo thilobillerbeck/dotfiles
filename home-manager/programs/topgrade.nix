@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  configPath = if config.machine.isGeneric then "$HOME/.config/home-manager" else "$HOME/.nixos-config";
+  configPath = if config.machine.isGeneric then "${config.home.homeDirectory}/.config/home-manager" else "${config.home.homeDirectory}/.nixos-config";
 in {
   programs.topgrade = {
     enable = true;
