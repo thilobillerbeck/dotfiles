@@ -19,10 +19,5 @@
 
     services.kdeconnect.enable = true;
     services.kdeconnect.indicator = true;
-
-    programs.topgrade.settings = {
-      linux.nix_arguments = "--flake --impure   ";
-      pre_commands.upgrade_flakes = "cd /home/thilo/.nixos-config && nix flake update";
-    };
   };
 }
