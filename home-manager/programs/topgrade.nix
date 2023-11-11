@@ -1,6 +1,8 @@
 { config, pkgs, lib, ... }:
 
-{
+let
+  configPath = if config.machine.isGeneric then "$HOME/.config/home-manager" else "$HOME/.nixos-config";
+in {
   programs.topgrade = {
     enable = true;
     settings = {
@@ -17,7 +19,13 @@
           "flutter"
         ];
       };
+      git.repos = [
+        configPath
+      ];
       firmware = { upgrade = true; };
+      pre_commands = {
+        flakeUpgrade = "cd ${configPath} && nix flake update --commit-lock-file --verbose --repair";
+      };
     };
   };
 }
