@@ -19,6 +19,7 @@ with lib;
     ./../programs/go.nix
     ./../programs/firefox.nix
     ./../programs/chromium.nix
+    ./../programs/mpv.nix
     ./packages.nix
   ];
 
