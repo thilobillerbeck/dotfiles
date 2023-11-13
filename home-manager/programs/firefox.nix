@@ -1,0 +1,5 @@
+{
+  programs.firefox = {
+    enabled = true;
+  };
+}

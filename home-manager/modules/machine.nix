@@ -17,6 +17,7 @@ with lib;
     ./../programs/yt-dlp.nix
     ./../programs/zsh.nix
     ./../programs/go.nix
+    ./../programs/firefox.nix
     ./packages.nix
   ];
 
