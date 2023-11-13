@@ -83,21 +83,6 @@
     adb.enable = true;
     droidcam.enable = true;
     noisetorch.enable = true;
-    chromium = {
-      enable = true;
-      extensions = [
-        "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
-        "lhobafahddgcelffkeicbaginigeejlf" # Allow Cors
-        "dnhpnfgdlenaccegplpojghhmaamnnfp" # Augmented Steam
-        "mdjildafknihdffpkfmmpnpoiajfjnjd" # Consent-O-Matic
-        "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
-        "ponfpcnoihfmfllpaingbgckeeldkhle" # Youtube Enhancer
-        "epocinhmkcnjfjobnglchpbncndobblj" # Mastodon Gaze
-        "blipmdconlkpinefehnmjammfjpmpbjk" # Lighthouse
-        "ggijpepdpiehgbiknmfpfbhcalffjlbj" # Open in mpv
-        "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock Origin
-      ];
-    };
   };
 
   environment.systemPackages = with pkgs; [
