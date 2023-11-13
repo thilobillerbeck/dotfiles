@@ -1,3 +1,5 @@
+{ pkgs, ...}:
+
 let
   chromium_extension = [
     "nngceckbapebfimnlniiiahkandclblb" # Bitwarden

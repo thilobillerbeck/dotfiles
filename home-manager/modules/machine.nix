@@ -18,6 +18,7 @@ with lib;
     ./../programs/zsh.nix
     ./../programs/go.nix
     ./../programs/firefox.nix
+    ./../programs/chromium.nix
     ./packages.nix
   ];
 
