@@ -95,11 +95,8 @@ with lib;
       bottles
       protontricks
       heroic
-      google-chrome
-      chromium
       vscode
       discord
-      chromium
       quickemu
       quickgui
       trilium-desktop

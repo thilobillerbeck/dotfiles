@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   home-manager.useGlobalPkgs = true;
@@ -15,6 +15,12 @@
       isGnome = false;
       noiseSuppression.enable = true;
       isGraphical = true;
+    };
+
+    xsession.pointerCursor = {
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+      size = 128;
     };
 
     services.kdeconnect.enable = true;
