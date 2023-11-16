@@ -20,6 +20,7 @@
   boot.loader.systemd-boot.extraInstallCommands = ''
     ${pkgs.gnused}/bin/sed -i "/default/c\default @saved" /boot/loader/loader.conf
   '';
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "thilo-pc";
 

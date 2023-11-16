@@ -76,6 +76,7 @@ with lib;
       corefonts
       vistafonts
       jetbrains.webstorm
+      jetbrains.phpstorm
       element-desktop
       ludusavi
       dbeaver
