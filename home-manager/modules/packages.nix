@@ -96,7 +96,7 @@ with lib;
       bottles
       protontricks
       heroic
-      vscode
+      (vscode.fhsWithPackages (ps: with ps; [ sqlite ]))
       discord
       quickemu
       quickgui
