@@ -36,5 +36,9 @@
         advanced-scene-switcher
       ]; */
     };
+
+    home.sessionVariables = {
+      LD_LIBRARY_PATH = "${pkgs.libGL}/lib";
+    };
   };
 }
