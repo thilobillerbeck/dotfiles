@@ -25,5 +25,9 @@
 
     services.kdeconnect.enable = true;
     services.kdeconnect.indicator = true;
+
+    home.sessionVariables = {
+      LD_LIBRARY_PATH = "${pkgs.libGL}/lib";
+    };
   };
 }
