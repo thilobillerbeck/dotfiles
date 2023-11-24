@@ -69,6 +69,9 @@ with lib;
       inputs.devenv.packages.x86_64-linux.devenv
       inputs.nixpkgs-update.packages.x86_64-linux.nixpkgs-update
       unzip
+      gh
+      nil
+      nixd
     ] ++ (if config.machine.isGraphical then [
       (pkgs.nerdfonts.override {
         fonts = [ "JetBrainsMono" "FiraCode" "FiraMono" ];
