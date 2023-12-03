@@ -84,11 +84,19 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1702203126,
         "narHash": "sha256-4BhN2Vji19MzRC7SUfPZGmtZ2WZydQeUk/ogfRBIZMs=",
         "owner": "nix-community",
         "repo": "home-manager",
         "rev": "defbb9c5857e157703e8fc7cf3c2ceb01cb95883",
+=======
+        "lastModified": 1701609479,
+        "narHash": "sha256-mcEnMz7XB3K57ZX16VXoEkswljSNGXdMuUu5+g8a8R8=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "e504e8d01f950776c3a3160ba38c5957a1b89e66",
+>>>>>>> fd032b4 (flake.lock: Update)
         "type": "github"
       },
       "original": {
