@@ -8,11 +8,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1702239743,
-        "narHash": "sha256-3WAHQpcgbtkFl4gUBRPJO8eZYc+alBvZvC7FlPrTK2A=",
+        "lastModified": 1702239828,
+        "narHash": "sha256-H+z5LY1XslLLIlsh0pirHmveD7Eh6QQUT96VNSRJW9w=",
         "owner": "cachix",
         "repo": "devenv",
-        "rev": "814c4656804974394ef0b62f81293f8416ff8ee5",
+        "rev": "895e8403410c3ec14d1e8cae94e88b4e7e2e8c2f",
         "type": "github"
       },
       "original": {
@@ -84,19 +84,11 @@
         ]
       },
       "locked": {
-<<<<<<< HEAD
         "lastModified": 1702203126,
         "narHash": "sha256-4BhN2Vji19MzRC7SUfPZGmtZ2WZydQeUk/ogfRBIZMs=",
         "owner": "nix-community",
         "repo": "home-manager",
         "rev": "defbb9c5857e157703e8fc7cf3c2ceb01cb95883",
-=======
-        "lastModified": 1701609479,
-        "narHash": "sha256-mcEnMz7XB3K57ZX16VXoEkswljSNGXdMuUu5+g8a8R8=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "e504e8d01f950776c3a3160ba38c5957a1b89e66",
->>>>>>> fd032b4 (flake.lock: Update)
         "type": "github"
       },
       "original": {
