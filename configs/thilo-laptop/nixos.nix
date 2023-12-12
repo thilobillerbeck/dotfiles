@@ -47,6 +47,7 @@
       tracker.enable = false;
     };
     blueman.enable = true;
+    fwupd.enable = true;
   };
 
   system.stateVersion = "23.05";

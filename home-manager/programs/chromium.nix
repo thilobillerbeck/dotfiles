@@ -21,7 +21,7 @@ let
   ];
 in
 {
-  programs.chromium = {
+  programs.vivaldi = {
     enable = true;
     dictionaries = with pkgs.hunspellDictsChromium; [ en_US de_DE ];
     commandLineArgs = [
