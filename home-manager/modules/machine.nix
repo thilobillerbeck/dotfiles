@@ -131,6 +131,7 @@ with lib;
       package = mkDefault pkgs.nixUnstable;
       extraOptions = ''
         experimental-features = nix-command flakes
+        sandbox = relaxed
       '';
     };
 
