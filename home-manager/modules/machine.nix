@@ -66,7 +66,10 @@ with lib;
           set linenumbers
           include "/usr/share/nano/*.nanorc"
         '';
-        ".ssh/config".source = ./../dotfiles/ssh-config;
+        ".ssh/config_source" = {
+            source = ./../dotfiles/ssh-config;
+            onChange = ''cat ~/.ssh/config_source > ~/.ssh/config && chmod 600 ~/.ssh/config'';
+        };
         ".gitignore".source = ./../dotfiles/.gitignore;
         ".config/pipewire/pipewire.conf.d/98-motu-m4.conf".source = ./../dotfiles/motu-m4.conf;
         ".config/pipewire/pipewire.conf.d/99-noise-suppression.conf".text = ''
