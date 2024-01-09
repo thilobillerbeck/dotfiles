@@ -101,7 +101,6 @@ with lib;
       protontricks
       heroic
       (vscode.fhsWithPackages (ps: with ps; [ sqlite ]))
-      discord
       quickemu
       quickgui
       trilium-desktop
