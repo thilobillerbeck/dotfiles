@@ -18,7 +18,7 @@ with lib;
       rbenv
       cargo-update
       htop
-      rustup
+      rustc
       nixfmt
       nodejs
       bun
