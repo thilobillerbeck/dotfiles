@@ -87,6 +87,7 @@ with lib;
       insomnia
       onlyoffice-bin
       spotify
+      vesktop
       (lutris.override {
         extraLibraries = pkgs: [
           gnome3.adwaita-icon-theme
