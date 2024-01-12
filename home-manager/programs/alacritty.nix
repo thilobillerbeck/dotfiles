@@ -7,7 +7,6 @@
       window = {
         decorations = "full";
         dynamic_title = true;
-        gtk_theme_variant = "None";
       };
       window.opacity = 1;
       font = {
