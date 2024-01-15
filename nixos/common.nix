@@ -89,6 +89,7 @@
     git
     zsh
     kitty
+    steamtinkerlaunch
   ];
 
   networking.networkmanager.enable = true;
