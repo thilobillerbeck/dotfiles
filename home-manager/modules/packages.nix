@@ -109,6 +109,10 @@ with lib;
       inputs.nix-software-center.packages.x86_64-linux.nix-software-center
       jetbrains-toolbox
       mumble
+      prusa-slicer
+      trayscale
+      gnome.gnome-disk-utility
+      inkscape
     ] else [ ]) ++ (if config.machine.isGnome then [
       gnomeExtensions.blur-my-shell
       gnomeExtensions.dash-to-panel
