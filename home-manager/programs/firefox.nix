@@ -1,5 +1,7 @@
+{ config, ... }:
+
 {
   programs.firefox = {
-    enable = true;
+    enable = if config.machine.isGraphical then true else false;
   };
 }

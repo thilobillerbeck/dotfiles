@@ -2,7 +2,7 @@
 
 {
   programs.alacritty = {
-    enable = true;
+    enable = if config.machine.isGraphical then true else false;
     settings = {
       window = {
         decorations = "full";

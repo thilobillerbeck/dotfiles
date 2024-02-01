@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let
   chromium_extension = [
@@ -22,7 +22,7 @@ let
 in
 {
   programs.vivaldi = {
-    enable = true;
+    enable = if config.machine.isGraphical then true else false;
     dictionaries = with pkgs.hunspellDictsChromium; [ en_US de_DE ];
     commandLineArgs = [
       "--ignore-gpu-blocklist"
