@@ -19,6 +19,7 @@ with lib;
       cargo-update
       htop
       rustc
+      cargo
       nixfmt
       nodejs
       bun
