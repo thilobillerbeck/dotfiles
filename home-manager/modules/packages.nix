@@ -69,6 +69,7 @@ with lib;
       ncdu
       inputs.devenv.packages.x86_64-linux.devenv
       inputs.nixpkgs-update.packages.x86_64-linux.nixpkgs-update
+      inputs.dagger.packages.x86_64-linux.dagger
       unzip
       gh
       nil

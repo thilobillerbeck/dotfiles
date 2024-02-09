@@ -14,6 +14,8 @@
     };
     nix-software-center.url = "github:vlinkz/nix-software-center";
     devenv.url = "github:cachix/devenv";
+    dagger.url = "github:dagger/nix";
+    dagger.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
