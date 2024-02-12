@@ -16,7 +16,7 @@ with lib;
     home.packages = with pkgs; [
       up
       rbenv
-      cargo-update
+      # cargo-update
       htop
       rustc
       cargo

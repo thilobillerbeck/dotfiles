@@ -20,6 +20,7 @@ with lib;
     ./../programs/firefox.nix
     ./../programs/chromium.nix
     ./../programs/mpv.nix
+    ./../../nix.nix
     ./packages.nix
   ];
 
@@ -129,14 +130,6 @@ with lib;
     };
 
     programs.home-manager.enable = true;
-
-    nix = {
-      package = mkDefault pkgs.nixUnstable;
-      extraOptions = ''
-        experimental-features = nix-command flakes
-        sandbox = relaxed
-      '';
-    };
 
     gtk = {
       enable = config.machine.isGnome;

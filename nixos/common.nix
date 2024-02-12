@@ -6,6 +6,10 @@
 }:
 
 {
+  imports = [
+    ./../nix.nix
+  ];
+
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
@@ -14,11 +18,6 @@
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
     nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
-
-    settings = {
-      experimental-features = [ "nix-command" "flakes" ];
-      trusted-users = [ "root" "thilo" ];
-    };
   };
 
   nixpkgs = {
