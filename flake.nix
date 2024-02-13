@@ -17,6 +17,7 @@
     dagger.url = "github:dagger/nix";
     dagger.inputs.nixpkgs.follows = "nixpkgs";
     nixgl.url = "github:guibou/nixGL";
+    muse-sounds-manager.url = "github:thilobillerbeck/muse-sounds-manager-nix";
   };
 
   outputs = { self, nixpkgs, home-manager, nixgl, ... }@inputs:
