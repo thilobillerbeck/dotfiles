@@ -175,11 +175,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1707865834,
-        "narHash": "sha256-T00QUfZ2rY9inULjw4acdsczyu7INGIuBE6/imiOSMo=",
+        "lastModified": 1707873496,
+        "narHash": "sha256-UGPN/py0MMKzH5ksFQKc0MvkCs5jr8fSfdJvqkYk2eU=",
         "owner": "thilobillerbeck",
         "repo": "muse-sounds-manager-nix",
-        "rev": "b9840c9a07e96443ef6bc9207a038a901bf85656",
+        "rev": "1ff019fbf96fb89206a63a15d78353fcdb8918e4",
         "type": "github"
       },
       "original": {
