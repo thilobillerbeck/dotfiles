@@ -117,6 +117,8 @@ with lib;
       gnome.gnome-disk-utility
       inkscape
       musescore
+      obsidian
+      syncthingtray
     ] else [ ]) ++ (if config.machine.isGnome then [
       gnomeExtensions.blur-my-shell
       gnomeExtensions.dash-to-panel

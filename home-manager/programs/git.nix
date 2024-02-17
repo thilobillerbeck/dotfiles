@@ -3,6 +3,7 @@
 {
   programs.git = {
     enable = true;
+    package = pkgs.gitFull;
     lfs.enable = true;
     userEmail = "thilo.billerbeck@officerent.de";
     userName = "Thilo Billerbeck";
@@ -25,5 +26,8 @@
       apply = { whitespace = "nowarn"; };
       branch = { autosetuprebase = "always"; };
     };
+  };
+  programs.git-credential-oauth = {
+    enable = true;
   };
 }

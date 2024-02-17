@@ -20,6 +20,7 @@ with lib;
     ./../programs/firefox.nix
     ./../programs/chromium.nix
     ./../programs/mpv.nix
+    ./../programs/syncthing.nix
     ./../../nix.nix
     ./packages.nix
   ];
