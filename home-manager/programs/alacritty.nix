@@ -8,7 +8,7 @@
         decorations = "full";
         dynamic_title = true;
       };
-      window.opacity = 1;
+      window.opacity = 0.9;
       font = {
         normal = {
           family = "JetbrainsMono NFM";
@@ -18,7 +18,7 @@
           family = "JetbrainsMono NFM";
           style = "Bold";
         };
-        size = 14;
+        size = 12;
       };
       cursor.style.shape = "Beam";
       colors = {

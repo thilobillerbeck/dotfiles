@@ -1,7 +1,9 @@
 { config, pkgs, lib, inputs, ... }:
 
 with lib;
-{
+let
+    electronFlags = "--enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime --disable-gpu-shader-disk-cache -n";
+in {
   config = {
     nixpkgs.overlays = [
       (final: prev: {
@@ -15,8 +17,6 @@ with lib;
 
     home.packages = with pkgs; [
       up
-      rbenv
-      # cargo-update
       htop
       rustc
       cargo
@@ -34,7 +34,6 @@ with lib;
       nix-init
       nodePackages.nodemon
       pocketbase
-      # surrealdb
       thefuck
       hub
       httpie
@@ -51,9 +50,6 @@ with lib;
       (pkgs.writeShellScriptBin "nix-build-default" ''
         nix-build -E 'with import <nixpkgs> { }; callPackage ./default.nix { }'
       '')
-      (callPackage ./../pkgs/docker-craft-cms-dev-env.nix {
-        inherit lib;
-      })
       (callPackage ./../pkgs/toggl-time-grouper/package.nix {
         inherit lib;
       })
@@ -74,11 +70,11 @@ with lib;
       gh
       nil
       nixd
+      unrar
     ] ++ (if config.machine.isGraphical then [
       (pkgs.nerdfonts.override {
         fonts = [ "JetBrainsMono" "FiraCode" "FiraMono" ];
       })
-      # anki
       corefonts
       vistafonts
       jetbrains.webstorm
@@ -103,12 +99,11 @@ with lib;
       bottles
       protontricks
       heroic
-      (vscode.fhsWithPackages (ps: with ps; [ sqlite ]))
+      (vscode.override { commandLineArgs = electronFlags; })
       quickemu
       quickgui
       trilium-desktop
       anki
-      inputs.nix-software-center.packages.x86_64-linux.nix-software-center
       inputs.muse-sounds-manager.packages.x86_64-linux.muse-sounds-manager
       jetbrains-toolbox
       mumble

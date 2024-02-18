@@ -21,6 +21,7 @@ with lib;
     ./../programs/chromium.nix
     ./../programs/mpv.nix
     ./../programs/syncthing.nix
+    ./../programs/hstr.nix
     ./../../nix.nix
     ./packages.nix
   ];

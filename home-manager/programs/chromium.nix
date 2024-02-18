@@ -19,12 +19,9 @@ let
     "bmnlcjabgnpnenekpadlanbbkooimhnj" # Honey
     "kbfnbcaeplbcioakkpcpgfkobkghlhen" # Grammarly
   ];
-in
-{
-  programs.vivaldi = {
-    enable = if config.machine.isGraphical then true else false;
-    dictionaries = with pkgs.hunspellDictsChromium; [ en_US de_DE ];
-    commandLineArgs = [
+  isEnabled = if config.machine.isGraphical then true else false;
+  dictionaries = with pkgs.hunspellDictsChromium; [ en_US de_DE ];
+  commandLineArgs = [
       "--ignore-gpu-blocklist"
       "--enable-gpu-rasterization"
       "--enable-zero-copy"
@@ -33,11 +30,22 @@ in
       "--use-vulkan"
       "--ozone-platform-hint=auto"
       "--enable-hardware-overlays"
-    ];
-    extensions = map
-      (eid: {
-        id = eid;
-      })
-      chromium_extension;
+  ];
+  extensions = map
+    (eid: {
+      id = eid;
+    })
+    chromium_extension;
+in
+{
+  programs.vivaldi = {
+    enable = isEnabled;
+    dictionaries = dictionaries;
+    commandLineArgs = commandLineArgs;
+    extensions = extensions;
+  };
+  programs.google-chrome = {
+    enable = isEnabled;
+    commandLineArgs = commandLineArgs;
   };
 }
