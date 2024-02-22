@@ -79,6 +79,8 @@ in {
       vistafonts
       jetbrains.webstorm
       jetbrains.phpstorm
+      jetbrains.rust-rover
+      jetbrains.goland
       element-desktop
       ludusavi
       dbeaver
@@ -114,6 +116,8 @@ in {
       musescore
       obsidian
       syncthingtray
+      reaper
+      yabridge
     ] else [ ]) ++ (if config.machine.isGnome then [
       gnomeExtensions.blur-my-shell
       gnomeExtensions.dash-to-panel

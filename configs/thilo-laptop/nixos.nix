@@ -50,5 +50,10 @@
     fwupd.enable = true;
   };
 
+  environment.systemPackages = with pkgs; [
+    brlaser
+    brgenml1lpr
+  ];
+
   system.stateVersion = "23.05";
 }
