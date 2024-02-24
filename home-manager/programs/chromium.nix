@@ -38,7 +38,7 @@ let
     chromium_extension;
 in
 {
-  programs.vivaldi = {
+  programs.chromium = {
     enable = isEnabled;
     dictionaries = dictionaries;
     commandLineArgs = commandLineArgs;

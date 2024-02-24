@@ -74,7 +74,6 @@ with lib;
             onChange = ''cat ~/.ssh/config_source > ~/.ssh/config && chmod 600 ~/.ssh/config'';
         };
         ".gitignore".source = ./../dotfiles/.gitignore;
-        ".config/pipewire/pipewire.conf.d/98-motu-m4.conf".source = ./../dotfiles/motu-m4.conf;
         ".config/pipewire/pipewire.conf.d/99-noise-suppression.conf".text = ''
           context.modules = [{
             name = libpipewire-module-filter-chain
