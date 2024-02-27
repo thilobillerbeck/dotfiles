@@ -1,6 +1,2 @@
-{ config, pkgs, lib, ... }:
-
-{
-  programs.yt-dlp = { enable = true; };
-}
+{ programs.yt-dlp = { enable = true; }; }
 

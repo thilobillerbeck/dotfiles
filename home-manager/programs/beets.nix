@@ -1,5 +1,3 @@
-{ config, pkgs, lib, ... }:
-
 {
   programs.beets = {
     enable = false;

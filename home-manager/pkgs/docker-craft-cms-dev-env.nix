@@ -1,7 +1,4 @@
-{ lib
-, stdenv
-, fetchFromGitHub
-}:
+{ lib, stdenv, fetchFromGitHub }:
 
 stdenv.mkDerivation rec {
   pname = "docker-craft-cms-dev-env";
@@ -20,7 +17,8 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with lib; {
-    description = "Docker image for local development of sites based on Craft CMS";
+    description =
+      "Docker image for local development of sites based on Craft CMS";
     homepage = "https://github.com/codemonauts/docker-craft-cms-dev-env";
     license = licenses.mit;
     maintainers = with maintainers; [ ];

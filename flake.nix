@@ -2,12 +2,8 @@
   description = "Nixos config";
 
   inputs = {
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
-    };
-    nixpkgs-update = {
-      url = "github:ryantm/nixpkgs-update";
-    };
+    nixpkgs = { url = "github:NixOS/nixpkgs/nixos-unstable"; };
+    nixpkgs-update = { url = "github:ryantm/nixpkgs-update"; };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,19 +16,16 @@
     muse-sounds-manager.url = "github:thilobillerbeck/muse-sounds-manager-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixgl, ... }@inputs:
+  outputs = { nixpkgs, home-manager, nixgl, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         system = "${system}";
         overlays = [ nixgl.overlay ];
       };
-    in
-    {
+    in {
       nixConfig = {
-        extra-substituters = [
-          "https://nix-community.cachix.org"
-        ];
+        extra-substituters = [ "https://nix-community.cachix.org" ];
         extra-trusted-public-keys = [
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         ];
@@ -55,10 +48,11 @@
         ];
         specialArgs = { inherit inputs; };
       };
-      homeConfigurations."thilo@thilo-pc-win" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./configs/wsl/home.nix ];
-        extraSpecialArgs = { inherit inputs; };
-      };
+      homeConfigurations."thilo@thilo-pc-win" =
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./configs/wsl/home.nix ];
+          extraSpecialArgs = { inherit inputs; };
+        };
     };
 }

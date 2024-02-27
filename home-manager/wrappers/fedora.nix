@@ -1,5 +1,4 @@
-
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 
 let
   chromeArgs = lib.strings.concatStringsSep " " [
@@ -16,15 +15,15 @@ let
     "--ozone-platform-hint=auto"
     "--enable-features=WaylandWindowDecorations"
   ];
-  code-wrapper = (pkgs.writeShellScriptBin "code" ''
+  code-wrapper = pkgs.writeShellScriptBin "code" ''
     exec /usr/bin/code ${codeArgs} "$@"
-  '');
-  chrome-wrapper = (pkgs.writeShellScriptBin "google-chrome" ''
+  '';
+  chrome-wrapper = pkgs.writeShellScriptBin "google-chrome" ''
     exec /usr/bin/google-chrome ${chromeArgs} "$@"
-  '');
-  chrome-stable-wrapper = (pkgs.writeShellScriptBin "google-chrome-stable" ''
+  '';
+  chrome-stable-wrapper = pkgs.writeShellScriptBin "google-chrome-stable" ''
     exec /usr/bin/google-chrome-stable ${chromeArgs} "$@"
-  '');
+  '';
 in {
   home.packages = with pkgs; [
     code-wrapper
@@ -202,7 +201,7 @@ in {
         Name[vi]=Cửa sổ Mới
         Name[zh_CN]=新建窗口
         Name[zh_TW]=開新視窗
-        Exec=/usr/bin/google-chrome-stable ${chromeArgs} 
+        Exec=/usr/bin/google-chrome-stable ${chromeArgs}
 
         [Desktop Action new-private-window]
         Name=New Incognito Window

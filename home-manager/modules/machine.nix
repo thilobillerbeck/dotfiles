@@ -1,6 +1,5 @@
 { lib, pkgs, config, ... }:
-with lib;
-{
+with lib; {
   imports = [
     ./../programs/alacritty.nix
     ./../programs/bat.nix
@@ -70,8 +69,9 @@ with lib;
           include "/usr/share/nano/*.nanorc"
         '';
         ".ssh/config_source" = {
-            source = ./../dotfiles/ssh-config;
-            onChange = ''cat ~/.ssh/config_source > ~/.ssh/config && chmod 600 ~/.ssh/config'';
+          source = ./../dotfiles/ssh-config;
+          onChange =
+            "cat ~/.ssh/config_source > ~/.ssh/config && chmod 600 ~/.ssh/config";
         };
         ".gitignore".source = ./../dotfiles/.gitignore;
         ".config/pipewire/pipewire.conf.d/99-noise-suppression.conf".text = ''

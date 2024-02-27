@@ -1,11 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ config
-, pkgs
-, lib
-, ...
-}:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -15,12 +11,18 @@
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.extraInstallCommands = ''
-    ${pkgs.gnused}/bin/sed -i "/default/c\default @saved" /boot/loader/loader.conf
-  '';
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+        extraInstallCommands = ''
+          ${pkgs.gnused}/bin/sed -i "/default/c\default @saved" /boot/loader/loader.conf
+        '';
+      };
+      efi.canTouchEfiVariables = true;
+    };
+    kernelPackages = pkgs.linuxPackages_latest;
+  };
 
   networking.hostName = "thilo-pc";
 
@@ -37,10 +39,7 @@
   };
 
   hardware.opengl = {
-    extraPackages = with pkgs; [
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
+    extraPackages = with pkgs; [ vaapiVdpau libvdpau-va-gl ];
   };
 
   system.stateVersion = "23.05";

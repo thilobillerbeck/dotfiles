@@ -1,7 +1,1 @@
-{ config, pkgs, lib, ... }:
-
-{
-  programs.go = {
-    enable = true;
-  };
-}
+{ programs.go = { enable = true; }; }

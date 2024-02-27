@@ -1,7 +1,10 @@
-{ config, pkgs, lib, ... }:
+{ config, ... }:
 
 let
-  configPath = if config.machine.isGeneric then "${config.home.homeDirectory}/.config/home-manager" else "${config.home.homeDirectory}/.nixos-config";
+  configPath = if config.machine.isGeneric then
+    "${config.home.homeDirectory}/.config/home-manager"
+  else
+    "${config.home.homeDirectory}/.nixos-config";
 in {
   programs.topgrade = {
     enable = true;
@@ -13,18 +16,13 @@ in {
         pre_sudo = false;
         cleanup = true;
         skip_notify = true;
-        disable = [
-          "bun"
-          "tldr"
-          "flutter"
-        ];
+        disable = [ "bun" "tldr" "flutter" ];
       };
-      git.repos = [
-        configPath
-      ];
+      git.repos = [ configPath ];
       firmware = { upgrade = true; };
       pre_commands = {
-        flakeUpgrade = "cd ${configPath} && nix flake update --commit-lock-file --verbose --repair";
+        flakeUpgrade =
+          "cd ${configPath} && nix flake update --commit-lock-file --verbose --repair";
       };
     };
   };

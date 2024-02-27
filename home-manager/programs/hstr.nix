@@ -1,5 +1,1 @@
-{ config, pkgs, lib, ... }:
-
-{
-  programs.hstr = { enable = true; };
-}
+{ programs.hstr = { enable = true; }; }

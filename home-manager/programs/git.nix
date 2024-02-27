@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   programs.git = {
@@ -27,7 +27,5 @@
       branch = { autosetuprebase = "always"; };
     };
   };
-  programs.git-credential-oauth = {
-    enable = true;
-  };
+  programs.git-credential-oauth = { enable = true; };
 }

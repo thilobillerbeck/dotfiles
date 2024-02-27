@@ -1,31 +1,22 @@
-{ config
-, pkgs
-, lib
-, inputs
-, ...
-}:
+{ config, pkgs, lib, inputs, ... }:
 
 {
-  imports = [
-    ./../nix.nix
-  ];
+  imports = [ ./../nix.nix ];
 
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
+    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}")
+      config.nix.registry;
   };
 
   nixpkgs = {
     config = {
-      permittedInsecurePackages = [
-        "electron-24.8.6"
-        "electron-25.9.0"
-      ];
+      permittedInsecurePackages = [ "electron-24.8.6" "electron-25.9.0" ];
       allowUnfree = true;
     };
   };
@@ -44,7 +35,7 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-    users.users.thilo = {
+  users.users.thilo = {
     uid = 1000;
     description = "Thilo Billerbeck";
     shell = pkgs.zsh;
@@ -85,12 +76,7 @@
     noisetorch.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    git
-    zsh
-    kitty
-    steamtinkerlaunch
-  ];
+  environment.systemPackages = with pkgs; [ git zsh kitty steamtinkerlaunch ];
 
   networking.networkmanager.enable = true;
 
@@ -103,9 +89,7 @@
       pulse.enable = true;
       jack.enable = true;
     };
-    tailscale = {
-      enable = true;
-    };
+    tailscale = { enable = true; };
     flatpak.enable = true;
     avahi = {
       enable = true;
@@ -117,12 +101,16 @@
     };
   };
 
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
+  hardware = {
+    pulseaudio.enable = false;
+    opengl = {
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+  };
 
   security.polkit.enable = true;
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
   time.hardwareClockInLocalTime = true;
