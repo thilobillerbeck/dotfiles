@@ -31,8 +31,8 @@
     xserver = {
       enable = true;
       displayManager.sddm.enable = true;
-      displayManager.defaultSession = "plasmawayland";
-      desktopManager.plasma5.enable = true;
+      displayManager.defaultSession = "plasma";
+      desktopManager.plasma6.enable = true;
       layout = "us";
       xkbVariant = "";
     };

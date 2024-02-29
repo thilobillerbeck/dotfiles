@@ -16,11 +16,11 @@
         isGraphical = true;
       };
 
-      xsession.pointerCursor = {
+/*       xsession.pointerCursor = {
         name = "Bibata-Modern-Classic";
         package = pkgs.bibata-cursors;
         size = 128;
-      };
+      }; */
 
       services.kdeconnect.enable = true;
       services.kdeconnect.indicator = true;

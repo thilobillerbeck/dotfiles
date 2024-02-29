@@ -50,7 +50,7 @@ in {
         (pkgs.writeShellScriptBin "nix-build-default" ''
           nix-build -E 'with import <nixpkgs> { }; callPackage ./default.nix { }'
         '')
-        (callPackage ./../pkgs/toggl-time-grouper/package.nix { inherit lib; })
+        (callPackage ./../pkgs/toggl-time-grouper/package.nix { inherit python3Packages; })
         nixpkgs-fmt
         toolbox
         distrobox
@@ -109,7 +109,7 @@ in {
         trayscale
         gnome.gnome-disk-utility
         inkscape
-        musescore
+        # musescore
         obsidian
         syncthingtray
         reaper
