@@ -28,8 +28,8 @@
     xserver = {
       enable = true;
       displayManager.sddm.enable = true;
-      desktopManager.plasma5.enable = true;
-      displayManager.defaultSession = "plasmawayland";
+      displayManager.defaultSession = "plasma";
+      desktopManager.plasma6.enable = true;
       layout = "us";
       xkbVariant = "";
     };
@@ -40,6 +40,8 @@
     blueman.enable = true;
     fwupd.enable = true;
   };
+
+  programs.kdeconnect.enable = true;
 
   environment.systemPackages = with pkgs; [ brlaser brgenml1lpr ];
 

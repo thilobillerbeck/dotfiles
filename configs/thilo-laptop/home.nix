@@ -19,7 +19,7 @@
       xsession.pointerCursor = {
         name = "Bibata-Modern-Classic";
         package = pkgs.bibata-cursors;
-        size = 128;
+        size = 28;
       };
 
       programs.obs-studio = {
