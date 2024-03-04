@@ -22,9 +22,6 @@
         size = 128;
       }; */
 
-      services.kdeconnect.enable = true;
-      services.kdeconnect.indicator = true;
-
       home.sessionVariables = { LD_LIBRARY_PATH = "${pkgs.libGL}/lib"; };
 
       home.packages = with pkgs; [ libsForQt5.discover ];
