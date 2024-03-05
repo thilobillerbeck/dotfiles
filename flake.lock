@@ -119,11 +119,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1709578243,
-        "narHash": "sha256-hF96D+c2PBmAFhymMw3z8hou++lqKtZ7IzpFbYeL1/Y=",
+        "lastModified": 1709677162,
+        "narHash": "sha256-nIXa0KM3FOVjD3XDDigW12qktQvLG+uKuPg00rjIX/8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "23ff9821bcaec12981e32049e8687f25f11e5ef3",
+        "rev": "bdea159ffab9865f808b8d92fd2bef33521867b2",
         "type": "github"
       },
       "original": {
@@ -550,11 +550,11 @@
         "utils": "utils_2"
       },
       "locked": {
-        "lastModified": 1709678065,
-        "narHash": "sha256-AQ4iYxqceBdRNY6qfTJWrWcC/0QIYtexkZ2BVqebTW0=",
+        "lastModified": 1709679417,
+        "narHash": "sha256-I1f3QEmM/ktBVlVk9CvoBtS7/CBlgV4vSgIR20u82lc=",
         "ref": "refs/heads/main",
-        "rev": "4c67a71dcf4599d8ac1136306d46b299401e1dec",
-        "revCount": 1,
+        "rev": "92b5e8a6e3710073c68a629a52a964e1ffd6c4a1",
+        "revCount": 2,
         "type": "git",
         "url": "https://git.darmstadt.ccc.de/avocadoom/w17-cli.git"
       },
