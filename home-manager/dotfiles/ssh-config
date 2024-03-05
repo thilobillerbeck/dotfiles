@@ -82,6 +82,10 @@ Host *.tailscale.net
 	User thilo
 	IdentityFile ~/.ssh/id_tailscale
 
+Host *.w17.io
+	User chaos
+	IdentityFile ~/.ssh/id_w17
+
 Host digitaltwinservice.de
 	User tb12zysu
 	IdentityFile ~/.ssh/id_digitaltwinservice-de

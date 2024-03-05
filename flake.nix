@@ -14,9 +14,10 @@
     dagger.inputs.nixpkgs.follows = "nixpkgs";
     nixgl.url = "github:guibou/nixGL";
     muse-sounds-manager.url = "github:thilobillerbeck/muse-sounds-manager-nix";
+    w17.url = "git+https://git.darmstadt.ccc.de/avocadoom/w17-cli.git";
   };
 
-  outputs = { nixpkgs, home-manager, nixgl, ... }@inputs:
+  outputs = { nixpkgs, home-manager, nixgl, w17, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {

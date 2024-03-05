@@ -69,6 +69,7 @@ in {
         nil
         nixd
         unrar
+        inputs.w17.packages.x86_64-linux.default
       ] ++ (if config.machine.isGraphical then [
         (pkgs.nerdfonts.override {
           fonts = [ "JetBrainsMono" "FiraCode" "FiraMono" ];
