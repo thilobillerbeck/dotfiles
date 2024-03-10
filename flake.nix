@@ -8,13 +8,21 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-software-center.url = "github:vlinkz/nix-software-center";
     devenv.url = "github:cachix/devenv";
     dagger.url = "github:dagger/nix";
     dagger.inputs.nixpkgs.follows = "nixpkgs";
-    nixgl.url = "github:guibou/nixGL";
-    muse-sounds-manager.url = "github:thilobillerbeck/muse-sounds-manager-nix";
-    w17.url = "git+https://git.darmstadt.ccc.de/avocadoom/w17-cli.git";
+    nixgl = {
+      url = "github:guibou/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    muse-sounds-manager = {
+      url = "github:thilobillerbeck/muse-sounds-manager-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    w17 = {
+      url = "git+https://git.darmstadt.ccc.de/avocadoom/w17-cli.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, home-manager, nixgl, w17, ... }@inputs:
