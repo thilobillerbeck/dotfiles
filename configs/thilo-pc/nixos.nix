@@ -53,5 +53,9 @@
     extraPackages = with pkgs; [ vaapiVdpau libvdpau-va-gl ];
   };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "nix-2.16.2"
+  ];
+
   system.stateVersion = "23.05";
 }

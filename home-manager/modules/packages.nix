@@ -110,7 +110,7 @@ in {
         trayscale
         gnome.gnome-disk-utility
         inkscape
-        # musescore
+        musescore
         obsidian
         syncthingtray
         reaper
