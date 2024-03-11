@@ -44,6 +44,10 @@
       layout = "us";
       xkbVariant = "";
     };
+    ollama = {
+      enable = true;
+      acceleration = "rocm";
+    };
   };
 
   programs.kdeconnect.enable = true;

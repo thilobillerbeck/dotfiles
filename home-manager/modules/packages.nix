@@ -70,6 +70,7 @@ in {
         nixd
         unrar
         inputs.w17.packages.x86_64-linux.default
+        aichat
       ] ++ (if config.machine.isGraphical then [
         (pkgs.nerdfonts.override {
           fonts = [ "JetBrainsMono" "FiraCode" "FiraMono" ];
