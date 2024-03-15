@@ -46,5 +46,9 @@
 
   environment.systemPackages = with pkgs; [ brlaser brgenml1lpr ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "nix-2.16.2"
+  ];
+
   system.stateVersion = "23.05";
 }
