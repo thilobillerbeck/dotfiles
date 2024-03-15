@@ -8,6 +8,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./../../nixos/common.nix
+    ./../../nixos/builders.nix
   ];
 
   # Bootloader.

@@ -72,7 +72,6 @@
     steam.enable = true;
     zsh.enable = true;
     adb.enable = true;
-    droidcam.enable = true;
     noisetorch.enable = true;
   };
 
