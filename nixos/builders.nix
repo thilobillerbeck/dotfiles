@@ -11,7 +11,7 @@
     buildMachines = [ {
       hostName = "build1.darmstadt.ccc.de";
       protocol = "ssh";
-      sshUser = "hexa";
+      sshUser = "avocadoom";
       sshKey = "/var/keys/id_remotebuild";
       systems = [
         "i686-linux"
@@ -27,7 +27,7 @@
     } {
       hostName = "build2.darmstadt.ccc.de";
       protocol = "ssh";
-      sshUser = "hexa";
+      sshUser = "avocadoom";
       sshKey = "/var/keys/id_remotebuild";
       systems = [
         "i686-linux"
@@ -43,7 +43,7 @@
     } {
       hostName = "build3.darmstadt.ccc.de";
       protocol = "ssh";
-      sshUser = "hexa";
+      sshUser = "avocadoom";
       sshKey = "/var/keys/id_remotebuild";
       systems = [
         "i686-linux"
@@ -59,7 +59,7 @@
     } {
       hostName = "build4.darmstadt.ccc.de";
       protocol = "ssh";
-      sshUser = "hexa";
+      sshUser = "avocadoom";
       sshKey = "/var/keys/id_remotebuild";
       systems = [
         "i686-linux"
