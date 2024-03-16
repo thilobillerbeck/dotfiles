@@ -12,7 +12,7 @@
       hostName = "build1.darmstadt.ccc.de";
       protocol = "ssh";
       sshUser = "avocadoom";
-      sshKey = "/var/keys/id_remotebuild";
+      sshKey = "/home/thilo/.ssh/id_darmstadt-ccc-de";
       systems = [
         "i686-linux"
         "x86_64-linux"
@@ -28,7 +28,7 @@
       hostName = "build2.darmstadt.ccc.de";
       protocol = "ssh";
       sshUser = "avocadoom";
-      sshKey = "/var/keys/id_remotebuild";
+      sshKey = "/home/thilo/.ssh/id_darmstadt-ccc-de";
       systems = [
         "i686-linux"
         "x86_64-linux"
@@ -44,7 +44,7 @@
       hostName = "build3.darmstadt.ccc.de";
       protocol = "ssh";
       sshUser = "avocadoom";
-      sshKey = "/var/keys/id_remotebuild";
+      sshKey = "/home/thilo/.ssh/id_darmstadt-ccc-de";
       systems = [
         "i686-linux"
         "x86_64-linux"
@@ -60,7 +60,7 @@
       hostName = "build4.darmstadt.ccc.de";
       protocol = "ssh";
       sshUser = "avocadoom";
-      sshKey = "/var/keys/id_remotebuild";
+      sshKey = "/home/thilo/.ssh/id_darmstadt-ccc-de";
       systems = [
         "i686-linux"
         "x86_64-linux"
