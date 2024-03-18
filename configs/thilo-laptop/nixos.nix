@@ -31,8 +31,10 @@
       displayManager.sddm.enable = true;
       displayManager.defaultSession = "plasma";
       desktopManager.plasma6.enable = true;
-      layout = "us";
-      xkbVariant = "";
+      xkb = {
+        variant = "";
+        layout = "us";
+      };
     };
     gnome = {
       tracker-miners.enable = false;

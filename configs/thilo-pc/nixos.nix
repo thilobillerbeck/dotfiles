@@ -40,15 +40,17 @@
     xserver = {
       enable = true;
       displayManager.sddm.enable = true;
-      displayManager.defaultSession = "plasma";
-      desktopManager.plasma6.enable = true;
-      layout = "us";
-      xkbVariant = "";
+      displayManager.sddm.wayland.enable = true;
+      xkb = {
+        variant = "";
+        layout = "us";
+      };
     };
     ollama = {
-      enable = true;
+      enable = false;
       acceleration = "rocm";
     };
+    desktopManager.plasma6.enable = true;
   };
 
   programs.kdeconnect.enable = true;
@@ -56,6 +58,13 @@
 
   hardware.opengl = {
     extraPackages = with pkgs; [ vaapiVdpau libvdpau-va-gl ];
+  };
+
+  programs.steam.gamescopeSession = {
+    enable = true;
+    args = [
+      "-O HDMI-A-1"
+    ];
   };
 
   nixpkgs.config.permittedInsecurePackages = [

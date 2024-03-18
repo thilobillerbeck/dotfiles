@@ -92,7 +92,7 @@
     flatpak.enable = true;
     avahi = {
       enable = true;
-      nssmdns = true;
+      nssmdns4 = true;
     };
     mullvad-vpn = {
       enable = true;
