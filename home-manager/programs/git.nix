@@ -28,4 +28,7 @@
     };
   };
   programs.git-credential-oauth = { enable = true; };
+  programs.gh.enable = true;
+  programs.gh-dash.enable = true;
+  programs.lazygit.enable = true;
 }

@@ -1,6 +1,7 @@
 { lib, pkgs, config, ... }:
 with lib; {
   imports = [
+    ./../programs/atuin.nix
     ./../programs/alacritty.nix
     ./../programs/bat.nix
     ./../programs/beets.nix
@@ -21,6 +22,7 @@ with lib; {
     ./../programs/mpv.nix
     ./../programs/syncthing.nix
     ./../programs/hstr.nix
+    ./../programs/thefuck.nix
     ./../../nix.nix
     ./packages.nix
   ];
