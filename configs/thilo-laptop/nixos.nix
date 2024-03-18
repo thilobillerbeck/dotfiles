@@ -30,7 +30,6 @@
       enable = true;
       displayManager.sddm.enable = true;
       displayManager.defaultSession = "plasma";
-      desktopManager.plasma6.enable = true;
       xkb = {
         variant = "";
         layout = "us";
@@ -42,6 +41,7 @@
     };
     blueman.enable = true;
     fwupd.enable = true;
+    desktopManager.plasma6.enable = true;
   };
 
   programs.kdeconnect.enable = true;
