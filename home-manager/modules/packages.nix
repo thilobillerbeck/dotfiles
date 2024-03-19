@@ -51,6 +51,7 @@ in {
           nix-build -E 'with import <nixpkgs> { }; callPackage ./default.nix { }'
         '')
         (callPackage ./../pkgs/toggl-time-grouper/package.nix { inherit python3Packages; })
+        (callPackage ./../pkgs/extract.nix { inherit pkgs; })
         nixpkgs-fmt
         toolbox
         distrobox
