@@ -29,7 +29,6 @@
     xserver = {
       enable = true;
       displayManager.sddm.enable = true;
-      displayManager.defaultSession = "plasma";
       xkb = {
         variant = "";
         layout = "us";
@@ -45,6 +44,26 @@
   };
 
   programs.kdeconnect.enable = true;
+
+  programs.gamescope = {
+    enable = true;
+    capSysNice = true;
+  };
+
+  programs.steam.gamescopeSession = {
+    enable = true;
+    env = {
+      STEAM_GAMESCOPE_VRR_SUPPORTED = "1";
+      SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS = "0";
+    };
+    args = [
+      "-f"
+      "-F fsr"
+      "--rt"
+      "--adaptive-sync"
+      "-O HDMI-A-1"
+    ];
+  };
 
   environment.systemPackages = with pkgs; [ brlaser brgenml1lpr ];
 
