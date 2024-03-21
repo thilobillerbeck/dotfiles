@@ -51,6 +51,7 @@
       acceleration = "rocm";
     };
     desktopManager.plasma6.enable = true;
+    blueman.enable = true;
   };
 
   programs.kdeconnect.enable = true;
@@ -59,11 +60,29 @@
   hardware.opengl = {
     extraPackages = with pkgs; [ vaapiVdpau libvdpau-va-gl ];
   };
+  hardware.bluetooth.enable = true;
 
   programs.steam.gamescopeSession = {
     enable = true;
+    env = {
+      WLR_RENDERER = "vulkan";
+      DXVK_HDR = "1";
+      STEAM_GAMESCOPE_VRR_SUPPORTED = "1";
+      SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS = "0";
+      ENABLE_GAMESCOPE_WSI = "1";
+      WINE_FULLSCREEN_FSR = "1";
+    };
     args = [
-      "-O HDMI-A-1"
+      "-f"
+      "-F fsr"
+      "--rt"
+      "--adaptive-sync"
+      "-w 1920"
+      "-h 1080"
+      "-r 120"
+      "--hdr-enabled"
+      "--hdr-itm-enable"
+      "-O DP-3"
     ];
   };
 
