@@ -23,6 +23,7 @@
       url = "git+https://git.darmstadt.ccc.de/avocadoom/w17-cli.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    suyu.url = "github:Noodlez1232/suyu-flake";
   };
 
   outputs = { nixpkgs, home-manager, nixgl, w17, ... }@inputs:
