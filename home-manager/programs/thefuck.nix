@@ -1,3 +1,3 @@
 {
-  programs.thefuck = { enable = true; };
+  programs.thefuck = { enable = false; };
 }

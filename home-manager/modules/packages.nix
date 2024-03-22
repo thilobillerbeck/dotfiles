@@ -34,7 +34,6 @@ in {
         nix-init
         nodePackages.nodemon
         pocketbase
-        thefuck
         hub
         httpie
         manix
