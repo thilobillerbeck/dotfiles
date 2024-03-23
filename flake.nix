@@ -26,6 +26,21 @@
     suyu.url = "github:Noodlez1232/suyu-flake";
   };
 
+  nixConfig = {
+      substituters = [
+        "https://cache.nixos.org"
+        "https://nix-community.cachix.org"
+        "https://nixpkgs-update.cachix.org"
+        "https://devenv.cachix.org"
+      ];
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "nixpkgs-update.cachix.org-1:6y6Z2JdoL3APdu6/+Iy8eZX2ajf09e4EE9SnxSML1W8="
+        "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
+      ];
+  };
+
   outputs = { nixpkgs, home-manager, nixgl, w17, ... }@inputs:
     let
       system = "x86_64-linux";
@@ -34,12 +49,6 @@
         overlays = [ nixgl.overlay ];
       };
     in {
-      nixConfig = {
-        extra-substituters = [ "https://nix-community.cachix.org" ];
-        extra-trusted-public-keys = [
-          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        ];
-      };
       nixosConfigurations.thilo-pc = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [

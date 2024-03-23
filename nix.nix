@@ -9,7 +9,7 @@
     '';
     settings = {
       trusted-users = [ "root" "thilo" ];
-      trusted-substituters = [
+      substituters = [
         "https://cache.nixos.org"
         "https://nix-community.cachix.org"
         "https://nixpkgs-update.cachix.org"
