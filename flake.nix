@@ -8,7 +8,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    devenv.url = "github:cachix/devenv";
     dagger.url = "github:dagger/nix";
     dagger.inputs.nixpkgs.follows = "nixpkgs";
     nixgl = {
@@ -24,6 +23,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     suyu.url = "github:Noodlez1232/suyu-flake";
+    nix-alien.url = "github:thiagokokada/nix-alien";
   };
 
   nixConfig = {
