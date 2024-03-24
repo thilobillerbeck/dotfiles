@@ -47,6 +47,7 @@
       pkgs = import nixpkgs {
         system = "${system}";
         overlays = [ nixgl.overlay ];
+        allowUnfree = true;
       };
     in {
       nixosConfigurations.thilo-pc = nixpkgs.lib.nixosSystem {

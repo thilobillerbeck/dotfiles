@@ -10,4 +10,6 @@
     noiseSuppression.enable = false;
     isGraphical = false;
   };
+
+  nixpkgs.config.allowUnfree = true;
 }
