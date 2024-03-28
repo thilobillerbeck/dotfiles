@@ -118,7 +118,7 @@ with lib; {
             ${pkgs.nodejs}/bin/npm config set prefix ${config.home.homeDirectory}/.node-global
           '';
         };
-      } // mkIf config.machine.isGeneric {
+      } // mkIf (config.machine.isGeneric && config.machine.isGraphical) {
         linkDesktopApplications = {
           after = [ "writeBoundary" "createXdgUserDirectories" ];
           before = [ ];
