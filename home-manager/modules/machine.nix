@@ -68,7 +68,6 @@ with lib; {
       file = {
         ".config/nano/nanorc".text = ''
           set linenumbers
-          include "/usr/share/nano/*.nanorc"
         '';
         ".ssh/config_source" = {
           source = ./../dotfiles/ssh-config;

@@ -116,7 +116,7 @@ in {
         syncthingtray
         reaper
         yabridge
-        # inputs.suyu.packages.x86_64-linux.suyu
+        inputs.suyu.packages.x86_64-linux.suyu
         inputs.nix-alien.packages.x86_64-linux.nix-alien
       ] else
         [ ]) ++ (if config.machine.isGnome then [
