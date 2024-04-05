@@ -22,14 +22,12 @@ let
   isEnabled = if config.machine.isGraphical then true else false;
   dictionaries = with pkgs.hunspellDictsChromium; [ en_US de_DE ];
   commandLineArgs = [
+    "--enable-wayland-ime"
     "--ignore-gpu-blocklist"
     "--enable-gpu-rasterization"
     "--enable-zero-copy"
-    "--enable-features=VaapiVideoDecoder,VaapiVideoEncoder,WebRTCPipeWireCapturer"
     "--disable-features=UseChromeOSDirectVideoDecoder"
-    "--use-vulkan"
-    "--ozone-platform-hint=auto"
-    "--enable-hardware-overlays"
+    "--enable-features=WaylandWindowDecorations,VaapiVideoDecoder,VaapiVideoEncoder,VaapiVideoDecodeLinuxGL,WebRTCPipeWireCapturer"
   ];
   extensions = map (eid: { id = eid; }) chromium_extension;
 in {

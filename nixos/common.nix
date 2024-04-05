@@ -73,6 +73,9 @@
     zsh.enable = true;
     adb.enable = true;
     noisetorch.enable = true;
+    dconf = {
+      enable = true;
+    };
   };
 
   environment.systemPackages = with pkgs; [ git zsh kitty steamtinkerlaunch ];
@@ -98,6 +101,11 @@
       enable = true;
       package = pkgs.mullvad-vpn;
     };
+    dbus = {
+      enable = true;
+      packages = [ pkgs.dconf ];
+    };
+    bamf.enable = true;
   };
 
   hardware = {

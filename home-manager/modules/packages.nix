@@ -118,6 +118,8 @@ in {
         yabridge
         inputs.suyu.packages.x86_64-linux.suyu
         inputs.nix-alien.packages.x86_64-linux.nix-alien
+        kdePackages.kdenlive
+        audacity
       ] else
         [ ]) ++ (if config.machine.isGnome then [
           gnomeExtensions.blur-my-shell

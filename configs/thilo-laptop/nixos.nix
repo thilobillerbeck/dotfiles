@@ -12,6 +12,7 @@
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
+  boot.plymouth.enable = true;
 
   # Setup keyfile
   boot.initrd.secrets = { "/crypto_keyfile.bin" = null; };
@@ -70,6 +71,14 @@
   nixpkgs.config.permittedInsecurePackages = [
     "nix-2.16.2"
   ];
+
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.kdePackages.xdg-desktop-portal-kde
+    ];
+  };
 
   system.stateVersion = "23.05";
 }
