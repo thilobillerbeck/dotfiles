@@ -70,11 +70,13 @@ in {
         unrar
         inputs.w17.packages.x86_64-linux.default
         aichat
-        nix-output-monitor
-      ] ++ (if config.machine.isGraphical then [
         (pkgs.nerdfonts.override {
           fonts = [ "JetBrainsMono" "FiraCode" "FiraMono" ];
         })
+        nix-output-monitor
+        nodePackages.pnpm
+        npm-check-updates
+      ] ++ (if config.machine.isGraphical then [
         corefonts
         vistafonts
         jetbrains.webstorm
