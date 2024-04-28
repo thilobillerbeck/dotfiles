@@ -19,7 +19,7 @@ let
     "bmnlcjabgnpnenekpadlanbbkooimhnj" # Honey
     "kbfnbcaeplbcioakkpcpgfkobkghlhen" # Grammarly
   ];
-  isEnabled = if config.machine.isGraphical then true else false;
+  isEnabled = if (config.machine.isGraphical && !config.machine.isGeneric) then true else false;
   dictionaries = with pkgs.hunspellDictsChromium; [ en_US de_DE ];
   commandLineArgs = [
     "--enable-wayland-ime"

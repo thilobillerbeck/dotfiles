@@ -2,9 +2,11 @@
 
 with lib;
 let
+  nixGL = import ./../../home-manager/utils/nixGLWrap.nix { inherit pkgs config; };
   electronFlags =
     "--enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime --disable-gpu-shader-disk-cache -n";
-in {
+in
+{
   config = {
     nixpkgs.overlays = [
       (_: prev: {
@@ -76,60 +78,70 @@ in {
         nix-output-monitor
         nodePackages.pnpm
         npm-check-updates
-      ] ++ (if config.machine.isGraphical then [
-        corefonts
-        vistafonts
-        jetbrains.webstorm
-        jetbrains.phpstorm
-        jetbrains.rust-rover
-        jetbrains.goland
-        element-desktop
-        ludusavi
-        dbeaver
-        insomnia
-        onlyoffice-bin
-        spotify
-        vesktop
-        (lutris.override {
-          extraLibraries = _: [ gnome3.adwaita-icon-theme ];
-          extraPkgs = _: [
-            wineWowPackages.full
-            winetricks
-            gnome3.adwaita-icon-theme
-          ];
-        })
-        bottles
-        protontricks
-        heroic
-        (vscode.override { commandLineArgs = electronFlags; })
-        quickemu
-        quickgui
-        trilium-desktop
-        anki
-        inputs.muse-sounds-manager.packages.x86_64-linux.muse-sounds-manager
-        jetbrains-toolbox
-        mumble
-        prusa-slicer
-        trayscale
-        gnome.gnome-disk-utility
-        inkscape
-        musescore
-        obsidian
-        syncthingtray
-        reaper
-        yabridge
-        inputs.suyu.packages.x86_64-linux.suyu
-        inputs.nix-alien.packages.x86_64-linux.nix-alien
-        kdePackages.kdenlive
-        audacity
-      ] else
-        [ ]) ++ (if config.machine.isGnome then [
-          gnomeExtensions.blur-my-shell
-          gnomeExtensions.dash-to-panel
-          gnomeExtensions.user-themes
-          gnomeExtensions.vitals
-          gnomeExtensions.custom-accent-colors
+      ] ++ (
+        if (
+          config.machine.isGraphical
+        ) then [
+          (nixGL insomnia)
         ] else
-          [ ]);
+          [ ]
+      ) ++ (
+        if (
+          config.machine.isGraphical && !config.machine.isGeneric
+        ) then [
+          corefonts
+          vistafonts
+          jetbrains.webstorm
+          jetbrains.phpstorm
+          jetbrains.rust-rover
+          jetbrains.goland
+          element-desktop
+          ludusavi
+          dbeaver
+          onlyoffice-bin
+          spotify
+          vesktop
+          (lutris.override {
+            extraLibraries = _: [ gnome3.adwaita-icon-theme ];
+            extraPkgs = _: [
+              wineWowPackages.full
+              winetricks
+              gnome3.adwaita-icon-theme
+            ];
+          })
+          bottles
+          protontricks
+          heroic
+          (vscode.override { commandLineArgs = electronFlags; })
+          quickemu
+          quickgui
+          trilium-desktop
+          anki
+          # inputs.muse-sounds-manager.packages.x86_64-linux.muse-sounds-manager
+          jetbrains-toolbox
+          mumble
+          prusa-slicer
+          trayscale
+          gnome.gnome-disk-utility
+          inkscape
+          musescore
+          obsidian
+          syncthingtray
+          reaper
+          yabridge
+          inputs.suyu.packages.x86_64-linux.suyu
+          inputs.nix-alien.packages.x86_64-linux.nix-alien
+          kdePackages.kdenlive
+          audacity
+        ] else
+          [ ]
+      ) ++ (if config.machine.isGnome then [
+        gnomeExtensions.blur-my-shell
+        gnomeExtensions.dash-to-panel
+        gnomeExtensions.user-themes
+        gnomeExtensions.vitals
+        gnomeExtensions.custom-accent-colors
+      ] else
+        [ ]);
   };
 }

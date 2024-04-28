@@ -126,16 +126,6 @@ with lib; {
             ${pkgs.nodejs}/bin/npm config set prefix ${config.home.homeDirectory}/.node-global
           '';
         };
-      } // mkIf (config.machine.isGeneric && config.machine.isGraphical) {
-        linkDesktopApplications = {
-          after = [ "writeBoundary" "createXdgUserDirectories" ];
-          before = [ ];
-          data = ''
-            for dir in ${config.home.homeDirectory}/.nix-profile/share/applications/*; do
-              chmod +x $(realpath $dir) -v
-            done
-          '';
-        };
       };
       sessionPath = [ "${config.home.homeDirectory}/.node-global/bin" ];
     };

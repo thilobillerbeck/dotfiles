@@ -1,8 +1,11 @@
 { config, pkgs, lib, ... }:
 
-{
+let
+  nixGL = import ./../../home-manager/utils/nixGLWrap.nix { inherit pkgs config; };
+in {
   programs.alacritty = {
     enable = if config.machine.isGraphical then true else false;
+    package = (nixGL pkgs.alacritty);
     settings = {
       window = {
         decorations = "full";

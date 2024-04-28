@@ -10,7 +10,7 @@ in {
     isGeneric = true;
     isGnome = false;
     noiseSuppression.enable = false;
-    isGraphical = false;
+    isGraphical = true;
   };
 
   fonts.fontconfig.enable = true;
@@ -18,9 +18,4 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   nixGLPrefix = lib.getExe pkgs.nixgl.nixGLIntel;
-
-  home.packages = with pkgs; [
-    (nixGL insomnia)
-    (nixGL inputs.muse-sounds-manager.packages.x86_64-linux.muse-sounds-manager)
-  ];
 }
