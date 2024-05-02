@@ -54,8 +54,6 @@ in
         (callPackage ./../pkgs/toggl-time-grouper/package.nix { inherit python3Packages; })
         (callPackage ./../pkgs/extract.nix { inherit pkgs; })
         nixpkgs-fmt
-        toolbox
-        distrobox
         ddev
         act
         mkcert
@@ -79,6 +77,14 @@ in
         nodePackages.pnpm
         npm-check-updates
       ] ++ (
+        if (
+          !config.machine.isGeneric
+        ) then [
+          toolbox
+          distrobox
+        ] else
+          [ ]
+      ) ++ (
         if (
           config.machine.isGraphical
         ) then [
