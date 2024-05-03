@@ -18,4 +18,6 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   nixGLPrefix = lib.getExe pkgs.nixgl.nixGLIntel;
+
+  nix.settings.builders = "@/etc/nix/machines";
 }

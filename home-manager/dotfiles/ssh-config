@@ -96,3 +96,19 @@ Host thilo-pc
 Host *.relaix.net
 	User tbillerbeck
 	IdentityFile ~/.ssh/id_relaix-net
+
+Host build1.darmstadt.ccc.de
+	User avocadoom
+	IdentityFile ~/.ssh/id_darmstadt-ccc-de
+
+Host build2.darmstadt.ccc.de
+	User avocadoom
+	IdentityFile ~/.ssh/id_darmstadt-ccc-de
+
+Host build3.darmstadt.ccc.de
+	User avocadoom
+	IdentityFile ~/.ssh/id_darmstadt-ccc-de
+
+Host build4.darmstadt.ccc.de
+	User avocadoom
+	IdentityFile ~/.ssh/id_darmstadt-ccc-de

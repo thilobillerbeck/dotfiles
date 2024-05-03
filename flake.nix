@@ -74,6 +74,12 @@
           modules = [ ./configs/fedora/home.nix ];
           extraSpecialArgs = { inherit inputs nixgl; };
         };
+      homeConfigurations."thilo@thilo-laptop" =
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./configs/fedora/home.nix ];
+          extraSpecialArgs = { inherit inputs nixgl; };
+        };
       homeConfigurations."thilo@thilo-pc-win" =
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
