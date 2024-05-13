@@ -18,9 +18,8 @@
       update-local = "bash $HOME/.dotfiles/install";
     };
     initExtra = ''
-      [ -d ~/.npm-global ] || mkdir ~/.npm-global
-      ${pkgs.nodejs}/bin/npm config set prefix '~/.npm-global'
       export PATH=~/.npm-global/bin:$PATH
+      source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
     '';
     plugins = [
       {
