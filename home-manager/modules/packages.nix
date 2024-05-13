@@ -89,6 +89,7 @@ in
           config.machine.isGraphical
         ) then [
           (nixGL insomnia)
+          (nixGL comma)
         ] else
           [ ]
       ) ++ (

@@ -207,6 +207,26 @@
         "type": "github"
       }
     },
+    "nix-index-database_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1715483403,
+        "narHash": "sha256-WMDuQj7J5jbpXI/X/E6FZRKgBFGcaSTvYyVxPnKE6KU=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "f9027322f48b427da23746aa359a6510dfcd0228",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
     "nixgl": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -333,6 +353,7 @@
         "home-manager": "home-manager",
         "muse-sounds-manager": "muse-sounds-manager",
         "nix-alien": "nix-alien",
+        "nix-index-database": "nix-index-database_2",
         "nixgl": "nixgl",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-update": "nixpkgs-update",
