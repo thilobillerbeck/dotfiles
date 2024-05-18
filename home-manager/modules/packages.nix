@@ -18,6 +18,7 @@ in
 
     home.packages = with pkgs;
       [
+        pkgs.nixVersions.latest # because remotely invoked updates are fun ;)
         up
         htop
         rustc
