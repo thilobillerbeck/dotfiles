@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs,  ... }:
 
 let
   configPath = if config.machine.isGeneric then
@@ -22,7 +22,7 @@ in {
       firmware = { upgrade = true; };
       pre_commands = {
         flakeUpgrade =
-          "cd ${configPath} && nix flake update --commit-lock-file --verbose --repair";
+          "cd ${configPath} && ${pkgs.nixVersions.latest}/bin/nix flake update --commit-lock-file --verbose --repair";
       };
     };
   };
