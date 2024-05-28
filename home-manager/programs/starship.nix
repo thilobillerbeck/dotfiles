@@ -3,8 +3,12 @@
     enable = true;
     settings = {
       add_newline = false;
-      character = { success_symbol = "[❯](bold white)"; };
-      package = { disabled = true; };
+      character = {
+        success_symbol = "[❯](bold white)";
+      };
+      package = {
+        disabled = true;
+      };
     };
   };
 }

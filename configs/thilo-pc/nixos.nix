@@ -58,7 +58,10 @@
   programs.nix-ld.enable = true;
 
   hardware.opengl = {
-    extraPackages = with pkgs; [ vaapiVdpau libvdpau-va-gl ];
+    extraPackages = with pkgs; [
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
   };
   hardware.bluetooth.enable = true;
 
@@ -86,9 +89,7 @@
     ];
   };
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "nix-2.16.2"
-  ];
+  nixpkgs.config.permittedInsecurePackages = [ "nix-2.16.2" ];
 
   system.stateVersion = "23.05";
 }

@@ -7,7 +7,9 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    coc = { enable = true; };
+    coc = {
+      enable = true;
+    };
     extraConfig = ''
       set title
       set ignorecase

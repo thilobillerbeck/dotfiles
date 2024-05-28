@@ -8,7 +8,10 @@
       sandbox = relaxed
     '';
     settings = {
-      trusted-users = [ "root" "thilo" ];
+      trusted-users = [
+        "root"
+        "thilo"
+      ];
       substituters = [
         "https://cache.nixos.org"
         "https://nix-community.cachix.org"

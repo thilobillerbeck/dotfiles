@@ -20,7 +20,10 @@ let
     "kbfnbcaeplbcioakkpcpgfkobkghlhen" # Grammarly
   ];
   isEnabled = if (config.machine.isGraphical && !config.machine.isGeneric) then true else false;
-  dictionaries = with pkgs.hunspellDictsChromium; [ en_US de_DE ];
+  dictionaries = with pkgs.hunspellDictsChromium; [
+    en_US
+    de_DE
+  ];
   commandLineArgs = [
     "--enable-wayland-ime"
     "--ignore-gpu-blocklist"
@@ -30,7 +33,8 @@ let
     "--enable-features=WaylandWindowDecorations,VaapiVideoDecoder,VaapiVideoEncoder,VaapiVideoDecodeLinuxGL,WebRTCPipeWireCapturer"
   ];
   extensions = map (eid: { id = eid; }) chromium_extension;
-in {
+in
+{
   programs.chromium = {
     inherit dictionaries commandLineArgs extensions;
     enable = isEnabled;

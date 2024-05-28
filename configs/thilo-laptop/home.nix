@@ -4,7 +4,9 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {
+      inherit inputs;
+    };
     users.thilo = {
       imports = [ ./../../home-manager/modules/machine.nix ];
 
@@ -16,7 +18,9 @@
         isGraphical = true;
       };
 
-      home.sessionVariables = { LD_LIBRARY_PATH = "${pkgs.libGL}/lib"; };
+      home.sessionVariables = {
+        LD_LIBRARY_PATH = "${pkgs.libGL}/lib";
+      };
     };
   };
 }
