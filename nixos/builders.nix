@@ -8,71 +8,76 @@
 
   nix = {
     distributedBuilds = true;
-    buildMachines = [ {
-      hostName = "build1.darmstadt.ccc.de";
-      protocol = "ssh";
-      sshUser = "avocadoom";
-      sshKey = "/home/thilo/.ssh/id_darmstadt-ccc-de";
-      systems = [
-        "i686-linux"
-        "x86_64-linux"
-      ];
-      maxJobs = 4;
-      speedFactor = 6;
-      supportedFeatures = [
-        "big-parallel"
-        "kvm"
-        "nixos-test"
-      ];
-    } {
-      hostName = "build2.darmstadt.ccc.de";
-      protocol = "ssh";
-      sshUser = "avocadoom";
-      sshKey = "/home/thilo/.ssh/id_darmstadt-ccc-de";
-      systems = [
-        "i686-linux"
-        "x86_64-linux"
-      ];
-      maxJobs = 4;
-      speedFactor = 6;
-      supportedFeatures = [
-        "big-parallel"
-        "kvm"
-        "nixos-test"
-      ];
-    } {
-      hostName = "build3.darmstadt.ccc.de";
-      protocol = "ssh";
-      sshUser = "avocadoom";
-      sshKey = "/home/thilo/.ssh/id_darmstadt-ccc-de";
-      systems = [
-        "i686-linux"
-        "x86_64-linux"
-      ];
-      maxJobs = 4;
-      speedFactor = 6;
-      supportedFeatures = [
-        "big-parallel"
-        "kvm"
-        "nixos-test"
-      ];
-    } {
-      hostName = "build4.darmstadt.ccc.de";
-      protocol = "ssh";
-      sshUser = "avocadoom";
-      sshKey = "/home/thilo/.ssh/id_darmstadt-ccc-de";
-      systems = [
-        "i686-linux"
-        "x86_64-linux"
-      ];
-      # this node has half the cpu of the others
-      maxJobs = 2;
-      speedFactor = 6;
-      supportedFeatures = [
-        "big-parallel"
-        "kvm"
-        "nixos-test"
-      ];
-    } ];
+    buildMachines = [
+      {
+        hostName = "build1.darmstadt.ccc.de";
+        protocol = "ssh";
+        sshUser = "avocadoom";
+        sshKey = "/home/thilo/.ssh/id_darmstadt-ccc-de";
+        systems = [
+          "i686-linux"
+          "x86_64-linux"
+        ];
+        maxJobs = 4;
+        speedFactor = 6;
+        supportedFeatures = [
+          "big-parallel"
+          "kvm"
+          "nixos-test"
+        ];
+      }
+      {
+        hostName = "build2.darmstadt.ccc.de";
+        protocol = "ssh";
+        sshUser = "avocadoom";
+        sshKey = "/home/thilo/.ssh/id_darmstadt-ccc-de";
+        systems = [
+          "i686-linux"
+          "x86_64-linux"
+        ];
+        maxJobs = 4;
+        speedFactor = 6;
+        supportedFeatures = [
+          "big-parallel"
+          "kvm"
+          "nixos-test"
+        ];
+      }
+      {
+        hostName = "build3.darmstadt.ccc.de";
+        protocol = "ssh";
+        sshUser = "avocadoom";
+        sshKey = "/home/thilo/.ssh/id_darmstadt-ccc-de";
+        systems = [
+          "i686-linux"
+          "x86_64-linux"
+        ];
+        maxJobs = 4;
+        speedFactor = 6;
+        supportedFeatures = [
+          "big-parallel"
+          "kvm"
+          "nixos-test"
+        ];
+      }
+      {
+        hostName = "build4.darmstadt.ccc.de";
+        protocol = "ssh";
+        sshUser = "avocadoom";
+        sshKey = "/home/thilo/.ssh/id_darmstadt-ccc-de";
+        systems = [
+          "i686-linux"
+          "x86_64-linux"
+        ];
+        # this node has half the cpu of the others
+        maxJobs = 2;
+        speedFactor = 6;
+        supportedFeatures = [
+          "big-parallel"
+          "kvm"
+          "nixos-test"
+        ];
+      }
+    ];
   };
 }

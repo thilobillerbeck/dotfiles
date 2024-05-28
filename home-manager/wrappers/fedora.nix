@@ -24,7 +24,8 @@ let
   chrome-stable-wrapper = pkgs.writeShellScriptBin "google-chrome-stable" ''
     exec /usr/bin/google-chrome-stable ${chromeArgs} "$@"
   '';
-in {
+in
+{
   home.packages = with pkgs; [
     code-wrapper
     chrome-wrapper

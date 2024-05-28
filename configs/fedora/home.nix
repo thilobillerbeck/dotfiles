@@ -1,8 +1,15 @@
-{ pkgs, config, lib, inputs, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  inputs,
+  ...
+}:
 
 let
   nixGL = import ./../../home-manager/utils/nixGLWrap.nix { inherit pkgs config; };
-in {
+in
+{
   imports = [ ./../../home-manager/modules/machine.nix ];
 
   machine = {

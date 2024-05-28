@@ -1,4 +1,8 @@
-{ lib, buildNpmPackage, fetchFromGitHub }:
+{
+  lib,
+  buildNpmPackage,
+  fetchFromGitHub,
+}:
 
 buildNpmPackage rec {
   pname = "spx-gc";
@@ -21,8 +25,7 @@ buildNpmPackage rec {
   '';
 
   meta = with lib; {
-    description =
-      "SPX is a graphics control client for live video productions and live streams using CasparCG, OBS, vMix, or similar software";
+    description = "SPX is a graphics control client for live video productions and live streams using CasparCG, OBS, vMix, or similar software";
     homepage = "https://github.com/TuomoKu/SPX-GC#npminstall";
     license = licenses.mit;
     maintainers = with maintainers; [ ];

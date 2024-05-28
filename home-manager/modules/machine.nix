@@ -1,5 +1,11 @@
-{ lib, pkgs, config, ... }:
-with lib; {
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib;
+{
   imports = [
     ./../programs/atuin.nix
     ./../programs/alacritty.nix
@@ -80,8 +86,7 @@ with lib; {
         '';
         ".ssh/config_source" = {
           source = ./../dotfiles/ssh-config;
-          onChange =
-            "cat ~/.ssh/config_source > ~/.ssh/config && chmod 600 ~/.ssh/config";
+          onChange = "cat ~/.ssh/config_source > ~/.ssh/config && chmod 600 ~/.ssh/config";
         };
         ".gitignore".source = ./../dotfiles/.gitignore;
         ".config/pipewire/pipewire.conf.d/99-noise-suppression.conf".text = ''
@@ -131,4 +136,3 @@ with lib; {
     };
   };
 }
-

@@ -12,7 +12,9 @@
         duplicate_action = "ask";
         default_action = "apply";
       };
-      badfiles = { check_on_import = "yes"; };
+      badfiles = {
+        check_on_import = "yes";
+      };
       match = {
         max_rec = {
           track_length = "strong";

@@ -1,4 +1,10 @@
-{ config, pkgs, lib, inputs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 {
   imports = [ ./../nix.nix ];
@@ -10,13 +16,15 @@
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}")
-      config.nix.registry;
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
   };
 
   nixpkgs = {
     config = {
-      permittedInsecurePackages = [ "electron-24.8.6" "electron-25.9.0" ];
+      permittedInsecurePackages = [
+        "electron-24.8.6"
+        "electron-25.9.0"
+      ];
       allowUnfree = true;
     };
   };
@@ -78,7 +86,12 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [ git zsh kitty steamtinkerlaunch ];
+  environment.systemPackages = with pkgs; [
+    git
+    zsh
+    kitty
+    steamtinkerlaunch
+  ];
 
   networking.networkmanager.enable = true;
 
@@ -91,7 +104,9 @@
       pulse.enable = true;
       jack.enable = true;
     };
-    tailscale = { enable = true; };
+    tailscale = {
+      enable = true;
+    };
     flatpak.enable = true;
     avahi = {
       enable = true;
