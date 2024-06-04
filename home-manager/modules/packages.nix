@@ -24,7 +24,6 @@ in
     home.packages =
       with pkgs;
       [
-        pkgs.nixVersions.latest # because remotely invoked updates are fun ;)
         up
         htop
         rustc
@@ -52,7 +51,7 @@ in
         (pkgs.writeShellScriptBin "yt-dlp-audio" (builtins.readFile ./../scripts/yt-dlp-audio.sh))
         (pkgs.writeShellScriptBin "nix-shell-init" (builtins.readFile ./../scripts/nix-shell-init.sh))
         (pkgs.writeShellScriptBin "http-server" ''
-          ${pkgs.caddy}/bin/caddy file-server --listen :2345
+          ${pkgs.caddy}/bin/caddy file-server --listen :2345z
         '')
         (pkgs.writeShellScriptBin "nix-build-default" ''
           nix-build -E 'with import <nixpkgs> { }; callPackage ./default.nix { }'

@@ -60,6 +60,10 @@ with lib;
         default = false;
         description = "Whether to enable noise suppression or not";
       };
+      nixVersion = mkOption {
+        type = types.package;
+        default = pkgs.nixVersions.latest;
+      };
     };
     nixGLPrefix = lib.mkOption {
       type = lib.types.str;
