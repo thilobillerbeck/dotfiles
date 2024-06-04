@@ -29,6 +29,7 @@ with lib;
     ./../programs/syncthing.nix
     ./../programs/hstr.nix
     ./../programs/thefuck.nix
+    ./../programs/ssh.nix
     ./../../nix.nix
     ./packages.nix
   ];
@@ -88,10 +89,6 @@ with lib;
         ".config/nano/nanorc".text = ''
           set linenumbers
         '';
-        ".ssh/config_source" = {
-          source = ./../dotfiles/ssh-config;
-          onChange = "cat ~/.ssh/config_source > ~/.ssh/config && chmod 600 ~/.ssh/config";
-        };
         ".gitignore".source = ./../dotfiles/.gitignore;
         ".config/pipewire/pipewire.conf.d/99-noise-suppression.conf".text = ''
           context.modules = [{
