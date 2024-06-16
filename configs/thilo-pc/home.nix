@@ -41,8 +41,8 @@
       };
 
       home.packages = with pkgs; [
-        pkgs.lix
-        libsForQt5.discover
+        lix
+        papirus-icon-theme
       ];
     };
   };
