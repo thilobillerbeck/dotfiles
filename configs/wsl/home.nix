@@ -12,4 +12,10 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+
+  nix = {
+    package = pkgs.nixVersions.latest;
+  };
+
+  home.packages = with pkgs; [ pkgs.nixVersions.latest ];
 }

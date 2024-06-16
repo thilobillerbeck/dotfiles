@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}:
 
 {
   home-manager = {
@@ -16,6 +21,7 @@
         isGnome = false;
         noiseSuppression.enable = true;
         isGraphical = true;
+        nixVersion = pkgs.lix;
       };
 
       /*
@@ -30,7 +36,14 @@
         LD_LIBRARY_PATH = "${pkgs.libGL}/lib";
       };
 
-      home.packages = with pkgs; [ libsForQt5.discover ];
+      nix = {
+        package = pkgs.lix;
+      };
+
+      home.packages = with pkgs; [
+        lix
+        papirus-icon-theme
+      ];
     };
   };
 }
