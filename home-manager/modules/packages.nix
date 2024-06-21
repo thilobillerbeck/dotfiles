@@ -101,6 +101,7 @@ in
             (nixGL insomnia)
             (nixGL comma)
             (nixGL processing)
+            (nixGL scrcpy)
           ]
         else
           [ ]
