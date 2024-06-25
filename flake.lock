@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1718718080,
-        "narHash": "sha256-Obb+1wZtNziOXCa8F+PZ6+FmPVf6bFWHF9m5LxtJNpc=",
+        "lastModified": 1719271701,
+        "narHash": "sha256-KPPuK8Yq7QP/bmD97Ojn2SainL2KUEnWKp4WpCK0pwM=",
         "owner": "dagger",
         "repo": "nix",
-        "rev": "0e658d2f7079a823f7092825ec6700323b47e935",
+        "rev": "08aa7a30f2cd6ae56a02f6a489485cd15a92313e",
         "type": "github"
       },
       "original": {
@@ -333,11 +333,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1716190602,
-        "narHash": "sha256-xYRimrR0duWvokWQEvB87bSsICeCvvX9DxpUOzCfsDE=",
+        "lastModified": 1719082008,
+        "narHash": "sha256-jHJSUH619zBQ6WdC21fFAlDxHErKVDJ5fpN0Hgx4sjs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5a5ac83292c7842072318f57d68a48474f8bd34d",
+        "rev": "9693852a2070b398ee123a329e68f0dab5526681",
         "type": "github"
       },
       "original": {
@@ -383,11 +383,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1716253103,
-        "narHash": "sha256-OyZ/h+fPErK8RRjloV4P0SqPYO7zXDUWa3tDkTJBJhs=",
+        "lastModified": 1719208750,
+        "narHash": "sha256-IYHhwYfSmj4oL+Eza2VJzeqNK3VTedYQo2UNSPEHzC8=",
         "owner": "Noodlez1232",
         "repo": "suyu-flake",
-        "rev": "4cde0c1ba0f3aff06bf0b6883efbc62e9e7df957",
+        "rev": "4d6ac74c9c0ff9582a829f1b6d81af891e58dbfc",
         "type": "github"
       },
       "original": {
