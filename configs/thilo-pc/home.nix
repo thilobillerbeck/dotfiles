@@ -1,8 +1,7 @@
-{
-  inputs,
-  pkgs,
-  config,
-  ...
+{ inputs
+, pkgs
+, config
+, ...
 }:
 
 {
@@ -38,6 +37,11 @@
 
       nix = {
         package = pkgs.lix;
+      };
+
+      qt = {
+        enable = true;
+        platformTheme.name = "kde";
       };
 
       home.packages = with pkgs; [
