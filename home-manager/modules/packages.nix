@@ -100,7 +100,7 @@ in
           [
             (nixGL insomnia)
             (nixGL comma)
-            (nixGL processing)
+            # (nixGL processing)
           ]
         else
           [ ]
