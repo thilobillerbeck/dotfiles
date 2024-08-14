@@ -287,11 +287,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1722969327,
-        "narHash": "sha256-P8g6kDgZYMwxqmp8FRRZOwwBjkT4ILifvXV0fOz9ofY=",
+        "lastModified": 1723595969,
+        "narHash": "sha256-H+v1g/rsW0hx49DaVy0Isph7znol2YaRms2YguJJxIw=",
         "owner": "ryantm",
         "repo": "nixpkgs-update",
-        "rev": "503f7b0d94b6eb780a51823972e6ab0204b0a137",
+        "rev": "48abcbc98cb23e2bc2ee7c454967ab9fa8a06166",
         "type": "github"
       },
       "original": {
