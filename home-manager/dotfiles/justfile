@@ -1,0 +1,15 @@
+flatpak-override: flatpak-override-chrome flatpak-override-steam
+
+flatpak-override-chrome:
+	flatpak override \
+		--user \
+		--filesystem=~/.local/share/applications \
+		--filesystem=~/.local/share/icons \
+		--filesystem=~/.pki/nssdb \
+		com.google.Chrome
+
+flatpak-override-steam:
+	flatpak override \
+		--user \
+		--filesystem=~/mnt \
+		com.valvesoftware.Steam

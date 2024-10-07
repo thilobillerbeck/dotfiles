@@ -17,8 +17,12 @@ df.rename(columns={
     'Duration': 'duration'
 }, inplace=True)
 
-df = df.groupby(['project','description','day'], as_index=False).agg({'duration': 'sum'})
-df['duration'] = round(df['duration'].dt.total_seconds() / 60 / 60, 2)
-print("Total hours are: ", round(df['duration'].sum(), 2))
+dfg = df.groupby(['project','description','day'], as_index=False).agg({'duration': 'sum'})
+dfg['duration'] = round(dfg['duration'].dt.total_seconds() / 60 / 60, 2)
+print("Total hours are: ", round(dfg['duration'].sum(), 2))
 
-df.to_csv(Path(sys.argv[1]).stem + '-grouped.csv', index=False)
+dfg.to_csv(Path(sys.argv[1]).stem + '-grouped.csv', index=False)
+
+dfc = dfg.groupby(['project']   , as_index=False).agg({'duration': 'sum'})
+for index, row in dfc.iterrows():
+    print(row['project'], str(row['duration']).replace(".",","))
