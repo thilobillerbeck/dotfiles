@@ -55,37 +55,46 @@ let
         PubkeyAcceptedKeyTypes = "+ssh-rsa";
       };
     };
+    "flanders" = {
+      identityFile = "~/.ssh/id_thilo-billerbeck-com";
+      user = "thilo";
+    };
   };
   catchAlls = builtins.listToAttrs (
-    builtins.map (host: {
-      name = "*.${host}";
-      value = {
-        identityFile = "~/.ssh/id_thilo-billerbeck-com";
-        user = "root";
-      };
-    }) ownDomains
+    builtins.map
+      (host: {
+        name = "*.${host}";
+        value = {
+          identityFile = "~/.ssh/id_thilo-billerbeck-com";
+          user = "root";
+        };
+      })
+      ownDomains
   );
   hostnameAliasses = builtins.listToAttrs (
-    builtins.map (host: {
-      name = "${host}";
-      value = {
-        hostname = "${host}.thilo-billerbeck.com";
-      };
-    }) thiloBillerbeckHosts
+    builtins.map
+      (host: {
+        name = "${host}";
+        value = {
+          hostname = "${host}.thilo-billerbeck.com";
+        };
+      })
+      thiloBillerbeckHosts
   );
   buildersCCCDA = builtins.listToAttrs (
-    builtins.map (host: {
-      name = "build${host}.darmstadt.ccc.de";
-      value = {
-        	user = "avocadoom";
+    builtins.map
+      (host: {
+        name = "build${host}.darmstadt.ccc.de";
+        value = {
+          user = "avocadoom";
           identityFile = "~/.ssh/id_darmstadt-ccc-de";
-      };
-    }) ["1" "2" "3" "4"]
+        };
+      }) [ "1" "2" "3" "4" ]
   );
 in
 {
   programs.ssh = {
     enable = true;
-    matchBlocks = manualMatchBlocks // catchAlls // hostnameAliasses // buildersCCCDA;
+    matchBlocks = manualMatchBlocks // catchAlls // hostnameAliasses;
   };
 }

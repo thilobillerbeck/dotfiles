@@ -8,7 +8,6 @@ with lib;
 {
   imports = [
     ./../programs/atuin.nix
-    ./../programs/alacritty.nix
     ./../programs/bat.nix
     ./../programs/beets.nix
     ./../programs/command-not-found.nix
@@ -17,6 +16,7 @@ with lib;
     ./../programs/fzf.nix
     ./../programs/git.nix
     ./../programs/htop.nix
+    ./../programs/kitty.nix
     ./../programs/neovim.nix
     ./../programs/starship.nix
     ./../programs/topgrade.nix
@@ -89,6 +89,7 @@ with lib;
         ".config/nano/nanorc".text = ''
           set linenumbers
         '';
+        "justfile".source = ./../dotfiles/justfile;
         ".gitignore".source = ./../dotfiles/.gitignore;
         ".config/pipewire/pipewire.conf.d/99-noise-suppression.conf".text = ''
           context.modules = [{
