@@ -16,6 +16,7 @@
       reload = "source ~/.zshrc";
       undo-git-reset-head = "git reset 'HEAD@{1}'";
       update-local = "bash $HOME/.dotfiles/install";
+      sudo = "sudo --preserve-env=PATH env";
     };
     initExtra = ''
       export PATH=~/.npm-global/bin:$PATH
