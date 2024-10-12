@@ -5,6 +5,9 @@
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
+    nixpkgs-master = {
+      url = "github:NixOS/nixpkgs/master";
+    };
     nixpkgs-update = {
       url = "github:ryantm/nixpkgs-update";
     };
@@ -50,18 +53,24 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      home-manager,
-      nixgl,
-      w17,
-      ...
+    { nixpkgs
+    , nixpkgs-master
+    , home-manager
+    , nixgl
+    , w17
+    , ...
     }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         system = "${system}";
-        overlays = [ nixgl.overlay ];
+        overlays = [
+          nixgl.overlay
+          (final: prev: {
+            inherit (nixpkgs-master.legacyPackages.${prev.system})
+              deno;
+          })
+        ];
         allowUnfree = true;
       };
     in
