@@ -65,7 +65,7 @@ in
         ddev
         act
         mkcert
-        pulumi
+        # pulumi
         kubectl
         pulumiPackages.pulumi-language-nodejs
         ncdu
