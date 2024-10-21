@@ -5,9 +5,6 @@
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
-    nixpkgs-master = {
-      url = "github:NixOS/nixpkgs/master";
-    };
     nixpkgs-update = {
       url = "github:ryantm/nixpkgs-update";
     };
@@ -54,7 +51,6 @@
 
   outputs =
     { nixpkgs
-    , nixpkgs-master
     , home-manager
     , nixgl
     , w17
@@ -66,10 +62,6 @@
         system = "${system}";
         overlays = [
           nixgl.overlay
-          (final: prev: {
-            inherit (nixpkgs-master.legacyPackages.${prev.system})
-              deno;
-          })
         ];
         allowUnfree = true;
       };
