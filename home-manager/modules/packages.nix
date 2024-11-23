@@ -88,6 +88,12 @@ in
         nix-output-monitor
         nodePackages.pnpm
         npm-check-updates
+
+        # FPGA stuff
+        yosys
+        nextpnr
+        icestorm
+        icebreaker
       ]
       ++ (
         if (!config.machine.isGeneric) then
