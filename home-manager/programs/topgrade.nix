@@ -22,6 +22,7 @@ in
           "bun"
           "tldr"
           "flutter"
+          "nix"
         ];
       };
       git.repos = [ configPath ];

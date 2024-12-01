@@ -78,13 +78,9 @@ in
         unrar
         inputs.w17.packages.x86_64-linux.default
         aichat
-        (pkgs.nerdfonts.override {
-          fonts = [
-            "JetBrainsMono"
-            "FiraCode"
-            "FiraMono"
-          ];
-        })
+        nerd-fonts.jetbrains-mono
+        nerd-fonts.fira-code
+        nerd-fonts.fira-mono
         nix-output-monitor
         nodePackages.pnpm
         npm-check-updates
