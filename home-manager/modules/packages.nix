@@ -8,7 +8,7 @@
 
 with lib;
 let
-  nixGL = import ./../../home-manager/utils/nixGLWrap.nix { inherit pkgs config; };
+  nixGL = config.lib.nixGL.wrap;
   electronFlags = "--enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime --disable-gpu-shader-disk-cache -n";
 in
 {
@@ -78,16 +78,18 @@ in
         unrar
         inputs.w17.packages.x86_64-linux.default
         aichat
-        (pkgs.nerdfonts.override {
-          fonts = [
-            "JetBrainsMono"
-            "FiraCode"
-            "FiraMono"
-          ];
-        })
+        nerd-fonts.jetbrains-mono
+        nerd-fonts.fira-code
+        nerd-fonts.fira-mono
         nix-output-monitor
         nodePackages.pnpm
         npm-check-updates
+
+        # FPGA stuff
+        yosys
+        nextpnr
+        icestorm
+        icebreaker
       ]
       ++ (
         if (!config.machine.isGeneric) then

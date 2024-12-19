@@ -5,14 +5,14 @@
 }:
 
 let
-  nixGL = import ./../../home-manager/utils/nixGLWrap.nix { inherit pkgs config; };
+  nixGL = config.lib.nixGL.wrap;
 in
 {
   programs.kitty = {
     enable = true;
     package = (nixGL pkgs.kitty);
     font = {
-      name = "JetbrainsMono NFM";
+      name = "JetBrainsMono";
       size = 14;
     };
     themeFile = "Dracula";

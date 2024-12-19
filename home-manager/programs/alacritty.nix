@@ -6,7 +6,7 @@
 }:
 
 let
-  nixGL = import ./../../home-manager/utils/nixGLWrap.nix { inherit pkgs config; };
+  nixGL = config.lib.nixGL.wrap;
 in
 {
   programs.alacritty = {
