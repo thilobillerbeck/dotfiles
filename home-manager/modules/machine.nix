@@ -2,6 +2,7 @@
   lib,
   pkgs,
   config,
+  inputs,
   ...
 }:
 with lib;
@@ -80,6 +81,13 @@ with lib;
   config = {
     news.display = "silent";
     targets.genericLinux.enable = config.machine.isGeneric;
+
+    nixGL = {
+      packages = inputs.nixgl.packages;
+      defaultWrapper = "mesa";
+      installScripts = ["mesa"];
+      vulkan.enable = true;
+    };
 
     home = {
       username = "${config.machine.username}";

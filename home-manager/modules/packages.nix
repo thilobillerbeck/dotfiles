@@ -8,7 +8,7 @@
 
 with lib;
 let
-  nixGL = import ./../../home-manager/utils/nixGLWrap.nix { inherit pkgs config; };
+  nixGL = config.lib.nixGL.wrap;
   electronFlags = "--enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime --disable-gpu-shader-disk-cache -n";
 in
 {

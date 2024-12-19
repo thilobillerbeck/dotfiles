@@ -6,9 +6,6 @@
   ...
 }:
 
-let
-  nixGL = import ./../../home-manager/utils/nixGLWrap.nix { inherit pkgs config; };
-in
 {
   imports = [ ./../../home-manager/modules/machine.nix ];
 
@@ -23,8 +20,6 @@ in
   fonts.fontconfig.enable = true;
 
   nixpkgs.config.allowUnfree = true;
-
-  nixGLPrefix = lib.getExe pkgs.nixgl.nixGLIntel;
 
   nix.settings.builders = "@/etc/nix/machines";
 }
