@@ -84,6 +84,7 @@ in
         nix-output-monitor
         nodePackages.pnpm
         npm-check-updates
+        air
 
         # FPGA stuff
         yosys
