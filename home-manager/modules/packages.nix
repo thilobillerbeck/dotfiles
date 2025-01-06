@@ -85,6 +85,8 @@ in
         nodePackages.pnpm
         npm-check-updates
         air
+        uv
+        ruff
 
         # FPGA stuff
         yosys
