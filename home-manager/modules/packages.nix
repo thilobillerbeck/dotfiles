@@ -93,6 +93,9 @@ in
         nextpnr
         icestorm
         icebreaker
+
+        php
+        (lib.hiPrio phpPackages.composer)
       ]
       ++ (
         if (!config.machine.isGeneric) then

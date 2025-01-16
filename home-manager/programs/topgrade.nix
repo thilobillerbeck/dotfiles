@@ -32,6 +32,10 @@ in
       pre_commands = {
         flakeUpgrade = "cd ${configPath} && ${pkgs.nixVersions.latest}/bin/nix flake update --commit-lock-file --verbose --repair";
       };
+      post_commands = {
+        nixCollectGarbage = "nix-collect-garbage -d";
+        dockerPrune = "docker system prune -f";
+      };
     };
   };
 }

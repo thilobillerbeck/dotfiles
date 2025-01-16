@@ -28,10 +28,6 @@
     };
     suyu.url = "github:Noodlez1232/suyu-flake";
     nix-alien.url = "github:thiagokokada/nix-alien";
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   nixConfig = {
@@ -92,7 +88,6 @@
       homeConfigurations."thilo@thilo-pc" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          inputs.nix-index-database.hmModules.nix-index
           ./configs/fedora/home.nix
         ];
         extraSpecialArgs = {
