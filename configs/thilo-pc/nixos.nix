@@ -155,12 +155,13 @@
       ]);
   };
 
-  hardware.opengl = {
+  hardware.graphics = {
     extraPackages = with pkgs; [
       vaapiVdpau
       libvdpau-va-gl
     ];
   };
+
   hardware.bluetooth.enable = true;
 
   programs.steam.gamescopeSession = {

@@ -122,9 +122,9 @@
   };
 
   hardware = {
-    pulseaudio.enable = false;
-    opengl = {
-      driSupport32Bit = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
     };
   };
 
