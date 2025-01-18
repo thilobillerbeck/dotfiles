@@ -71,7 +71,7 @@
 
   virtualisation = {
     docker.enable = true;
-    podman.enable = true;
+    podman.enable = false;
   };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -80,7 +80,7 @@
     steam.enable = true;
     zsh.enable = true;
     adb.enable = true;
-    noisetorch.enable = true;
+    noisetorch.enable = false;
     dconf = {
       enable = true;
     };
@@ -89,8 +89,6 @@
   environment.systemPackages = with pkgs; [
     git
     zsh
-    kitty
-    steamtinkerlaunch
   ];
 
   networking.networkmanager.enable = true;
@@ -126,13 +124,11 @@
   hardware = {
     pulseaudio.enable = false;
     opengl = {
-      driSupport = true;
       driSupport32Bit = true;
     };
   };
 
   security.polkit.enable = true;
-  sound.enable = true;
   security.rtkit.enable = true;
 
   time.hardwareClockInLocalTime = true;

@@ -96,6 +96,8 @@ in
 
         php
         (lib.hiPrio phpPackages.composer)
+
+        nixfmt-rfc-style
       ]
       ++ (
         if (!config.machine.isGeneric) then
@@ -120,22 +122,22 @@ in
       ++ (
         if (config.machine.isGraphical && !config.machine.isGeneric) then
           [
-            jetbrains.webstorm
-            jetbrains.phpstorm
-            jetbrains.rust-rover
-            jetbrains.goland
+            # jetbrains.webstorm
+            # jetbrains.phpstorm
+            # jetbrains.rust-rover
+            # jetbrains.goland
             element-desktop
             ludusavi
-            dbeaver
+            dbeaver-bin
             onlyoffice-bin
             spotify
-            vesktop
+            discord
             (lutris.override {
-              extraLibraries = _: [ gnome3.adwaita-icon-theme ];
+              extraLibraries = _: [ adwaita-icon-theme ];
               extraPkgs = _: [
                 wineWowPackages.full
                 winetricks
-                gnome3.adwaita-icon-theme
+                adwaita-icon-theme
               ];
             })
             bottles
@@ -151,7 +153,7 @@ in
             mumble
             prusa-slicer
             trayscale
-            gnome.gnome-disk-utility
+            gnome-disk-utility
             inkscape
             musescore
             obsidian
@@ -162,6 +164,7 @@ in
             inputs.nix-alien.packages.x86_64-linux.nix-alien
             kdePackages.kdenlive
             audacity
+            signal-desktop
           ]
         else
           [ ]
