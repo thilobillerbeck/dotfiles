@@ -85,7 +85,7 @@ with lib;
     nixGL = {
       packages = inputs.nixgl.packages;
       defaultWrapper = "mesa";
-      installScripts = ["mesa"];
+      installScripts = [ "mesa" ];
       vulkan.enable = true;
     };
 

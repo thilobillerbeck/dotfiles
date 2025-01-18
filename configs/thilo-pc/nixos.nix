@@ -54,21 +54,23 @@
   programs.kdeconnect.enable = true;
   programs.nix-ld = {
     enable = true;
-    libraries = (pkgs.steam-run.args.multiPkgs pkgs) ++ (with pkgs; [
-      nss
-      sane-backends
-      nspr
-      zlib
-      libglvnd
-      qt5.qtbase
-      qt5.qtsvg
-      qt5.qtdeclarative
-      qt5.qtwayland
-      pkcs11helper
-      stdenv.cc.cc
-      freetype
+    libraries =
+      (pkgs.steam-run.args.multiPkgs pkgs)
+      ++ (with pkgs; [
+        nss
+        sane-backends
+        nspr
+        zlib
+        libglvnd
+        qt5.qtbase
+        qt5.qtsvg
+        qt5.qtdeclarative
+        qt5.qtwayland
+        pkcs11helper
+        stdenv.cc.cc
+        freetype
 
-              stdenv.cc.cc
+        stdenv.cc.cc
         openssl
         xorg.libXcomposite
         xorg.libXtst
@@ -150,7 +152,7 @@
         libdrm
         mesa
         libxkbcommon
-    ]);
+      ]);
   };
 
   hardware.opengl = {

@@ -22,7 +22,9 @@ let
       user = "git";
       identitiesOnly = true;
     };
-    "mail" = { hostname = "mail.officerent.de"; };
+    "mail" = {
+      hostname = "mail.officerent.de";
+    };
     "*.tu-darmstadt.de" = {
       identityFile = "~/.ssh/id_tu-darmstadt-de";
     };
@@ -61,25 +63,21 @@ let
     };
   };
   catchAlls = builtins.listToAttrs (
-    builtins.map
-      (host: {
-        name = "*.${host}";
-        value = {
-          identityFile = "~/.ssh/id_thilo-billerbeck-com";
-          user = "root";
-        };
-      })
-      ownDomains
+    builtins.map (host: {
+      name = "*.${host}";
+      value = {
+        identityFile = "~/.ssh/id_thilo-billerbeck-com";
+        user = "root";
+      };
+    }) ownDomains
   );
   hostnameAliasses = builtins.listToAttrs (
-    builtins.map
-      (host: {
-        name = "${host}";
-        value = {
-          hostname = "${host}.thilo-billerbeck.com";
-        };
-      })
-      thiloBillerbeckHosts
+    builtins.map (host: {
+      name = "${host}";
+      value = {
+        hostname = "${host}.thilo-billerbeck.com";
+      };
+    }) thiloBillerbeckHosts
   );
   buildersCCCDA = builtins.listToAttrs (
     builtins.map
@@ -89,7 +87,13 @@ let
           user = "avocadoom";
           identityFile = "~/.ssh/id_darmstadt-ccc-de";
         };
-      }) [ "1" "2" "3" "4" ]
+      })
+      [
+        "1"
+        "2"
+        "3"
+        "4"
+      ]
   );
 in
 {
