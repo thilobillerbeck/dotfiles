@@ -74,8 +74,10 @@ let
   hostnameAliasses = builtins.listToAttrs (
     builtins.map (host: {
       name = "${host}";
-      value = {
+      value = lib.hm.dag.entryBefore ["*.thilo-billerbeck.com"] {
         hostname = "${host}.thilo-billerbeck.com";
+        identityFile = "~/.ssh/id_thilo-billerbeck-com";
+        user = "root";
       };
     }) thiloBillerbeckHosts
   );
