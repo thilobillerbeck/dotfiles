@@ -122,6 +122,7 @@ in
       ++ (
         if (config.machine.isGraphical && !config.machine.isGeneric) then
           [
+            jetbrains.pycharm-professional
             # jetbrains.webstorm
             # jetbrains.phpstorm
             # jetbrains.rust-rover
@@ -148,7 +149,7 @@ in
             quickgui
             trilium-desktop
             anki
-            # inputs.muse-sounds-manager.packages.x86_64-linux.muse-sounds-manager
+            muse-sounds-manager
             jetbrains-toolbox
             mumble
             prusa-slicer
@@ -160,11 +161,12 @@ in
             syncthingtray
             reaper
             yabridge
-            inputs.suyu.packages.x86_64-linux.suyu
+            torzu
             inputs.nix-alien.packages.x86_64-linux.nix-alien
             kdePackages.kdenlive
             audacity
             signal-desktop
+            telegram-desktop
           ]
         else
           [ ]
