@@ -31,6 +31,7 @@ with lib;
     ./../programs/hstr.nix
     ./../programs/thefuck.nix
     ./../programs/ssh.nix
+    ./../programs/zed.nix
     ./../../nix.nix
     ./packages.nix
   ];
@@ -85,7 +86,7 @@ with lib;
     nixGL = {
       packages = inputs.nixgl.packages;
       defaultWrapper = "mesa";
-      installScripts = ["mesa"];
+      installScripts = [ "mesa" ];
       vulkan.enable = true;
     };
 

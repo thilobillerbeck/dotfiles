@@ -35,12 +35,8 @@ let
   extensions = map (eid: { id = eid; }) chromium_extension;
 in
 {
-  programs.chromium = {
-    inherit dictionaries commandLineArgs extensions;
-    enable = isEnabled;
-  };
-  programs.google-chrome = {
-    inherit commandLineArgs;
+  programs.brave = {
+    # inherit commandLineArgs;
     enable = isEnabled;
   };
 }

@@ -59,8 +59,8 @@ in
         (callPackage ./../pkgs/toggl-time-grouper/package.nix { inherit python3Packages; })
         (callPackage ./../pkgs/extract.nix { inherit pkgs; })
         (pkgs.writeShellScriptBin "kitty-term-fix" ''
-            infocmp -a xterm-kitty | ssh $1 tic -x -o \~/.terminfo /dev/stdin
-          '')
+          infocmp -a xterm-kitty | ssh $1 tic -x -o \~/.terminfo /dev/stdin
+        '')
         nixpkgs-fmt
         ddev
         act
@@ -93,6 +93,11 @@ in
         nextpnr
         icestorm
         icebreaker
+
+        php
+        (lib.hiPrio phpPackages.composer)
+
+        nixfmt-rfc-style
       ]
       ++ (
         if (!config.machine.isGeneric) then
@@ -117,22 +122,23 @@ in
       ++ (
         if (config.machine.isGraphical && !config.machine.isGeneric) then
           [
-            jetbrains.webstorm
-            jetbrains.phpstorm
-            jetbrains.rust-rover
-            jetbrains.goland
+            jetbrains.pycharm-professional
+            # jetbrains.webstorm
+            # jetbrains.phpstorm
+            # jetbrains.rust-rover
+            # jetbrains.goland
             element-desktop
             ludusavi
-            dbeaver
+            dbeaver-bin
             onlyoffice-bin
             spotify
-            vesktop
+            discord
             (lutris.override {
-              extraLibraries = _: [ gnome3.adwaita-icon-theme ];
+              extraLibraries = _: [ adwaita-icon-theme ];
               extraPkgs = _: [
                 wineWowPackages.full
                 winetricks
-                gnome3.adwaita-icon-theme
+                adwaita-icon-theme
               ];
             })
             bottles
@@ -143,22 +149,24 @@ in
             quickgui
             trilium-desktop
             anki
-            # inputs.muse-sounds-manager.packages.x86_64-linux.muse-sounds-manager
+            muse-sounds-manager
             jetbrains-toolbox
             mumble
             prusa-slicer
             trayscale
-            gnome.gnome-disk-utility
+            gnome-disk-utility
             inkscape
             musescore
             obsidian
             syncthingtray
             reaper
             yabridge
-            inputs.suyu.packages.x86_64-linux.suyu
+            torzu
             inputs.nix-alien.packages.x86_64-linux.nix-alien
             kdePackages.kdenlive
             audacity
+            signal-desktop
+            telegram-desktop
           ]
         else
           [ ]

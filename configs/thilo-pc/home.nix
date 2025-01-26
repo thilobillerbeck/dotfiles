@@ -1,7 +1,9 @@
-{ inputs
-, pkgs
-, config
-, ...
+{
+  inputs,
+  pkgs,
+  config,
+  lib,
+  ...
 }:
 
 {
@@ -31,22 +33,12 @@
            };
       */
 
-      home.sessionVariables = {
-        LD_LIBRARY_PATH = "${pkgs.libGL}/lib";
-      };
-
       nix = {
-        package = pkgs.lix;
-      };
-
-      qt = {
-        enable = true;
-        platformTheme.name = "kde";
+        package = lib.mkDefault pkgs.lix;
       };
 
       home.packages = with pkgs; [
         lix
-        papirus-icon-theme
       ];
     };
   };
