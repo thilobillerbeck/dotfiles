@@ -44,11 +44,15 @@
       layout = "us";
       variant = "";
     };
+    blueman.enable = true;
+    # AI
     ollama = {
-      enable = false;
+      enable = true;
       acceleration = "rocm";
     };
-    blueman.enable = true;
+    open-webui = {
+      enable = true;
+    };
   };
 
   programs.kdeconnect.enable = true;
@@ -126,9 +130,9 @@
         pixman
         speex
         SDL_image
-        SDL_ttf
+        # SDL_ttf
         SDL_mixer
-        SDL2_ttf
+        # SDL2_ttf
         SDL2_mixer
         libappindicator-gtk2
         libdbusmenu-gtk2
