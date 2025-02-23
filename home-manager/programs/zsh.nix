@@ -5,6 +5,7 @@
     enable = true;
     autosuggestion.enable = true;
     enableCompletion = true;
+    completionInit = "autoload -U compinit && compinit -i";
     enableVteIntegration = true;
     syntaxHighlighting.enable = true;
     shellAliases = {

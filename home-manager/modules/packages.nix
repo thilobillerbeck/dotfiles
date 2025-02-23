@@ -8,6 +8,7 @@
 
 with lib;
 let
+  fontfile = import ./../../fonts.nix { inherit pkgs; };
   nixGL = config.lib.nixGL.wrap;
   electronFlags = "--enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime --disable-gpu-shader-disk-cache -n";
 in
@@ -76,11 +77,8 @@ in
         nil
         nixd
         unrar
-        inputs.w17.packages.x86_64-linux.default
+        # inputs.w17.packages.x86_64-linux.default
         aichat
-        nerd-fonts.jetbrains-mono
-        nerd-fonts.fira-code
-        nerd-fonts.fira-mono
         nix-output-monitor
         nodePackages.pnpm
         npm-check-updates
@@ -102,11 +100,10 @@ in
       ++ (
         if (!config.machine.isGeneric) then
           [
-            toolbox
             distrobox
           ]
         else
-          [ ]
+          fontfile.fonts
       )
       ++ (
         if (config.machine.isGraphical) then
@@ -167,6 +164,8 @@ in
             audacity
             signal-desktop
             telegram-desktop
+            thunderbird
+            gearlever
           ]
         else
           [ ]

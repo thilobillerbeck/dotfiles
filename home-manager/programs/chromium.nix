@@ -19,7 +19,7 @@ let
     "bmnlcjabgnpnenekpadlanbbkooimhnj" # Honey
     "kbfnbcaeplbcioakkpcpgfkobkghlhen" # Grammarly
   ];
-  isEnabled = if (config.machine.isGraphical && !config.machine.isGeneric) then true else false;
+  isEnabled = if (config.machine.isGraphical) then true else false;
   dictionaries = with pkgs.hunspellDictsChromium; [
     en_US
     de_DE
@@ -33,10 +33,12 @@ let
     "--enable-features=WaylandWindowDecorations,VaapiVideoDecoder,VaapiVideoEncoder,VaapiVideoDecodeLinuxGL,WebRTCPipeWireCapturer"
   ];
   extensions = map (eid: { id = eid; }) chromium_extension;
+  nixGL = config.lib.nixGL.wrap;
 in
 {
   programs.brave = {
     # inherit commandLineArgs;
     enable = isEnabled;
+    package = if (!config.machine.isGeneric) then pkgs.brave else (nixGL pkgs.brave);
   };
 }

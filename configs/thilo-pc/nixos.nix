@@ -14,15 +14,13 @@
   # Bootloader.
   boot = {
     loader = {
-      systemd-boot = {
-        enable = true;
-        # extraInstallCommands = ''
-        #   ${pkgs.gnused}/bin/sed -i "/default/c\default @saved" /boot/loader/loader.conf
-        #   '';
+      grub = {
+        efiSupport = true;
+        device = "nodev";
       };
       efi.canTouchEfiVariables = true;
     };
-    # kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
     binfmt.registrations.appimage = {
       wrapInterpreterInShell = false;
       interpreter = "${pkgs.appimage-run}/bin/appimage-run";
@@ -31,6 +29,7 @@
       mask = ''\xff\xff\xff\xff\x00\x00\x00\x00\xff\xff\xff'';
       magicOrExtension = ''\x7fELF....AI\x02'';
     };
+    plymouth.enable = true;
   };
 
   networking.hostName = "thilo-pc";
@@ -44,15 +43,14 @@
       layout = "us";
       variant = "";
     };
-    blueman.enable = true;
     # AI
-    ollama = {
-      enable = true;
-      acceleration = "rocm";
-    };
-    open-webui = {
-      enable = true;
-    };
+    # ollama = {
+    #   enable = true;
+    #   acceleration = "rocm";
+    # };
+    # open-webui = {
+    #   enable = true;
+    # };
   };
 
   programs.kdeconnect.enable = true;
@@ -167,6 +165,7 @@
   };
 
   hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   programs.steam.gamescopeSession = {
     enable = false;
@@ -192,5 +191,16 @@
     ];
   };
 
+  programs.gamescope.enable = true;
+
   system.stateVersion = "24.11";
+
+  environment.systemPackages = with pkgs; [
+    kdePackages.skanpage
+  ];
+
+  services.resolved = {
+    enable = true;
+    domains = [ "~." ];
+  };
 }

@@ -33,6 +33,8 @@
            };
       */
 
+      fonts.fontconfig.enable = true;
+
       nix = {
         package = lib.mkDefault pkgs.lix;
       };

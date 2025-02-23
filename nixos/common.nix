@@ -6,6 +6,9 @@
   ...
 }:
 
+let
+  fontfile = import ./../fonts.nix { inherit pkgs; };
+in
 {
   imports = [ ./../nix.nix ];
 
@@ -71,13 +74,17 @@
 
   virtualisation = {
     docker.enable = true;
-    podman.enable = false;
+    podman.enable = true;
   };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   programs = {
-    steam.enable = true;
+    steam = {
+      enable = true;
+      localNetworkGameTransfers.openFirewall = true;
+      protontricks.enable = true;
+    };
     zsh.enable = true;
     adb.enable = true;
     noisetorch.enable = false;
@@ -107,8 +114,8 @@
     };
     flatpak.enable = true;
     avahi = {
-      enable = true;
-      nssmdns4 = true;
+      # enable = true;
+      # nssmdns4 = true;
     };
     mullvad-vpn = {
       enable = true;
@@ -119,6 +126,7 @@
       packages = [ pkgs.dconf ];
     };
     bamf.enable = true;
+    fwupd.enable = true;
   };
 
   hardware = {
@@ -132,4 +140,11 @@
   security.rtkit.enable = true;
 
   time.hardwareClockInLocalTime = true;
+
+  fonts.packages =
+    fontfile.fonts
+    ++ (with pkgs; [
+      noto-fonts
+    ]);
+  fonts.enableDefaultPackages = true;
 }
