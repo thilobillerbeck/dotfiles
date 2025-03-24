@@ -20,21 +20,6 @@
         "type": "github"
       }
     },
-    "distrobox4nix": {
-      "locked": {
-        "lastModified": 1742570020,
-        "narHash": "sha256-XS6qjrxdt75Qeq06agwQU91Ba9+kenuDrLkSIbFom+A=",
-        "owner": "aguirre-matteo",
-        "repo": "distrobox4nix",
-        "rev": "c53dcd3b85a5e6416972214733cc03aa286af347",
-        "type": "github"
-      },
-      "original": {
-        "owner": "aguirre-matteo",
-        "repo": "distrobox4nix",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "locked": {
         "lastModified": 1733328505,
@@ -72,11 +57,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742588233,
-        "narHash": "sha256-Fi5g8H5FXMSRqy+mU6gPG0v+C9pzjYbkkiePtz8+PpA=",
+        "lastModified": 1742825959,
+        "narHash": "sha256-wgnQZMrLLQJlZ+htTXzoQtoz9EzL15Z2crH3+OnRmMk=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "296ddc64627f4a6a4eb447852d7346b9dd16197d",
+        "rev": "908e055e157a0b35466faf4125d7e7410ff56160",
         "type": "github"
       },
       "original": {
@@ -266,11 +251,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1742422364,
-        "narHash": "sha256-mNqIplmEohk5jRkqYqG19GA8MbQ/D4gQSK0Mu4LvfRQ=",
+        "lastModified": 1742669843,
+        "narHash": "sha256-G5n+FOXLXcRx+3hCJ6Rt6ZQyF1zqQ0DL0sWAMn2Nk0w=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a84ebe20c6bc2ecbcfb000a50776219f48d134cc",
+        "rev": "1e5b653dff12029333a6546c11e108ede13052eb",
         "type": "github"
       },
       "original": {
@@ -297,7 +282,6 @@
     "root": {
       "inputs": {
         "dagger": "dagger",
-        "distrobox4nix": "distrobox4nix",
         "home-manager": "home-manager",
         "jovian-nixos": "jovian-nixos",
         "nix-alien": "nix-alien",
