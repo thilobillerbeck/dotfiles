@@ -66,9 +66,7 @@ in
         ddev
         act
         mkcert
-        # pulumi
         kubectl
-        pulumiPackages.pulumi-language-nodejs
         ncdu
         devenv
         inputs.nixpkgs-update.packages.x86_64-linux.nixpkgs-update
@@ -78,7 +76,6 @@ in
         nixd
         unrar
         # inputs.w17.packages.x86_64-linux.default
-        aichat
         nix-output-monitor
         nodePackages.pnpm
         npm-check-updates
@@ -94,8 +91,6 @@ in
 
         php
         (lib.hiPrio phpPackages.composer)
-
-        nixfmt-rfc-style
       ]
       ++ (
         if (!config.machine.isGeneric) then
@@ -155,7 +150,6 @@ in
             inkscape
             musescore
             obsidian
-            syncthingtray
             reaper
             yabridge
             torzu

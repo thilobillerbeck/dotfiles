@@ -20,7 +20,6 @@
     };
     nix-alien.url = "github:thiagokokada/nix-alien";
     jovian-nixos.url = "github:Jovian-Experiments/Jovian-NixOS/development";
-    distrobox4nix.url = "github:aguirre-matteo/distrobox4nix";
   };
 
   nixConfig = {

@@ -13,10 +13,7 @@
     extraSpecialArgs = {
       inherit inputs;
     };
-
-    sharedModules = [
-      inputs.distrobox4nix.homeManagerModule
-    ];
+    backupFileExtension = ".bak";
 
     users.thilo = {
       imports = [ ./../../home-manager/modules/machine.nix ];
@@ -49,7 +46,7 @@
       ];
 
       programs.distrobox = {
-        enable = true;
+        enable = lib.mkForce true;
         containers = {
           arch = {
             image = "arch-toolbox";

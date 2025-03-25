@@ -1,7 +1,12 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -161,10 +166,16 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
-  jovian = {
-    steam = {
-      enable = true;
-      user = "thilo";
+  specialisation = {
+    game-console.configuration = {
+      services.displayManager.sddm.enable = lib.mkForce false;
+      jovian = {
+        steam = {
+          autoStart = true;
+          enable = true;
+          user = "thilo";
+        };
+      };
     };
   };
 
@@ -176,6 +187,7 @@
 
   environment.systemPackages = with pkgs; [
     kdePackages.skanpage
+    qt5.qtwayland
   ];
 
   services.resolved = {
