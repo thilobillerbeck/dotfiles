@@ -1,5 +1,8 @@
+{ config, ... }:
+
+
 {
   programs.vscode = {
-    enable = true;
+    enable = !config.machine.isGeneric && config.machine.isGraphical;
   };
 }
