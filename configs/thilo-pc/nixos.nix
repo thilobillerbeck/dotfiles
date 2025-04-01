@@ -23,6 +23,7 @@
       grub = {
         efiSupport = true;
         device = "nodev";
+        useOSProber = true;
       };
       efi.canTouchEfiVariables = true;
     };
@@ -174,6 +175,7 @@
           autoStart = true;
           enable = true;
           user = "thilo";
+          desktopSession = "plasma";
         };
       };
     };

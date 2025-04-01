@@ -46,10 +46,10 @@
       ];
 
       programs.distrobox = {
-        enable = lib.mkForce true;
+        enable = true;
         containers = {
           arch = {
-            image = "arch-toolbox";
+            image = "quay.io/toolbx/arch-toolbox";
             additional_packages = "python python-pip nodejs";
             volume = "/etc/static/profiles/per-user:/etc/profiles/per-user:ro";
             replace = true;

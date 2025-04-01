@@ -14,14 +14,6 @@ let
 in
 {
   config = {
-    nixpkgs.overlays = [
-      (_: prev: {
-        quickemu = prev.quickemu.overrideAttrs (old: {
-          patches = (old.patches or [ ]) ++ [ ./../patches/quickemu.patch ];
-        });
-      })
-    ];
-
     home.packages =
       with pkgs;
       [
@@ -70,12 +62,11 @@ in
         ncdu
         devenv
         inputs.nixpkgs-update.packages.x86_64-linux.nixpkgs-update
-        inputs.dagger.packages.x86_64-linux.dagger
+        nixpkgs-review
         unzip
         nil
         nixd
         unrar
-        # inputs.w17.packages.x86_64-linux.default
         nix-output-monitor
         nodePackages.pnpm
         npm-check-updates
@@ -136,10 +127,8 @@ in
             bottles
             protontricks
             heroic
-            (vscode.override { commandLineArgs = electronFlags; })
             quickemu
             quickgui
-            trilium-desktop
             anki
             muse-sounds-manager
             jetbrains-toolbox
@@ -160,6 +149,7 @@ in
             telegram-desktop
             thunderbird
             gearlever
+            kdePackages.merkuro
           ]
         else
           [ ]
