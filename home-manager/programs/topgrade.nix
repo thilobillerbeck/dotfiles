@@ -25,6 +25,7 @@ in
           "nix"
           "uv"
         ];
+        nix_arguments = "--builders \"\"";
       };
       git.repos = [ configPath ];
       firmware = {

@@ -32,6 +32,7 @@ with lib;
     ./../programs/hstr.nix
     ./../programs/thefuck.nix
     ./../programs/ssh.nix
+    ./../programs/vscode.nix
     ./../programs/zed.nix
     ./../../nix.nix
     ./packages.nix

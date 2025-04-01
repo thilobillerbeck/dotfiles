@@ -14,14 +14,6 @@ let
 in
 {
   config = {
-    nixpkgs.overlays = [
-      (_: prev: {
-        quickemu = prev.quickemu.overrideAttrs (old: {
-          patches = (old.patches or [ ]) ++ [ ./../patches/quickemu.patch ];
-        });
-      })
-    ];
-
     home.packages =
       with pkgs;
       [
@@ -66,19 +58,15 @@ in
         ddev
         act
         mkcert
-        # pulumi
         kubectl
-        pulumiPackages.pulumi-language-nodejs
         ncdu
         devenv
         inputs.nixpkgs-update.packages.x86_64-linux.nixpkgs-update
-        inputs.dagger.packages.x86_64-linux.dagger
+        nixpkgs-review
         unzip
         nil
         nixd
         unrar
-        # inputs.w17.packages.x86_64-linux.default
-        aichat
         nix-output-monitor
         nodePackages.pnpm
         npm-check-updates
@@ -94,8 +82,6 @@ in
 
         php
         (lib.hiPrio phpPackages.composer)
-
-        nixfmt-rfc-style
       ]
       ++ (
         if (!config.machine.isGeneric) then
@@ -141,10 +127,8 @@ in
             bottles
             protontricks
             heroic
-            (vscode.override { commandLineArgs = electronFlags; })
             quickemu
             quickgui
-            trilium-desktop
             anki
             muse-sounds-manager
             jetbrains-toolbox
@@ -155,7 +139,6 @@ in
             inkscape
             musescore
             obsidian
-            syncthingtray
             reaper
             yabridge
             torzu
@@ -166,6 +149,7 @@ in
             telegram-desktop
             thunderbird
             gearlever
+            kdePackages.merkuro
           ]
         else
           [ ]

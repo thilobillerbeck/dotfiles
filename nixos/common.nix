@@ -111,6 +111,7 @@ in
     };
     tailscale = {
       enable = true;
+      useRoutingFeatures = "both";
     };
     flatpak.enable = true;
     avahi = {

@@ -1,7 +1,12 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ pkgs, options, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -9,6 +14,7 @@
     ./hardware-configuration.nix
     ./../../nixos/common.nix
     ./../../nixos/builders.nix
+    inputs.jovian-nixos.nixosModules.jovian
   ];
 
   # Bootloader.
@@ -17,6 +23,7 @@
       grub = {
         efiSupport = true;
         device = "nodev";
+        useOSProber = true;
       };
       efi.canTouchEfiVariables = true;
     };
@@ -43,14 +50,7 @@
       layout = "us";
       variant = "";
     };
-    # AI
-    # ollama = {
-    #   enable = true;
-    #   acceleration = "rocm";
-    # };
-    # open-webui = {
-    #   enable = true;
-    # };
+    envfs.enable = true;
   };
 
   programs.kdeconnect.enable = true;
@@ -167,36 +167,29 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
-  programs.steam.gamescopeSession = {
-    enable = false;
-    env = {
-      WLR_RENDERER = "vulkan";
-      DXVK_HDR = "1";
-      STEAM_GAMESCOPE_VRR_SUPPORTED = "1";
-      SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS = "0";
-      ENABLE_GAMESCOPE_WSI = "1";
-      WINE_FULLSCREEN_FSR = "1";
+  specialisation = {
+    game-console.configuration = {
+      services.displayManager.sddm.enable = lib.mkForce false;
+      jovian = {
+        steam = {
+          autoStart = true;
+          enable = true;
+          user = "thilo";
+          desktopSession = "plasma";
+        };
+      };
     };
-    args = [
-      "-f"
-      "-F fsr"
-      "--rt"
-      "--adaptive-sync"
-      "-w 1920"
-      "-h 1080"
-      "-r 120"
-      "--hdr-enabled"
-      "--hdr-itm-enable"
-      "-O DP-3"
-    ];
   };
 
   programs.gamescope.enable = true;
+
+  networking.firewall.enable = false;
 
   system.stateVersion = "24.11";
 
   environment.systemPackages = with pkgs; [
     kdePackages.skanpage
+    qt5.qtwayland
   ];
 
   services.resolved = {

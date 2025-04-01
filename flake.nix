@@ -12,18 +12,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dagger.url = "github:dagger/nix";
-    dagger.inputs.nixpkgs.follows = "nixpkgs";
     nixgl = {
       url = "github:guibou/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    muse-sounds-manager = {
-      url = "github:thilobillerbeck/muse-sounds-manager-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    suyu.url = "github:Noodlez1232/suyu-flake";
     nix-alien.url = "github:thiagokokada/nix-alien";
+    jovian-nixos.url = "github:Jovian-Experiments/Jovian-NixOS/development";
   };
 
   nixConfig = {
@@ -61,7 +55,7 @@
       };
     in
     {
-      nixosConfigurations.thilo-pc = nixpkgs.lib.nixosSystem {
+      nixosConfigurations."thilo-pc" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           home-manager.nixosModules.home-manager
