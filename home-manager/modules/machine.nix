@@ -19,6 +19,7 @@ with lib;
     ./../programs/htop.nix
     ./../programs/kitty.nix
     ./../programs/neovim.nix
+    ./../programs/nextcloud-client.nix
     ./../programs/starship.nix
     ./../programs/topgrade.nix
     ./../programs/yt-dlp.nix
