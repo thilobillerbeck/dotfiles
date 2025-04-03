@@ -140,7 +140,7 @@ in
             musescore
             obsidian
             reaper
-            yabridge
+            # yabridge
             torzu
             inputs.nix-alien.packages.x86_64-linux.nix-alien
             kdePackages.kdenlive
