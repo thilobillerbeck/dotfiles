@@ -105,8 +105,8 @@ in
       ++ (
         if (config.machine.isGraphical && !config.machine.isGeneric) then
           [
-            jetbrains.pycharm-professional
-            # jetbrains.webstorm
+            # jetbrains.pycharm-professional
+            jetbrains.webstorm
             # jetbrains.phpstorm
             # jetbrains.rust-rover
             # jetbrains.goland

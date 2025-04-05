@@ -115,8 +115,9 @@ in
     };
     flatpak.enable = true;
     avahi = {
-      # enable = true;
-      # nssmdns4 = true;
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
     };
     mullvad-vpn = {
       enable = true;

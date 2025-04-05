@@ -1,4 +1,10 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
   home-manager = {
@@ -7,6 +13,8 @@
     extraSpecialArgs = {
       inherit inputs;
     };
+    backupFileExtension = ".bak";
+
     users.thilo = {
       imports = [ ./../../home-manager/modules/machine.nix ];
 
@@ -16,17 +24,45 @@
         isGnome = false;
         noiseSuppression.enable = true;
         isGraphical = true;
+        nixVersion = pkgs.lix;
       };
 
-      home.sessionVariables = {
-        LD_LIBRARY_PATH = "${pkgs.libGL}/lib";
-      };
+      /*
+        xsession.pointerCursor = {
+             name = "Bibata-Modern-Classic";
+             package = pkgs.bibata-cursors;
+             size = 128;
+           };
+      */
+
+      fonts.fontconfig.enable = true;
 
       nix = {
-        package = pkgs.nixVersions.latest;
+        package = lib.mkDefault pkgs.lix;
       };
 
-      home.packages = with pkgs; [ pkgs.nixVersions.latest ];
+      home.packages = with pkgs; [
+        lix
+      ];
+
+      programs.distrobox = {
+        enable = true;
+        containers = {
+          arch = {
+            image = "quay.io/toolbx/arch-toolbox";
+            additional_packages = "python python-pip nodejs";
+            volume = "/etc/static/profiles/per-user:/etc/profiles/per-user:ro";
+            replace = true;
+          };
+          fedora = {
+            image = "quay.io/fedora/fedora-toolbox:41";
+            additional_packages = "python python-pip code";
+            home = "/home/thilo/.distrobox/fedora";
+            pre_init_hooks = ''rpm --import https://packages.microsoft.com/keys/microsoft.asc && echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null'';
+            replace = true;
+          };
+        };
+      };
     };
   };
 }
