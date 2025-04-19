@@ -45,6 +45,8 @@
   services = {
     xserver.enable = true;
     displayManager.sddm.enable = true;
+    displayManager.sddm.wayland.enable = true;
+    displayManager.defaultSession = "plasma";
     desktopManager.plasma6.enable = true;
     xserver.xkb = {
       layout = "us";
