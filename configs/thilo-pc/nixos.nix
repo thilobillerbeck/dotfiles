@@ -154,6 +154,9 @@
         libdrm
         mesa
         libxkbcommon
+
+        python3Packages.pyqt6
+        zstd
       ]);
   };
 

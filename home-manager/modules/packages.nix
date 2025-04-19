@@ -76,7 +76,7 @@ in
 
         # FPGA stuff
         yosys
-        nextpnr
+        # nextpnr
         icestorm
         icebreaker
 
@@ -115,6 +115,7 @@ in
             dbeaver-bin
             onlyoffice-bin
             spotify
+            spicetify-cli
             discord
             (lutris.override {
               extraLibraries = _: [ adwaita-icon-theme ];
