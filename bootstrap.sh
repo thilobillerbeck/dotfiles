@@ -23,7 +23,3 @@ fi
 cd $HOME/.config/home-manager
 git remote set-url origin git@github.com:thilobillerbeck/dotfiles.git
 nix run .#homeConfigurations.$USER@$(hostname).activationPackage
-
-if [[ "$XDG_CURRENT_DESKTOP" == "KDE" || "$KDE_FULL_SESSION" == "true" ]]; then
-    xargs flatpak install -y < $HOME/.config/home-manager/scripts/flatpak-bootstrap/flatpaks-plasma.txt
-fi
