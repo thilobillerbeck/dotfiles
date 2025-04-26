@@ -54,6 +54,10 @@ in
         (pkgs.writeShellScriptBin "kitty-term-fix" ''
           infocmp -a xterm-kitty | ssh $1 tic -x -o \~/.terminfo /dev/stdin
         '')
+	(pkgs.writeShellScriptBin "nixos-deepclean" ''
+	  sudo rm /nix/var/nix/gcroots/auto/\*
+	  sudo nix-collect-garbage -d
+	'')
         nixpkgs-fmt
         ddev
         act
@@ -143,7 +147,7 @@ in
             reaper
             # yabridge
             torzu
-            inputs.nix-alien.packages.x86_64-linux.nix-alien
+            # inputs.nix-alien.packages.x86_64-linux.nix-alien
             kdePackages.kdenlive
             audacity
             signal-desktop
