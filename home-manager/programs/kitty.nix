@@ -12,7 +12,7 @@ in
     enable = true;
     package = (nixGL pkgs.kitty);
     font = {
-      name = "JetBrainsMono";
+      name = "JetBrainsMono Nerd Font Mono";
       size = 14;
     };
     themeFile = "Dracula";

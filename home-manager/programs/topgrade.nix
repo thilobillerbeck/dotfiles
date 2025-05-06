@@ -24,6 +24,9 @@ in
           "flutter"
           "nix"
           "uv"
+          "brew_cask"
+          "brew_formula"
+          "waydroid"
         ];
       };
       git.repos = [ configPath ];
