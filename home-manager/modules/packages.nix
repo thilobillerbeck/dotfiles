@@ -86,6 +86,8 @@ in
 
         php
         (lib.hiPrio phpPackages.composer)
+
+        rns
       ]
       ++ (
         if (!config.machine.isGeneric) then
