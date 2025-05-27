@@ -1,8 +1,12 @@
 { pkgs, config, ... }:
 
+let
+  nixGL = config.lib.nixGL.wrap;
+in
 {
   programs.zed-editor = {
-    enable = if (config.machine.isGraphical && !config.machine.isGeneric) then true else false;
+    enable = if config.machine.isGraphical then true else false;
+    package = if config.machine.isGeneric then (nixGL pkgs.zed-editor) else pkgs.zed-editor;
     extensions = [
       "xy-zed"
       "nix"
@@ -25,6 +29,9 @@
       auto_update = false;
       icon_theme = "Material Icon Theme";
       hour_format = "hour24";
+      features = {
+        edit_prediction_provider = "copilot";
+      };
       tabs = {
         file_icons = true;
         git_status = true;
