@@ -148,7 +148,6 @@ in
             obsidian
             reaper
             # yabridge
-            torzu
             # inputs.nix-alien.packages.x86_64-linux.nix-alien
             kdePackages.kdenlive
             audacity

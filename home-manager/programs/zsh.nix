@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.zsh = {
@@ -25,7 +25,7 @@
         "ohmyzsh/ohmyzsh path:plugins/dotenv"
       ];
     };
-    initExtraFirst = ''
+    initContent = lib.mkBefore ''
       ZSH_DOTENV_PROMPT=false
       export PATH=~/.npm-global/bin:$PATH
     '';
