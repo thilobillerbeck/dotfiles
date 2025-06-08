@@ -88,6 +88,7 @@ in
         (lib.hiPrio phpPackages.composer)
 
         rns
+        btop
       ]
       ++ (
         if (!config.machine.isGeneric) then
