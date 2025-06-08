@@ -87,7 +87,6 @@ in
         php
         (lib.hiPrio phpPackages.composer)
 
-        rns
         btop
       ]
       ++ (
