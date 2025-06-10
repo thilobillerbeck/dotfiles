@@ -80,14 +80,14 @@ in
 
         # FPGA stuff
         yosys
-        # nextpnr
+        nextpnr
         icestorm
         icebreaker
 
         php
         (lib.hiPrio phpPackages.composer)
 
-        rns
+        btop
       ]
       ++ (
         if (!config.machine.isGeneric) then

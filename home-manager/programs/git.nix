@@ -6,6 +6,8 @@
     lfs.enable = true;
     userEmail = "thilo.billerbeck@officerent.de";
     userName = "Thilo Billerbeck";
+    signing.key = "E07F80D7D80BE9D364F2029A77B4535A08DCD774";
+    signing.signByDefault = true;
     extraConfig = {
       color = {
         diff = "auto";
@@ -31,6 +33,9 @@
       };
       branch = {
         autosetuprebase = "always";
+      };
+      init = {
+        defaultBranch = "main";
       };
     };
   };
