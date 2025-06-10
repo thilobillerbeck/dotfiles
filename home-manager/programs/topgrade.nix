@@ -34,7 +34,7 @@ in
         upgrade = true;
       };
       pre_commands = {
-        flakeUpgrade = "cd ${configPath} && ${pkgs.nixVersions.latest}/bin/nix flake update --commit-lock-file --verbose --repair";
+        flakeUpgrade = "cd ${configPath} && ${pkgs.nixVersions.latest}/bin/nix flake update --verbose --repair";
       };
       post_commands =
         {

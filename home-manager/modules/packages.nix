@@ -104,6 +104,7 @@ in
             (nixGL comma)
             # (nixGL processing)
             (nixGL scrcpy)
+            (nixGL jetbrains-toolbox)
           ]
         else
           [ ]
