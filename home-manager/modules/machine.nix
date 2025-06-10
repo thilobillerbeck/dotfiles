@@ -34,6 +34,7 @@ with lib;
     ./../programs/ssh.nix
     ./../programs/vscode.nix
     ./../programs/zed.nix
+    ./../programs/gpg.nix
     ./../../nix.nix
     ./packages.nix
   ];
