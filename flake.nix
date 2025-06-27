@@ -3,13 +3,13 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
+      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     };
     nixpkgs-update = {
       url = "github:ryantm/nixpkgs-update";
     };
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager?rev=951f0b30c535a46817aa5ef4c66ddc4445f3e324";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixgl = {
