@@ -49,7 +49,7 @@ in
         (pkgs.writeShellScriptBin "nix-build-default" ''
           nix-build -E 'with import <nixpkgs> { }; callPackage ./default.nix { }'
         '')
-        (callPackage ./../pkgs/toggl-time-grouper/package.nix { inherit python3Packages; })
+        # (callPackage ./../pkgs/toggl-time-grouper/package.nix { inherit python3Packages; })
         (callPackage ./../pkgs/extract.nix { inherit pkgs; })
         (pkgs.writeShellScriptBin "kitty-term-fix" ''
           infocmp -a xterm-kitty | ssh $1 tic -x -o \~/.terminfo /dev/stdin
