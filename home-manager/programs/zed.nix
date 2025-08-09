@@ -36,6 +36,11 @@ in
         file_icons = true;
         git_status = true;
       };
+      terminal = {
+        shell = {
+          program = "${pkgs.zsh}/bin/zsh";
+        };
+      };
       indent_guides = {
         enable = true;
       };

@@ -26,7 +26,6 @@ with lib;
     ./../programs/zsh.nix
     ./../programs/go.nix
     ./../programs/firefox.nix
-    ./../programs/chromium.nix
     ./../programs/mpv.nix
     ./../programs/syncthing.nix
     ./../programs/hstr.nix

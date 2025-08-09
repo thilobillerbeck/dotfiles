@@ -18,6 +18,7 @@ in
     themeFile = "Dracula";
     extraConfig = ''
       background_opacity 0.9
+      shell ${pkgs.zsh}/bin/zsh
     '';
   };
 }
