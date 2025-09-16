@@ -29,11 +29,11 @@ with lib;
     ./../programs/mpv.nix
     ./../programs/syncthing.nix
     ./../programs/hstr.nix
-    ./../programs/thefuck.nix
     ./../programs/ssh.nix
     ./../programs/vscode.nix
     ./../programs/zed.nix
     ./../programs/gpg.nix
+    ./../programs/nh.nix
     ./../../nix.nix
     ./packages.nix
   ];

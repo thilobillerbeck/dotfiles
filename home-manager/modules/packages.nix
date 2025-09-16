@@ -80,7 +80,7 @@ in
 
         # FPGA stuff
         yosys
-        nextpnr
+        # nextpnr
         icestorm
         icebreaker
 
