@@ -10,7 +10,6 @@ with lib;
 let
   fontfile = import ./../../fonts.nix { inherit pkgs; };
   nixGL = config.lib.nixGL.wrap;
-  electronFlags = "--enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime --disable-gpu-shader-disk-cache -n";
 in
 {
   config = {
@@ -18,7 +17,6 @@ in
       with pkgs;
       [
         up
-        htop
         rustc
         cargo
         nixfmt-rfc-style
@@ -31,11 +29,9 @@ in
         nurl
         hcloud
         tea
-        dgraph
         nix-init
         nodePackages.nodemon
         pocketbase
-        hub
         httpie
         manix
         (pkgs.writeShellScriptBin "ssh-fix-permissions" (
@@ -58,7 +54,6 @@ in
           	  sudo rm /nix/var/nix/gcroots/auto/\*
           	  sudo nix-collect-garbage -d
           	'')
-        nixpkgs-fmt
         ddev
         act
         mkcert
@@ -77,17 +72,12 @@ in
         air
         uv
         ruff
-
-        # FPGA stuff
         yosys
-        # nextpnr
+        nextpnr
         icestorm
         icebreaker
-
         php
         (lib.hiPrio phpPackages.composer)
-
-        btop
       ]
       ++ (
         if (!config.machine.isGeneric) then

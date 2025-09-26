@@ -34,6 +34,8 @@ with lib;
     ./../programs/zed.nix
     ./../programs/gpg.nix
     ./../programs/nh.nix
+    ./../programs/btop.nix
+    ./../services/tldr-update.nix
     ./../../nix.nix
     ./packages.nix
   ];
