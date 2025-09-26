@@ -105,6 +105,7 @@ in
             # (nixGL processing)
             (nixGL scrcpy)
             (nixGL jetbrains-toolbox)
+            (nixGL godot-mono)
           ]
         else
           [ ]

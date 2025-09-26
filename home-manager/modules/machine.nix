@@ -92,6 +92,13 @@ with lib;
       vulkan.enable = true;
     };
 
+    nix = {
+      channels = {
+        nixpkgs = lib.mkDefault inputs.nixpkgs;
+        dotfiles = lib.mkDefault inputs.self;
+      };
+    };
+
     home = {
       username = "${config.machine.username}";
       homeDirectory = "/home/${config.machine.username}";
