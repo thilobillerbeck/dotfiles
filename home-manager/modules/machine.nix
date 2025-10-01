@@ -110,6 +110,11 @@ with lib;
         ".config/nano/nanorc".text = ''
           set linenumbers
         '';
+        ".config/scopebuddy/scb.conf".text = ''
+          SCB_AUTO_RES=1 # Overrides output height and width with current display
+          SCB_AUTO_HDR=1 # Adds --enable-hdr if the current display has HDR enabled
+          SCB_AUTO_VRR=1 # Adds --adaptive-sync if the current display has VRR enabled
+        '';
         "justfile".source = ./../dotfiles/justfile;
         ".gitignore".source = ./../dotfiles/.gitignore;
         ".config/pipewire/pipewire.conf.d/99-noise-suppression.conf".text = ''
