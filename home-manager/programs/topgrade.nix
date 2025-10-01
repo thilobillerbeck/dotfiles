@@ -42,7 +42,7 @@ in
       // (
         if (config.machine.isGeneric) then
           {
-            nixCollectGarbage = "nix-collect-garbage -d";
+            nixCollectGarbage = "${pkgs.nh}/bin/nh clean user";
           }
         else
           {

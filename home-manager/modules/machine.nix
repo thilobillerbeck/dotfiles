@@ -36,6 +36,7 @@ with lib;
     ./../programs/nh.nix
     ./../programs/btop.nix
     ./../services/tldr-update.nix
+    ./../services/ludusavi.nix
     ./../../nix.nix
     ./packages.nix
   ];

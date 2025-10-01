@@ -17,8 +17,6 @@ in
       with pkgs;
       [
         up
-        rustc
-        cargo
         nixfmt-rfc-style
         nodejs
         bun
@@ -83,9 +81,14 @@ in
         if (!config.machine.isGeneric) then
           [
             distrobox
+            rustc
+            cargo
           ]
         else
           fontfile.fonts
+          ++ [
+            rustup
+          ]
       )
       ++ (
         if (config.machine.isGraphical) then
