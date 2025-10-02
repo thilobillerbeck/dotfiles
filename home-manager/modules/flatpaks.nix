@@ -15,10 +15,7 @@
       "com.heroicgameslauncher.hgl"
       "com.usebottles.bottles"
       "dev.deedles.Trayscale"
-      "im.nheko.Nheko"
       "info.mumble.Mumble"
-      "io.github.dimtpap.coppwr"
-      "io.missioncenter.MissionCenter"
       "io.ossia.score"
       "io.podman_desktop.PodmanDesktop"
       "it.fabiodistasio.AntaresSQL"
@@ -41,6 +38,9 @@
       "org.telegram.desktop"
       "org.zotero.Zotero"
       "page.kramo.Cartridges"
+      "app.grayjay.Grayjay"
+      "com.discordapp.Discord"
+      "page.kramo.Sly"
     ];
   };
 }
