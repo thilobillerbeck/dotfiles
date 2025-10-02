@@ -39,6 +39,7 @@ with lib;
     ./../services/ludusavi.nix
     ./../../nix.nix
     ./packages.nix
+    ./flatpaks.nix
   ];
 
   options = {
