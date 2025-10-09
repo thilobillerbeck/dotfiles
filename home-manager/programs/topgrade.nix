@@ -36,18 +36,6 @@ in
       pre_commands = {
         flakeUpgrade = "cd ${configPath} && ${pkgs.nixVersions.latest}/bin/nix flake update --verbose --repair";
       };
-      post_commands = {
-        dockerPrune = "docker system prune -f";
-      }
-      // (
-        if (config.machine.isGeneric) then
-          {
-            nixCollectGarbage = "${pkgs.nh}/bin/nh clean user";
-          }
-        else
-          {
-          }
-      );
     };
   };
 }
