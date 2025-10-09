@@ -71,7 +71,7 @@ in
         uv
         ruff
         yosys
-        nextpnr
+        # nextpnr
         icestorm
         icebreaker
         php

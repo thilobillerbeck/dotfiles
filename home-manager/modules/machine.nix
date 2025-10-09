@@ -103,6 +103,8 @@ with lib;
       };
     };
 
+    nixpkgs.config.allowUnfree = true;
+
     home = {
       username = "${config.machine.username}";
       homeDirectory = "/home/${config.machine.username}";
