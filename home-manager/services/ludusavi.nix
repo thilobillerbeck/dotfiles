@@ -3,11 +3,13 @@
 {
   services.ludusavi = {
     enable = true;
+    frequency = "hourly";
     settings = {
       backup = {
         path = "/var/home/thilo/Nextcloud/.ludusavi";
         filter.cloud = {
-          steam = false;
+          exclude = true;
+          steam = true;
         };
       };
       manifest = {
