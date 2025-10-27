@@ -19,7 +19,6 @@ in
         up
         nixfmt-rfc-style
         nodejs
-        bun
         deno
         devbox
         tldr

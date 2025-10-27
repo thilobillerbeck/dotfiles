@@ -5,9 +5,8 @@ let
   nixGL = config.lib.nixGL.wrap;
 in
 {
-  programs.brave = {
-    # inherit commandLineArgs;
+  programs.chromium = {
     enable = isEnabled;
-    package = if (!config.machine.isGeneric) then pkgs.brave else (nixGL pkgs.brave);
+    package = if (!config.machine.isGeneric) then pkgs.chromium else (nixGL pkgs.chromium);
   };
 }

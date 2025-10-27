@@ -15,6 +15,7 @@ let
     "apu"
     "krusty"
     "skinner"
+    "flanders"
   ];
   manualMatchBlocks = {
     "github.com" = {
@@ -37,6 +38,10 @@ let
     "*.darmstadt.ccc.de" = {
       identityFile = "~/.ssh/id_darmstadt-ccc-de";
     };
+    "moe.ts.billerbeck.one" = {
+      identityFile = "~/.ssh/id_thilo-billerbeck-com";
+      user = "root";
+    };
     "*.relaix.net" = {
       identityFile = "~/.ssh/id_relaix-net";
       user = "tbillerbeck";
@@ -56,10 +61,6 @@ let
         HostkeyAlgorithms = "+ssh-rsa";
         PubkeyAcceptedKeyTypes = "+ssh-rsa";
       };
-    };
-    "flanders" = {
-      identityFile = "~/.ssh/id_thilo-billerbeck-com";
-      user = "thilo";
     };
   };
   catchAlls = builtins.listToAttrs (
@@ -102,6 +103,6 @@ in
   programs.ssh = {
     enableDefaultConfig = false;
     enable = true;
-    matchBlocks = manualMatchBlocks // catchAlls // hostnameAliasses;
+    matchBlocks = manualMatchBlocks // catchAlls // hostnameAliasses // buildersCCCDA;
   };
 }

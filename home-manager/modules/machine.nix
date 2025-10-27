@@ -10,8 +10,10 @@ with lib;
   imports = [
     ./../programs/atuin.nix
     ./../programs/bat.nix
+    ./../programs/bun.nix
     ./../programs/beets.nix
     ./../programs/command-not-found.nix
+    ./../programs/chromium.nix
     ./../programs/dircolors.nix
     ./../programs/direnv.nix
     ./../programs/fzf.nix
@@ -155,6 +157,7 @@ with lib;
         '';
       };
       sessionPath = [ "${config.home.homeDirectory}/.node-global/bin" ];
+      sessionVariables.CHROME_EXECUTABLE = "${pkgs.ungoogled-chromium}/bin/chromium-browser";
     };
 
     programs.home-manager.enable = true;

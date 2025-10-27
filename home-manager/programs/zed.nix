@@ -22,7 +22,7 @@ in
         light = "XY-Zed";
       };
       ui_font_family = "JetBrainsMono Nerd Font";
-      ui_font_size = 16;
+      ui_font_size = 17;
       buffer_font_family = "JetBrainsMono Nerd Font";
       buffer_font_size = 18;
       restore_on_startup = "none";
@@ -57,6 +57,7 @@ in
           };
         };
       };
+      formatter = "language_server";
       lsp = {
         biome = {
           settings = {
@@ -64,6 +65,8 @@ in
           };
         };
       };
+      collaboration_panel.button = false;
+      notification_panel.button = false;
     };
   };
 }
