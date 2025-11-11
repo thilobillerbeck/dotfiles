@@ -89,13 +89,9 @@ with lib;
 
   config = {
     news.display = "silent";
-    targets.genericLinux.enable = config.machine.isGeneric;
-
-    nixGL = {
-      packages = inputs.nixgl.packages;
-      defaultWrapper = "mesa";
-      installScripts = [ "mesa" ];
-      vulkan.enable = true;
+    targets.genericLinux = {
+      enable = config.machine.isGeneric;
+      gpu.enable = config.machine.isGeneric;
     };
 
     nix = {
@@ -155,6 +151,10 @@ with lib;
             }
           }]
         '';
+        ".dart-sdk" = {
+          source = "${pkgs.flutter}/bin/cache/dart-sdk";
+          target = ".dart-sdk";
+        };
       };
       sessionPath = [ "${config.home.homeDirectory}/.node-global/bin" ];
       sessionVariables.CHROME_EXECUTABLE = "${pkgs.ungoogled-chromium}/bin/chromium-browser";

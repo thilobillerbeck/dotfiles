@@ -9,7 +9,7 @@
       url = "github:ryantm/nixpkgs-update";
     };
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "/home/thilo/Dokumente/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixgl = {
