@@ -3,11 +3,18 @@
   pkgs,
   config,
   inputs,
+  modulesPath,
   ...
 }:
 with lib;
 {
+  disabledModules = [
+    "${modulesPath}/targets/generic-linux/gpu"
+  ];
+
   imports = [
+    "${inputs.home-manager-fork}/modules/targets/generic-linux/gpu/default.nix"
+
     ./../programs/atuin.nix
     ./../programs/bat.nix
     ./../programs/bun.nix
@@ -88,15 +95,19 @@ with lib;
   };
 
   config = {
+
     news.display = "silent";
     targets.genericLinux.enable = config.machine.isGeneric;
+    targets.genericLinux.gpu.enable = config.machine.isGeneric;
 
-    nixGL = {
-      packages = inputs.nixgl.packages;
-      defaultWrapper = "mesa";
-      installScripts = [ "mesa" ];
-      vulkan.enable = true;
-    };
+    /*
+      nixGL = {
+        packages = inputs.nixgl.packages;
+        defaultWrapper = "mesa";
+        installScripts = [ "mesa" ];
+        vulkan.enable = true;
+      };
+    */
 
     nix = {
       channels = {

@@ -53,17 +53,36 @@
         "type": "github"
       }
     },
+    "home-manager-fork": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dirtyRev": "cbc6ca4ae06db0e710a8da831ae8203e83f76df6-dirty",
+        "dirtyShortRev": "cbc6ca4a-dirty",
+        "lastModified": 1762907079,
+        "narHash": "sha256-SAKnZ20sceZDGZ9uxYWAF0HvrEY6dj2PpPdm33+kUyQ=",
+        "type": "git",
+        "url": "file:///var/home/thilo/Dokumente/home-manager"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///var/home/thilo/Dokumente/home-manager"
+      }
+    },
     "jovian-nixos": {
       "inputs": {
         "nix-github-actions": "nix-github-actions",
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1762452596,
-        "narHash": "sha256-Iaga+mkwWnWa6FxsAYknpHzeP344VCKGkdudX420LgA=",
+        "lastModified": 1762856455,
+        "narHash": "sha256-x7zgteJWIlbVexL2ubOadUXKlHSjh0RAjLO1KfWdgpU=",
         "owner": "Jovian-Experiments",
         "repo": "Jovian-NixOS",
-        "rev": "99919fd35e70c1b18ce948d5329928d751031312",
+        "rev": "29a671ae20223d182eaf54b963a735230497c2f9",
         "type": "github"
       },
       "original": {
@@ -249,11 +268,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1762482733,
-        "narHash": "sha256-g/da4FzvckvbiZT075Sb1/YDNDr+tGQgh4N8i5ceYMg=",
+        "lastModified": 1762604901,
+        "narHash": "sha256-Pr2jpryIaQr9Yx8p6QssS03wqB6UifnnLr3HJw9veDw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e1ebeec86b771e9d387dd02d82ffdc77ac753abc",
+        "rev": "f6b44b2401525650256b977063dbcf830f762369",
         "type": "github"
       },
       "original": {
@@ -280,6 +299,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "home-manager-fork": "home-manager-fork",
         "jovian-nixos": "jovian-nixos",
         "nix-alien": "nix-alien",
         "nix-flatpak": "nix-flatpak",
