@@ -60,16 +60,17 @@
         ]
       },
       "locked": {
-        "dirtyRev": "cbc6ca4ae06db0e710a8da831ae8203e83f76df6-dirty",
-        "dirtyShortRev": "cbc6ca4a-dirty",
         "lastModified": 1762907079,
-        "narHash": "sha256-SAKnZ20sceZDGZ9uxYWAF0HvrEY6dj2PpPdm33+kUyQ=",
-        "type": "git",
-        "url": "file:///var/home/thilo/Dokumente/home-manager"
+        "narHash": "sha256-tGPV30VmFTCFbcyYbYd5GA1YoILo8zDNGlAfpC+b4fM=",
+        "owner": "thilobillerbeck",
+        "repo": "home-manager",
+        "rev": "cbc6ca4ae06db0e710a8da831ae8203e83f76df6",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///var/home/thilo/Dokumente/home-manager"
+        "owner": "thilobillerbeck",
+        "repo": "home-manager",
+        "type": "github"
       }
     },
     "jovian-nixos": {
