@@ -99,7 +99,6 @@ with lib;
     news.display = "silent";
     targets.genericLinux.enable = config.machine.isGeneric;
     targets.genericLinux.gpu.enable = config.machine.isGeneric;
-
     /*
       nixGL = {
         packages = inputs.nixgl.packages;
