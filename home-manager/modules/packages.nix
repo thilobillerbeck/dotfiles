@@ -9,7 +9,6 @@
 with lib;
 let
   fontfile = import ./../../fonts.nix { inherit pkgs; };
-  nixGL = config.lib.nixGL.wrap;
 in
 {
   config = {
@@ -92,12 +91,12 @@ in
       ++ (
         if (config.machine.isGraphical) then
           [
-            (nixGL insomnia)
-            (nixGL comma)
-            # (nixGL processing)
-            (nixGL scrcpy)
-            (nixGL jetbrains-toolbox)
-            (nixGL godot-mono)
+            insomnia
+            comma
+            # processing
+            scrcpy
+            jetbrains-toolbox
+            godot-mono
           ]
         else
           [ ]

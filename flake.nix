@@ -16,10 +16,6 @@
       url = "github:thilobillerbeck/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixgl = {
-      url = "github:guibou/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-alien.url = "github:thiagokokada/nix-alien";
     jovian-nixos.url = "github:Jovian-Experiments/Jovian-NixOS/development";
     nix-flatpak.url = "github:gmodena/nix-flatpak/";
@@ -46,16 +42,12 @@
     {
       nixpkgs,
       home-manager,
-      nixgl,
       ...
     }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         system = "${system}";
-        overlays = [
-          nixgl.overlay
-        ];
         allowUnfree = true;
       };
     in
@@ -88,21 +80,21 @@
           ./configs/fedora/home.nix
         ];
         extraSpecialArgs = {
-          inherit inputs nixgl;
+          inherit inputs;
         };
       };
       homeConfigurations."thilo@thilo-laptop" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./configs/fedora/home.nix ];
         extraSpecialArgs = {
-          inherit inputs nixgl;
+          inherit inputs;
         };
       };
       homeConfigurations."thilo@thilo-pc-win" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./configs/wsl/home.nix ];
         extraSpecialArgs = {
-          inherit inputs nixgl;
+          inherit inputs;
         };
       };
     };

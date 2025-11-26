@@ -4,13 +4,10 @@
   ...
 }:
 
-let
-  nixGL = config.lib.nixGL.wrap;
-in
 {
   programs.kitty = {
     enable = true;
-    package = (nixGL pkgs.kitty);
+    package = pkgs.kitty;
     font = {
       name = "JetBrainsMono Nerd Font Mono";
       size = 14;

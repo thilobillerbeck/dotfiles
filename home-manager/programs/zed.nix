@@ -1,12 +1,9 @@
 { pkgs, config, ... }:
 
-let
-  nixGL = config.lib.nixGL.wrap;
-in
 {
   programs.zed-editor = {
     enable = if config.machine.isGraphical then true else false;
-    package = if config.machine.isGeneric then (nixGL pkgs.zed-editor) else pkgs.zed-editor;
+    package = pkgs.zed-editor;
     extensions = [
       "xy-zed"
       "nix"
