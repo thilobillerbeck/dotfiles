@@ -83,15 +83,6 @@ with lib;
         default = pkgs.nixVersions.latest;
       };
     };
-    nixGLPrefix = lib.mkOption {
-      type = lib.types.str;
-      default = "";
-      description = ''
-        Will be prepended to commands which require working OpenGL.
-
-        This needs to be set to the right nixGL package on non-NixOS systems.
-      '';
-    };
   };
 
   config = {
@@ -99,14 +90,6 @@ with lib;
     news.display = "silent";
     targets.genericLinux.enable = config.machine.isGeneric;
     targets.genericLinux.gpu.enable = config.machine.isGeneric;
-    /*
-      nixGL = {
-        packages = inputs.nixgl.packages;
-        defaultWrapper = "mesa";
-        installScripts = [ "mesa" ];
-        vulkan.enable = true;
-      };
-    */
 
     nix = {
       channels = {
@@ -167,7 +150,7 @@ with lib;
         '';
       };
       sessionPath = [ "${config.home.homeDirectory}/.node-global/bin" ];
-      sessionVariables.CHROME_EXECUTABLE = "${pkgs.ungoogled-chromium}/bin/chromium-browser";
+      sessionVariables.CHROME_EXECUTABLE = "${pkgs.google-chrome}/bin/chromium-browser";
     };
 
     programs.home-manager.enable = true;
