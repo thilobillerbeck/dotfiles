@@ -105,6 +105,7 @@ with lib;
       homeDirectory = "/home/${config.machine.username}";
       stateVersion = "22.11";
       file = {
+        ".local/share/flutter".source = pkgs.flutter;
         ".config/nano/nanorc".text = ''
           set linenumbers
         '';
@@ -150,7 +151,7 @@ with lib;
         '';
       };
       sessionPath = [ "${config.home.homeDirectory}/.node-global/bin" ];
-      sessionVariables.CHROME_EXECUTABLE = "${pkgs.google-chrome}/bin/chromium-browser";
+      sessionVariables.CHROME_EXECUTABLE = "${pkgs.google-chrome}/bin/google-chrome-stable";
     };
 
     programs.home-manager.enable = true;
