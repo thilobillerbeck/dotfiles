@@ -74,6 +74,7 @@ in
         icebreaker
         php
         (lib.hiPrio phpPackages.composer)
+        git-pages-cli
       ]
       ++ (
         if (!config.machine.isGeneric) then
