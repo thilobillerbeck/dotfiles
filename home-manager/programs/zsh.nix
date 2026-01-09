@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 
 {
   programs.zsh = {
@@ -8,6 +8,7 @@
     completionInit = "autoload -U compinit && compinit -i";
     enableVteIntegration = true;
     syntaxHighlighting.enable = true;
+    dotDir = "${config.xdg.configHome}/zsh";
     shellAliases = {
       pub-ipv4 = "curl ip4.clerie.de";
       serve = "python -m SimpleHTTPServer 8080";
