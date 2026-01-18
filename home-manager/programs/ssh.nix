@@ -7,15 +7,13 @@ let
     "officerent.de"
   ];
   thiloBillerbeckHosts = [
-    "lisa"
     "bart"
-    "burns"
-    "homer"
     "marge"
-    "apu"
     "krusty"
-    "skinner"
     "flanders"
+  ];
+  tailscaleHosts = [
+    "moe"
   ];
   manualMatchBlocks = {
     "github.com" = {
@@ -50,9 +48,9 @@ let
       user = "chaos";
       identityFile = "~/.ssh/id_w17";
     };
-    "*.tailscale.net" = {
-      user = "thilo";
-      identityFile = "~/.ssh/id_tailscale";
+    "*.ts.billerbeck.one" = {
+      user = "chaos";
+      identityFile = "~/.ssh/id_thilo-billerbeck-com";
     };
     "ssh.dev.azure.com" = {
       identityFile = "~/.ssh/id_azure-com";
@@ -82,6 +80,16 @@ let
       };
     }) thiloBillerbeckHosts
   );
+  tailscaleAliasses = builtins.listToAttrs (
+    builtins.map (host: {
+      name = "${host}";
+      value = lib.hm.dag.entryBefore [ "*.ts.billerbeck.one" ] {
+        hostname = "${host}.ts.billerbeck.one";
+        identityFile = "~/.ssh/id_thilo-billerbeck-com";
+        user = "root";
+      };
+    }) tailscaleHosts
+  );
   buildersCCCDA = builtins.listToAttrs (
     builtins.map
       (host: {
@@ -103,6 +111,7 @@ in
   programs.ssh = {
     enableDefaultConfig = false;
     enable = true;
-    matchBlocks = manualMatchBlocks // catchAlls // hostnameAliasses // buildersCCCDA;
+    matchBlocks =
+      manualMatchBlocks // catchAlls // hostnameAliasses // tailscaleAliasses // buildersCCCDA;
   };
 }
