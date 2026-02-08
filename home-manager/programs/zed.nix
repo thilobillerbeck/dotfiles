@@ -5,9 +5,23 @@
     enable = if config.machine.isGraphical then true else false;
     package = pkgs.zed-editor;
     extensions = [
-      "xy-zed"
-      "nix"
+      "astro"
+      "dockerfile"
+      "git-firefly"
+      "html"
+      "latex"
+      "less"
       "material-icon-theme"
+      "nix"
+      "scss"
+      "svelte"
+      "unocss"
+      "vento"
+      "vue"
+      "dart"
+      "emmet"
+      "zed-docker-compose"
+      "xy-zed"
     ];
     userSettings = {
       telemetry = {
