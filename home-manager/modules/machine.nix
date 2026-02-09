@@ -98,9 +98,6 @@ with lib;
       };
     };
 
-    nixpkgs.config.allowUnfree = true;
-    nixpkgs.config.android_sdk.accept_license = true;
-
     home = {
       username = "${config.machine.username}";
       homeDirectory = "/home/${config.machine.username}";

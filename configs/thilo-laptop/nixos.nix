@@ -75,7 +75,7 @@
 
   services.resolved = {
     enable = true;
-    domains = [ "~." ];
+    settings.Resolve.Domains = [ "~." ];
   };
 
   # virtualisation.libvirtd = {

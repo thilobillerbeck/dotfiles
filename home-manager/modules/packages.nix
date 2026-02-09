@@ -16,7 +16,7 @@ in
       with pkgs;
       [
         up
-        nixfmt-rfc-style
+        nixfmt
         nodejs
         deno
         devbox
