@@ -10,7 +10,10 @@ let
   fontfile = import ./../fonts.nix { inherit pkgs; };
 in
 {
-  imports = [ ./../nix.nix ];
+  imports = [
+    ./../nix.nix
+    ./nix-ld.nix
+  ];
 
   nix = {
     # This will add each flake input as a registry
@@ -24,11 +27,8 @@ in
 
   nixpkgs = {
     config = {
-      permittedInsecurePackages = [
-        "electron-24.8.6"
-        "electron-25.9.0"
-      ];
       allowUnfree = true;
+      android_sdk.accept_license = true;
     };
   };
 
@@ -73,8 +73,11 @@ in
   };
 
   virtualisation = {
-    docker.enable = true;
-    podman.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      dockerSocket.enable = true;
+    };
   };
 
   # environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -86,7 +89,6 @@ in
       protontricks.enable = true;
     };
     zsh.enable = true;
-    adb.enable = true;
     noisetorch.enable = false;
     dconf = {
       enable = true;
@@ -96,6 +98,7 @@ in
   environment.systemPackages = with pkgs; [
     git
     zsh
+    podman-compose
   ];
 
   networking.networkmanager.enable = true;

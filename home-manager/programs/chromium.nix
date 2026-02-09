@@ -1,11 +1,10 @@
 { pkgs, config, ... }:
 
 let
-  isEnabled = if (config.machine.isGraphical) then true else false;
+  isEnabled = if (!config.machine.isGeneric && config.machine.isGraphical) then true else false;
 in
 {
-  programs.chromium = {
-    enable = false;
-    package = if (!config.machine.isGeneric) then pkgs.chromium else pkgs.chromium;
+  programs.vivaldi = {
+    enable = isEnabled;
   };
 }

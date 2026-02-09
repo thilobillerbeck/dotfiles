@@ -1,5 +1,6 @@
 {
   inputs,
+  config,
   ...
 }:
 {
@@ -8,7 +9,7 @@
   ];
 
   services.flatpak = {
-    enable = true;
+    enable = config.machine.isGeneric;
     packages = [
       "com.spotify.Client"
       "com.github.wwmm.easyeffects"

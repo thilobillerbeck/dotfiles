@@ -14,7 +14,7 @@
     ./hardware-configuration.nix
     ./../../nixos/common.nix
     ./../../nixos/builders.nix
-    inputs.jovian-nixos.nixosModules.jovian
+    # inputs.jovian-nixos.nixosModules.jovian
   ];
 
   # Bootloader.
@@ -39,6 +39,12 @@
     plymouth.enable = true;
   };
 
+  boot.kernelParams = [
+    "quiet"
+    "udev.log_level=3"
+    "systemd.show_status=auto"
+  ];
+
   networking.hostName = "thilo-pc";
 
   # Enable the X11 windowing system.
@@ -56,111 +62,6 @@
   };
 
   programs.kdeconnect.enable = true;
-  programs.nix-ld = {
-    enable = true;
-    libraries =
-      (pkgs.steam-run.args.multiPkgs pkgs)
-      ++ (with pkgs; [
-        nss
-        sane-backends
-        nspr
-        zlib
-        libglvnd
-        qt5.qtbase
-        qt5.qtsvg
-        qt5.qtdeclarative
-        qt5.qtwayland
-        pkcs11helper
-        stdenv.cc.cc
-        freetype
-
-        stdenv.cc.cc
-        openssl
-        xorg.libXcomposite
-        xorg.libXtst
-        xorg.libXrandr
-        xorg.libXext
-        xorg.libX11
-        xorg.libXfixes
-        libGL
-        libva
-        xorg.libxcb
-        xorg.libXdamage
-        xorg.libxshmfence
-        xorg.libXxf86vm
-        libelf
-        glib
-        gtk3
-        bzip2
-        xorg.libXinerama
-        xorg.libXcursor
-        xorg.libXrender
-        xorg.libXScrnSaver
-        xorg.libXi
-        xorg.libSM
-        xorg.libICE
-        gnome2.GConf
-        nspr
-        nss
-        cups
-        libcap
-        SDL2
-        libusb1
-        dbus-glib
-        ffmpeg
-        libudev0-shim
-        xorg.libXt
-        xorg.libXmu
-        libogg
-        libvorbis
-        SDL
-        SDL2_image
-        glew110
-        libidn
-        tbb
-        flac
-        freeglut
-        libjpeg
-        libpng
-        libpng12
-        libsamplerate
-        libmikmod
-        libtheora
-        libtiff
-        pixman
-        speex
-        SDL_image
-        # SDL_ttf
-        SDL_mixer
-        # SDL2_ttf
-        SDL2_mixer
-        libappindicator-gtk2
-        libdbusmenu-gtk2
-        libindicator-gtk2
-        libcaca
-        libcanberra
-        libgcrypt
-        libvpx
-        librsvg
-        xorg.libXft
-        libvdpau
-        pango
-        cairo
-        atk
-        gdk-pixbuf
-        fontconfig
-        freetype
-        dbus
-        alsa-lib
-        expat
-        libdrm
-        mesa
-        libxkbcommon
-
-        python3Packages.pyqt6
-        zstd
-      ]);
-  };
 
   hardware.graphics = {
     extraPackages = with pkgs; [
@@ -172,19 +73,21 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
-  specialisation = {
-    game-console.configuration = {
-      services.displayManager.sddm.enable = lib.mkForce false;
-      jovian = {
-        steam = {
-          autoStart = true;
-          enable = true;
-          user = "thilo";
-          desktopSession = "plasma";
+  /*
+    specialisation = {
+      game-console.configuration = {
+        services.displayManager.sddm.enable = lib.mkForce false;
+        jovian = {
+          steam = {
+            autoStart = true;
+            enable = true;
+            user = "thilo";
+            desktopSession = "plasma";
+          };
         };
       };
     };
-  };
+  */
 
   programs.gamescope.enable = true;
 
@@ -194,7 +97,6 @@
 
   environment.systemPackages = with pkgs; [
     kdePackages.skanpage
-    qt5.qtwayland
   ];
 
   services.resolved = {
@@ -202,15 +104,12 @@
     domains = [ "~." ];
   };
 
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      package = pkgs.qemu_kvm;
-      runAsRoot = true;
-      swtpm.enable = true;
-      ovmf = {
-        enable = true;
-      };
-    };
-  };
+  # virtualisation.libvirtd = {
+  #   enable = true;
+  #   qemu = {
+  #     package = pkgs.qemu_kvm;
+  #     runAsRoot = true;
+  #     swtpm.enable = true;
+  #   };
+  # };
 }

@@ -75,6 +75,9 @@ in
         php
         (lib.hiPrio phpPackages.composer)
         git-pages-cli
+        uv
+        python3
+        dig
       ]
       ++ (
         if (!config.machine.isGeneric) then
@@ -92,12 +95,10 @@ in
       ++ (
         if (config.machine.isGraphical) then
           [
-            insomnia
+            # insomnia
             comma
             # processing
             scrcpy
-            jetbrains-toolbox
-            godot-mono
           ]
         else
           [ ]
@@ -105,51 +106,44 @@ in
       ++ (
         if (config.machine.isGraphical && !config.machine.isGeneric) then
           [
-            # jetbrains.pycharm-professional
-            jetbrains.webstorm
-            # jetbrains.phpstorm
-            # jetbrains.rust-rover
-            # jetbrains.goland
-            element-desktop
-            ludusavi
-            dbeaver-bin
-            onlyoffice-bin
+            android-studio
+            onlyoffice-desktopeditors
             spotify
-            spicetify-cli
-            discord
-            (lutris.override {
-              extraLibraries = _: [ adwaita-icon-theme ];
-              extraPkgs = _: [
-                wineWowPackages.full
-                winetricks
-                adwaita-icon-theme
-              ];
-            })
+            supersonic-wayland
+            # (lutris.override {
+            #   extraLibraries = _: [ adwaita-icon-theme ];
+            #  extraPkgs = _: [
+            #     wineWowPackages.full
+            #          winetricks
+            #         adwaita-icon-theme
+            #       ];
+            #      })
             bottles
             protontricks
             heroic
-            quickemu
-            quickgui
-            anki
             muse-sounds-manager
-            jetbrains-toolbox
             mumble
-            prusa-slicer
             trayscale
             gnome-disk-utility
             inkscape
             musescore
             obsidian
             reaper
-            # yabridge
-            # inputs.nix-alien.packages.x86_64-linux.nix-alien
+            yabridge
             kdePackages.kdenlive
             audacity
             signal-desktop
             telegram-desktop
             thunderbird
             gearlever
-            kdePackages.merkuro
+            easyeffects
+            # ossia-score
+            podman-desktop
+            antares
+            mixxx
+            zotero
+            grayjay
+            sly
           ]
         else
           [ ]

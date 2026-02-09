@@ -29,6 +29,16 @@
     plymouth.enable = true;
   };
 
+  boot.kernelParams = [
+    "amd_pstate=guided"
+    "quiet"
+    "udev.log_level=3"
+    "systemd.show_status=auto"
+  ];
+  boot.initrd.systemd.enable = true;
+  powerManagement.enable = true;
+  powerManagement.cpuFreqGovernor = "schedutil";
+
   networking.hostName = "thilo-laptop";
 
   # Enable the X11 windowing system.
@@ -46,112 +56,10 @@
   };
 
   programs.kdeconnect.enable = true;
-  programs.nix-ld = {
-    enable = true;
-    libraries =
-      (pkgs.steam-run.args.multiPkgs pkgs)
-      ++ (with pkgs; [
-        nss
-        sane-backends
-        nspr
-        zlib
-        libglvnd
-        qt5.qtbase
-        qt5.qtsvg
-        qt5.qtdeclarative
-        qt5.qtwayland
-        pkcs11helper
-        stdenv.cc.cc
-        freetype
-
-        stdenv.cc.cc
-        openssl
-        xorg.libXcomposite
-        xorg.libXtst
-        xorg.libXrandr
-        xorg.libXext
-        xorg.libX11
-        xorg.libXfixes
-        libGL
-        libva
-        xorg.libxcb
-        xorg.libXdamage
-        xorg.libxshmfence
-        xorg.libXxf86vm
-        libelf
-        glib
-        gtk3
-        bzip2
-        xorg.libXinerama
-        xorg.libXcursor
-        xorg.libXrender
-        xorg.libXScrnSaver
-        xorg.libXi
-        xorg.libSM
-        xorg.libICE
-        gnome2.GConf
-        nspr
-        nss
-        cups
-        libcap
-        SDL2
-        libusb1
-        dbus-glib
-        ffmpeg
-        libudev0-shim
-        xorg.libXt
-        xorg.libXmu
-        libogg
-        libvorbis
-        SDL
-        SDL2_image
-        glew110
-        libidn
-        tbb
-        flac
-        freeglut
-        libjpeg
-        libpng
-        libpng12
-        libsamplerate
-        libmikmod
-        libtheora
-        libtiff
-        pixman
-        speex
-        SDL_image
-        # SDL_ttf
-        SDL_mixer
-        # SDL2_ttf
-        SDL2_mixer
-        libappindicator-gtk2
-        libdbusmenu-gtk2
-        libindicator-gtk2
-        libcaca
-        libcanberra
-        libgcrypt
-        libvpx
-        librsvg
-        xorg.libXft
-        libvdpau
-        pango
-        cairo
-        atk
-        gdk-pixbuf
-        fontconfig
-        freetype
-        dbus
-        alsa-lib
-        expat
-        libdrm
-        mesa
-        libxkbcommon
-      ]);
-  };
 
   hardware.graphics = {
     extraPackages = with pkgs; [
-      vaapiVdpau
+      libva-vdpau-driver
       libvdpau-va-gl
     ];
   };
@@ -159,7 +67,7 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 
   environment.systemPackages = with pkgs; [
     kdePackages.skanpage
@@ -170,15 +78,12 @@
     domains = [ "~." ];
   };
 
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      package = pkgs.qemu_kvm;
-      runAsRoot = true;
-      swtpm.enable = true;
-      ovmf = {
-        enable = true;
-      };
-    };
-  };
+  # virtualisation.libvirtd = {
+  # enable = true;
+  # qemu = {
+  #   package = pkgs.qemu_kvm;
+  #   runAsRoot = true;
+  #   swtpm.enable = true;
+  # };
+  # };
 }

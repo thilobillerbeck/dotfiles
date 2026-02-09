@@ -99,6 +99,7 @@ with lib;
     };
 
     nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.android_sdk.accept_license = true;
 
     home = {
       username = "${config.machine.username}";
@@ -154,7 +155,12 @@ with lib;
       sessionVariables.CHROME_EXECUTABLE = "${pkgs.google-chrome}/bin/google-chrome-stable";
     };
 
-    programs.home-manager.enable = true;
+    programs = {
+      home-manager.enable = true;
+      discord.enable = !config.machine.isGeneric;
+      element-desktop.enable = !config.machine.isGeneric;
+      distrobox.enable = !config.machine.isGeneric;
+    };
 
     gtk = {
       enable = config.machine.isGnome;
