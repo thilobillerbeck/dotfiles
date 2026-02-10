@@ -155,9 +155,9 @@ with lib;
 
     programs = {
       home-manager.enable = true;
-      discord.enable = !config.machine.isGeneric;
       element-desktop.enable = !config.machine.isGeneric;
       distrobox.enable = !config.machine.isGeneric;
+      vesktop.enable = !config.machine.isGeneric;
     };
 
     gtk = {
