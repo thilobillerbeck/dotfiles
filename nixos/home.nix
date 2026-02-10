@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  config,
   lib,
   ...
 }:
@@ -16,7 +15,7 @@
     backupFileExtension = ".bak";
 
     users.thilo = {
-      imports = [ ./../../home-manager/modules/machine.nix ];
+      imports = [ ./../home-manager/modules/machine.nix ];
 
       machine = {
         username = "thilo";

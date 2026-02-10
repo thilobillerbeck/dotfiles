@@ -32,7 +32,27 @@ in
     };
   };
 
+  boot = {
+    loader = {
+      grub = {
+        efiSupport = true;
+        device = "nodev";
+        useOSProber = true;
+      };
+      efi.canTouchEfiVariables = true;
+    };
+    plymouth.enable = true;
+    kernelParams = [
+      "quiet"
+      "udev.log_level=3"
+      "systemd.show_status=auto"
+    ];
+    initrd.systemd.enable = true;
+  };
+
   time.timeZone = "Europe/Berlin";
+  time.hardwareClockInLocalTime = true;
+
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
@@ -93,17 +113,33 @@ in
     dconf = {
       enable = true;
     };
+    kdeconnect.enable = true;
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
   };
 
   environment.systemPackages = with pkgs; [
     git
     zsh
     podman-compose
+    kdePackages.skanpage
   ];
 
   networking.networkmanager.enable = true;
 
   services = {
+    xserver.enable = true;
+    displayManager.sddm.enable = true;
+    displayManager.sddm.wayland.enable = true;
+    displayManager.defaultSession = "plasma";
+    desktopManager.plasma6.enable = true;
+    envfs.enable = true;
+    resolved = {
+      enable = true;
+      settings.Resolve.Domains = [ "~." ];
+    };
     printing.enable = true;
     pipewire = {
       enable = true;
@@ -139,12 +175,12 @@ in
       enable = true;
       enable32Bit = true;
     };
+    bluetooth.enable = true;
+    bluetooth.powerOnBoot = true;
   };
 
   security.polkit.enable = true;
   security.rtkit.enable = true;
-
-  time.hardwareClockInLocalTime = true;
 
   fonts.packages =
     fontfile.fonts

@@ -55,7 +55,7 @@
         modules = [
           home-manager.nixosModules.home-manager
           ./configs/thilo-pc/nixos.nix
-          ./configs/thilo-pc/home.nix
+          ./nixos/home.nix
         ];
         specialArgs = {
           inherit inputs;
@@ -66,7 +66,7 @@
         modules = [
           home-manager.nixosModules.home-manager
           ./configs/thilo-laptop/nixos.nix
-          ./configs/thilo-laptop/home.nix
+          ./nixos/home.nix
         ];
         specialArgs = {
           inherit inputs;
