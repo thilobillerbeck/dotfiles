@@ -9,6 +9,7 @@
 with lib;
 {
   disabledModules = [
+    # disable because of own module fork
     "${modulesPath}/targets/generic-linux/gpu"
   ];
 

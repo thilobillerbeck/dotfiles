@@ -1,12 +1,15 @@
 { config, ... }:
 
+let
+  homeDir = config.home.homeDirectory;
+in
 {
   services.ludusavi = {
     enable = true;
     frequency = "hourly";
     settings = {
       backup = {
-        path = "/var/home/thilo/Nextcloud/.ludusavi";
+        path = "${homeDir}/Nextcloud/.ludusavi";
         filter.cloud = {
           exclude = true;
           steam = true;
@@ -16,15 +19,15 @@
         url = "https://raw.githubusercontent.com/mtkennerly/ludusavi-manifest/master/data/manifest.yaml";
       };
       restore = {
-        path = "/var/home/thilo/Nextcloud/.ludusavi";
+        path = "${homeDir}/Nextcloud/.ludusavi";
       };
       roots = [
         {
-          path = "/var/home/thilo/.local/share/Steam";
+          path = "${homeDir}/.local/share/Steam";
           store = "steam";
         }
         {
-          path = "/var/home/thilo/.config/lutris";
+          path = "${homeDir}/.config/lutris";
           store = "lutris";
         }
         {
@@ -32,7 +35,7 @@
           store = "steam";
         }
         {
-          path = "/var/home/thilo/.var/app/com.heroicgameslauncher.hgl/config/heroic";
+          path = "${homeDir}/.var/app/com.heroicgameslauncher.hgl/config/heroic";
           store = "heroic";
         }
       ];
