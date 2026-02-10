@@ -36,7 +36,7 @@ in
         (pkgs.writeShellScriptBin "yt-dlp-audio" (builtins.readFile ./../scripts/yt-dlp-audio.sh))
         (pkgs.writeShellScriptBin "nix-shell-init" (builtins.readFile ./../scripts/nix-shell-init.sh))
         (pkgs.writeShellScriptBin "http-server" ''
-          ${pkgs.caddy}/bin/caddy file-server --listen :2345z
+          ${pkgs.caddy}/bin/caddy file-server --listen :2345
         '')
         (pkgs.writeShellScriptBin "nix-build-default" ''
           nix-build -E 'with import <nixpkgs> { }; callPackage ./default.nix { }'
@@ -75,7 +75,6 @@ in
         php
         (lib.hiPrio phpPackages.composer)
         git-pages-cli
-        uv
         python3
         dig
       ]

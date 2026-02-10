@@ -6,7 +6,7 @@ pkgs.writeShellScriptBin "extract" ''
   if [ -f $1 ] ; then
     case $1 in
       *.tar.bz2)   ${pkgs.gnutar}/bin/tar xjf $1     ;;
-      *.tar.gz)    ${pkgs.gnutar}/bin/tar $1     ;;
+      *.tar.gz)    ${pkgs.gnutar}/bin/tar xzf $1     ;;
       *.bz2)       ${pkgs.bzip2}/bin/bunzip2 $1     ;;
       *.rar)       ${pkgs.rar}/bin/rar x $1       ;;
       *.gz)        ${pkgs.gzip}/bin/gunzip $1      ;;

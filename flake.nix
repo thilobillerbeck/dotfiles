@@ -88,12 +88,5 @@
           inherit inputs;
         };
       };
-      homeConfigurations."thilo@thilo-pc-win" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./configs/wsl/home.nix ];
-        extraSpecialArgs = {
-          inherit inputs;
-        };
-      };
     };
 }
