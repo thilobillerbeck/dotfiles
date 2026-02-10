@@ -145,82 +145,15 @@
         fuse
         e2fsprogs
 
-        # OLD
-        nss
+        # Custom
         sane-backends
-        nspr
-        zlib
         libglvnd
         qt5.qtbase
         qt5.qtsvg
         qt5.qtdeclarative
         qt5.qtwayland
         pkcs11helper
-        stdenv.cc.cc
-        freetype
-
-        stdenv.cc.cc
-        openssl
-        libGL
-        libva
-        libelf
-        glib
-        gtk3
-        bzip2
-        gnome2.GConf
-        nspr
-        nss
-        cups
-        libcap
-        SDL2
-        libusb1
-        dbus-glib
-        ffmpeg
-        libudev0-shim
-        libogg
-        libvorbis
-        SDL
-        SDL2_image
-        glew_1_10
-        libidn
-        tbb
-        flac
-        freeglut
-        libjpeg
-        libpng
-        libpng12
-        libsamplerate
-        libmikmod
-        libtheora
-        libtiff
-        pixman
-        speex
-        SDL_image
-        # SDL_ttf
-        SDL_mixer
-        # SDL2_ttf
-        SDL2_mixer
-        libappindicator-gtk2
-        libdbusmenu-gtk2
-        libindicator-gtk2
-        libcaca
-        libcanberra
-        libgcrypt
-        libvpx
-        librsvg
-        libvdpau
-        pango
-        cairo
-        atk
-        gdk-pixbuf
-        fontconfig
-        freetype
-        dbus
-        alsa-lib
-        expat
-        libdrm
         mesa
-        libxkbcommon
       ]);
   };
 }
