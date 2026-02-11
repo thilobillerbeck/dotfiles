@@ -128,7 +128,7 @@ in
             musescore
             obsidian
             reaper
-            yabridge
+            # yabridge
             kdePackages.kdenlive
             audacity
             signal-desktop
