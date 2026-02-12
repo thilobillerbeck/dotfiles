@@ -100,6 +100,13 @@ in
     };
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
+    xdgOpenUsePortal = true;
+  };
+
+  documentation.nixos.enable = false;
   # environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   programs = {
@@ -140,6 +147,7 @@ in
       enable = true;
       settings.Resolve.Domains = [ "~." ];
     };
+    pulseaudio.enable = false;
     printing.enable = true;
     pipewire = {
       enable = true;

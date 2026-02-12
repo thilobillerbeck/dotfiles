@@ -13,7 +13,7 @@
     ./../../nixos/home.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "thilo-pc";
 
@@ -24,7 +24,7 @@
 
   hardware.graphics = {
     extraPackages = with pkgs; [
-      vaapiVdpau
+      libva-vdpau-driver
       libvdpau-va-gl
     ];
   };
