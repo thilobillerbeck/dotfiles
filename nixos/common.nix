@@ -97,6 +97,8 @@ in
       enable = true;
       dockerCompat = true;
       dockerSocket.enable = true;
+      autoPrune.enable = true;
+      defaultNetwork.settings.dns_enabled = true;
     };
   };
 
@@ -134,10 +136,18 @@ in
     kdePackages.skanpage
   ];
 
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    plasma-browser-integration
+    konsole
+  ];
+
   networking.networkmanager.enable = true;
 
   services = {
-    xserver.enable = true;
+    xserver = {
+      enable = true;
+      excludePackages = [ pkgs.xterm ];
+    };
     displayManager.sddm.enable = true;
     displayManager.sddm.wayland.enable = true;
     displayManager.defaultSession = "plasma";

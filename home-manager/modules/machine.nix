@@ -114,40 +114,7 @@ with lib;
           SCB_AUTO_HDR=1 # Adds --enable-hdr if the current display has HDR enabled
           SCB_AUTO_VRR=1 # Adds --adaptive-sync if the current display has VRR enabled
         '';
-        "justfile".source = ./../dotfiles/justfile;
         ".gitignore".source = ./../dotfiles/.gitignore;
-        ".config/pipewire/pipewire.conf.d/99-noise-suppression.conf".text = ''
-          context.modules = [{
-            name = libpipewire-module-filter-chain
-            args = {
-              node.description =  "Noise Canceling source"
-              media.name =  "Noise Canceling source"
-              filter.graph = {
-                nodes = [{
-                  type = ladspa
-                  name = rnnoise
-                  plugin = ${pkgs.rnnoise-plugin}/lib/ladspa/librnnoise_ladspa.so
-                  label = noise_suppressor_stereo
-                  control = {
-                    "VAD Threshold (%)" 50.0
-                    "VAD Grace Period (ms)" 200
-                    "Retroactive VAD Grace (ms)" 0
-                  }
-                }]
-              }
-              capture.props = {
-                node.name =  "capture.rnnoise_source"
-                node.passive = true
-                audio.rate = 48000
-              }
-              playback.props = {
-                node.name =  "rnnoise_source"
-                media.class = Audio/Source
-                audio.rate = 48000
-              }
-            }
-          }]
-        '';
       };
       sessionPath = [ "${config.home.homeDirectory}/.node-global/bin" ];
       sessionVariables.CHROME_EXECUTABLE = "${pkgs.google-chrome}/bin/google-chrome-stable";
