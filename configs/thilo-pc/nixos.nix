@@ -54,13 +54,4 @@
   networking.firewall.enable = false;
 
   system.stateVersion = "24.11";
-
-  # virtualisation.libvirtd = {
-  #   enable = true;
-  #   qemu = {
-  #     package = pkgs.qemu_kvm;
-  #     runAsRoot = true;
-  #     swtpm.enable = true;
-  #   };
-  # };
 }

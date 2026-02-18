@@ -97,6 +97,7 @@ in
       autoPrune.enable = true;
       defaultNetwork.settings.dns_enabled = true;
     };
+    libvirtd.enable = true;
   };
 
   xdg.portal = {
@@ -123,6 +124,7 @@ in
       enable = true;
       binfmt = true;
     };
+    virt-manager.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
