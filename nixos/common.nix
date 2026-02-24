@@ -120,9 +120,18 @@ in
       enable = true;
     };
     kdeconnect.enable = true;
+    kde-pim = {
+      enable = true;
+      merkuro = true;
+    };
     appimage = {
       enable = true;
       binfmt = true;
+      package = pkgs.appimage-run.override {
+        extraPkgs = pkgs: [
+          pkgs.webkitgtk_4_1
+        ];
+      };
     };
     virt-manager.enable = true;
   };
@@ -132,6 +141,7 @@ in
     zsh
     podman-compose
     kdePackages.skanpage
+    kdePackages.kcalc
   ];
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
