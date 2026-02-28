@@ -27,7 +27,15 @@ in
           "brew_cask"
           "brew_formula"
           "waydroid"
-        ];
+        ]
+        ++ (
+          if (!config.machine.isGeneric) then
+            [
+              "home_manager"
+            ]
+          else
+            [ ]
+        );
       };
       git.repos = [ configPath ];
       firmware = {

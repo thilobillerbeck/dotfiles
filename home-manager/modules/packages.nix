@@ -134,7 +134,7 @@ in
             signal-desktop
             telegram-desktop
             thunderbird
-            gearlever
+            # gearlever
             easyeffects
             # ossia-score
             podman-desktop
