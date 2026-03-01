@@ -6,7 +6,6 @@ in
 {
   programs.chromium = {
     enable = isEnabled;
-    package = pkgs.ungoogled-chromium;
     extensions = [
       { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
       { id = "nngceckbapebfimnlniiiahkandclblb"; } # Bitwarden
@@ -17,9 +16,7 @@ in
       pkgs.hunspellDictsChromium.de_DE
     ];
     commandLineArgs = [
-      "--password-store=basic"
-      "--no-first-run"
-      "--enable-features=UseOzonePlatform,VaapiVideoDecoder,VaapiVideoEncoder,CanvasOopRasterization"
+      "--enable-features=UseOzonePlatform,VaapiVideoDecoder,VaapiVideoEncoder,CanvasOopRasterization,AutofillPredictionImprovements,Compose,TabOrganization,HistorySearchSettings,WallpaperSearch"
       "--disable-features=WebRtcAllowInputVolumeAdjustment"
       "--enable-hardware-overlays"
 
