@@ -143,6 +143,7 @@ in
             zotero
             grayjay
             sly
+            inputs.scopebuddy.packages.x86_64-linux.default
           ]
         else
           [ ]

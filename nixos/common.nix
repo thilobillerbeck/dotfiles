@@ -114,6 +114,10 @@ in
       enable = true;
       localNetworkGameTransfers.openFirewall = true;
       protontricks.enable = true;
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+        inputs.scopebuddy.packages.x86_64-linux.default
+      ];
     };
     zsh.enable = true;
     dconf = {

@@ -20,6 +20,11 @@
     jovian-nixos.url = "github:Jovian-Experiments/Jovian-NixOS/development";
     nix-flatpak.url = "github:gmodena/nix-flatpak/";
     affinity-nix.url = "github:mrshmllow/affinity-nix";
+
+    scopebuddy = {
+      url = "github:OpenGamingCollective/ScopeBuddy";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
