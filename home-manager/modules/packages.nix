@@ -34,6 +34,12 @@ in
           builtins.readFile ./../scripts/ssh-fix-permissions.sh
         ))
         (pkgs.writeShellScriptBin "yt-dlp-audio" (builtins.readFile ./../scripts/yt-dlp-audio.sh))
+        (pkgs.writeShellScriptBin "audio-trim-silence-be" ''
+          ${pkgs.ffmpeg}/bin/ffmpeg -i  "$1" -af "silenceremove=start_periods=1:start_duration=0:start_threshold=-50dB:stop_periods=-1:stop_duration=0.1:stop_threshold=-50dB" "temp-$1" && mv "temp-$1" "$1"
+        '')
+        (pkgs.writeShellScriptBin "audio-normalize" ''
+          ${pkgs.ffmpeg}/bin/ffmpeg -i "$1" -af loudnorm=I=-16:TP=-1.5:LRA=11 "temp-$1" && mv "temp-$1" "$1"
+        '')
         (pkgs.writeShellScriptBin "nix-shell-init" (builtins.readFile ./../scripts/nix-shell-init.sh))
         (pkgs.writeShellScriptBin "http-server" ''
           ${pkgs.caddy}/bin/caddy file-server --listen :2345

@@ -14,6 +14,7 @@ let
   ];
   tailscaleHosts = [
     "moe"
+    "abe"
   ];
   manualMatchBlocks = {
     "github.com" = {

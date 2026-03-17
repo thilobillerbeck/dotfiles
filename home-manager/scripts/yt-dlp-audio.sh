@@ -1,5 +1,26 @@
 #!/bin/bash
 
+NORMALIZE=false
+TRIM=false
+URL=""
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -n|--normalize)
+      NORMALIZE=true
+      shift # Remove -n from the argument list
+      ;;
+    -t|--trim)
+      TRIM=true
+      shift # Remove -t from the argument list
+      ;;
+    *)
+      URL="$1"
+      shift # Skip unknown options
+      ;;
+  esac
+done
+
 ### Script for downloading albums from Youtube Music ##########
 ### Usage: ./yt-music-album-download.sh <youtube music url> ###
 
@@ -9,7 +30,7 @@
 
 echo "Retrieving album information..."
 # Downloading the json data of the first track only
-jsondata=`yt-dlp -j --playlist-items 1 $1`
+jsondata=`yt-dlp -j --playlist-items 1 $URL`
 
 # Grabbing the "release_year" and "release_date" and comparing which is lowest integer.
 # Sometimes Youtube Music doesn't even populate the "release_date" field, but when it does we need to compare it to "release_year"
@@ -42,4 +63,16 @@ yt-dlp  --ignore-errors \
         --postprocessor-args "-metadata date='${year}' -metadata artist=\"${artist}\"" \
         --embed-thumbnail \
         --ppa "EmbedThumbnail+ffmpeg_o:-c:v mjpeg -vf crop=\"'if(gt(ih,iw),iw,ih)':'if(gt(iw,ih),ih,iw)'\"" \
-        -o "%(playlist_index)s. %(title)s.%(ext)s" "$1"
+        -o "%(playlist_index)s. %(title)s.%(ext)s" "$URL"
+
+# get filename of latest file in the current directory
+filename=$(ls -t *.mp3 | head -n 1)
+
+# if --trim is in list of options, trim silence from the beginning and end of the audio but not only at 2
+if [ "$TRIM" == "true" ]; then
+        audio-trim-silence-be "$filename"
+fi
+# if --normalize is passed, normalize the audio volume
+if [ "$NORMALIZE" == "true" ]; then
+        audio-normalize "$filename"
+fi

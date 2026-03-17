@@ -40,9 +40,6 @@
       auto_update = false;
       icon_theme = "Material Icon Theme";
       hour_format = "hour24";
-      features = {
-        edit_prediction_provider = "codestral";
-      };
       tabs = {
         file_icons = true;
         git_status = true;
