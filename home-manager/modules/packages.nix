@@ -128,7 +128,7 @@ in
             heroic
             muse-sounds-manager
             mumble
-            trayscale
+            # trayscale
             gnome-disk-utility
             inkscape
             musescore
