@@ -26,7 +26,7 @@ in
         hcloud
         tea
         nix-init
-        nodePackages.nodemon
+        nodemon
         pocketbase
         httpie
         manix
@@ -69,7 +69,7 @@ in
         nixd
         unrar
         nix-output-monitor
-        nodePackages.pnpm
+        pnpm
         npm-check-updates
         air
         uv
@@ -140,7 +140,7 @@ in
             signal-desktop
             telegram-desktop
             thunderbird
-            # gearlever
+            gearlever
             easyeffects
             # ossia-score
             podman-desktop
@@ -149,6 +149,7 @@ in
             zotero
             grayjay
             sly
+            eden
             inputs.scopebuddy.packages.x86_64-linux.default
           ]
         else
