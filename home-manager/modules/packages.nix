@@ -100,9 +100,7 @@ in
       ++ (
         if (config.machine.isGraphical) then
           [
-            # insomnia
             comma
-            # processing
             scrcpy
           ]
         else
@@ -115,20 +113,12 @@ in
             onlyoffice-desktopeditors
             spotify
             supersonic-wayland
-            # (lutris.override {
-            #   extraLibraries = _: [ adwaita-icon-theme ];
-            #  extraPkgs = _: [
-            #     wineWowPackages.full
-            #          winetricks
-            #         adwaita-icon-theme
-            #       ];
-            #      })
             bottles
             protontricks
             heroic
             muse-sounds-manager
             mumble
-            # trayscale
+            trayscale
             gnome-disk-utility
             inkscape
             musescore
@@ -142,7 +132,7 @@ in
             thunderbird
             gearlever
             easyeffects
-            # ossia-score
+            ossia-score
             podman-desktop
             antares
             mixxx
@@ -150,7 +140,13 @@ in
             grayjay
             sly
             eden
+            picard
+            orca-slicer
             inputs.scopebuddy.packages.x86_64-linux.default
+            # boo, he is playing around with these pesky ai tools
+            lmstudio
+            opencode
+            claude-code
           ]
         else
           [ ]
