@@ -113,7 +113,7 @@ in
             onlyoffice-desktopeditors
             spotify
             supersonic-wayland
-            bottles
+            # bottles
             protontricks
             heroic
             muse-sounds-manager
