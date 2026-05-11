@@ -113,7 +113,6 @@ in
             onlyoffice-desktopeditors
             spotify
             supersonic-wayland
-            # bottles
             protontricks
             heroic
             muse-sounds-manager
@@ -147,6 +146,13 @@ in
             lmstudio
             opencode
             claude-code
+            drawio
+
+            # games
+            faugus-launcher
+            gamemode
+            mangohud
+            goverlay
           ]
         else
           [ ]

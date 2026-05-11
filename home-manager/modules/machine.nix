@@ -125,7 +125,13 @@ with lib;
       home-manager.enable = true;
       element-desktop.enable = !config.machine.isGeneric;
       distrobox.enable = !config.machine.isGeneric;
-      vesktop.enable = !config.machine.isGeneric;
+      discord = {
+        enable = !config.machine.isGeneric;
+        package = pkgs.discord.override {
+          withOpenASAR = true;
+          withVencord = true;
+        };
+      };
     };
 
     gtk = {
