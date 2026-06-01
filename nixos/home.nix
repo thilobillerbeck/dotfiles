@@ -13,6 +13,7 @@
       inherit inputs;
     };
     backupFileExtension = ".bak";
+    backupCommand = "${pkgs.trash-cli}/bin/trash-put";
 
     users.thilo = {
       imports = [ ./../home-manager/modules/machine.nix ];
