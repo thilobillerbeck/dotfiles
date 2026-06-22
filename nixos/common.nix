@@ -42,6 +42,10 @@ in
       efi.canTouchEfiVariables = true;
     };
     plymouth.enable = true;
+    kernel.sysctl = {
+      "fs.inotify.max_user_watches" = 1048576;
+      "fs.inotify.max_user_instances" = 524288;
+    };
     kernelParams = [
       "quiet"
       "udev.log_level=3"
