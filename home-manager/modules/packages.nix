@@ -143,7 +143,7 @@ in
             orca-slicer
             inputs.scopebuddy.packages.x86_64-linux.default
             # boo, he is playing around with these pesky ai tools
-            jan
+            lmstudio
             opencode
             claude-code
             drawio
