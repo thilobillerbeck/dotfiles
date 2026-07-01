@@ -19,16 +19,13 @@ in
       "--enable-features=UseOzonePlatform,VaapiVideoDecoder,VaapiVideoEncoder,CanvasOopRasterization,AutofillPredictionImprovements,Compose,TabOrganization,HistorySearchSettings,WallpaperSearch"
       "--disable-features=WebRtcAllowInputVolumeAdjustment"
       "--enable-hardware-overlays"
-
       "--ozone-platform=wayland"
       "--ozone-platform-hint=auto"
-
       "--gtk-version=4"
       "--ignore-gpu-blocklist"
       "--enable-gpu-rasterization"
       "--enable-oop-rasterization"
       "--enable-zero-copy"
-      "--ignore-gpu-blocklist"
     ];
   };
 }
