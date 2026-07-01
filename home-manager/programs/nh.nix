@@ -1,8 +1,8 @@
 { pkgs, config, ... }:
 
 let
-  hmPath = "/home/thilo/.config/home-manager/flake.nix";
-  nixosPath = "/home/thilo/.nixos-config/flake.nix";
+  hmPath = "${config.home.homeDirectory}/.config/home-manager/flake.nix";
+  nixosPath = "${config.home.homeDirectory}/.nixos-config/flake.nix";
 in
 {
   programs.nh = {
