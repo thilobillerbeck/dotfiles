@@ -18,56 +18,54 @@ let
   ];
   manualMatchBlocks = {
     "github.com" = {
-      identityFile = "~/.ssh/id_github-com";
-      user = "git";
-      identitiesOnly = true;
+      IdentityFile = "~/.ssh/id_github-com";
+      User = "git";
+      IdentitiesOnly = true;
     };
     "mail" = {
-      hostname = "mail.officerent.de";
+      HostName = "mail.officerent.de";
     };
     "*.tu-darmstadt.de" = {
-      identityFile = "~/.ssh/id_tu-darmstadt-de";
+      IdentityFile = "~/.ssh/id_tu-darmstadt-de";
     };
     "*.rwth-aachen.de" = {
-      identityFile = "~/.ssh/id_tu-darmstadt-de";
+      IdentityFile = "~/.ssh/id_tu-darmstadt-de";
     };
     "*.tobias-neidig.de" = {
-      identityFile = "~/.ssh/id_tobias-neidig-de";
+      IdentityFile = "~/.ssh/id_tobias-neidig-de";
     };
     "*.darmstadt.ccc.de" = {
-      identityFile = "~/.ssh/id_darmstadt-ccc-de";
+      IdentityFile = "~/.ssh/id_darmstadt-ccc-de";
     };
     "moe.ts.billerbeck.one" = {
-      identityFile = "~/.ssh/id_thilo-billerbeck-com";
-      user = "root";
+      IdentityFile = "~/.ssh/id_thilo-billerbeck-com";
+      User = "root";
     };
     "*.relaix.net" = {
-      identityFile = "~/.ssh/id_relaix-net";
-      user = "tbillerbeck";
+      IdentityFile = "~/.ssh/id_relaix-net";
+      User = "tbillerbeck";
     };
     "*.w17.io" = {
-      user = "chaos";
-      identityFile = "~/.ssh/id_w17";
+      User = "chaos";
+      IdentityFile = "~/.ssh/id_w17";
     };
     "*.ts.billerbeck.one" = {
-      user = "chaos";
-      identityFile = "~/.ssh/id_thilo-billerbeck-com";
+      User = "chaos";
+      IdentityFile = "~/.ssh/id_thilo-billerbeck-com";
     };
     "ssh.dev.azure.com" = {
-      identityFile = "~/.ssh/id_azure-com";
-      identitiesOnly = true;
-      extraOptions = {
-        HostkeyAlgorithms = "+ssh-rsa";
-        PubkeyAcceptedKeyTypes = "+ssh-rsa";
-      };
+      IdentityFile = "~/.ssh/id_azure-com";
+      IdentitiesOnly = true;
+      HostkeyAlgorithms = "+ssh-rsa";
+      PubkeyAcceptedKeyTypes = "+ssh-rsa";
     };
   };
   catchAlls = builtins.listToAttrs (
     builtins.map (host: {
       name = "*.${host}";
       value = {
-        identityFile = "~/.ssh/id_thilo-billerbeck-com";
-        user = "root";
+        IdentityFile = "~/.ssh/id_thilo-billerbeck-com";
+        User = "root";
       };
     }) ownDomains
   );
@@ -75,9 +73,9 @@ let
     builtins.map (host: {
       name = "${host}";
       value = lib.hm.dag.entryBefore [ "*.thilo-billerbeck.com" ] {
-        hostname = "${host}.thilo-billerbeck.com";
-        identityFile = "~/.ssh/id_thilo-billerbeck-com";
-        user = "root";
+        HostName = "${host}.thilo-billerbeck.com";
+        IdentityFile = "~/.ssh/id_thilo-billerbeck-com";
+        User = "root";
       };
     }) thiloBillerbeckHosts
   );
@@ -85,9 +83,9 @@ let
     builtins.map (host: {
       name = "${host}";
       value = lib.hm.dag.entryBefore [ "*.ts.billerbeck.one" ] {
-        hostname = "${host}.ts.billerbeck.one";
-        identityFile = "~/.ssh/id_thilo-billerbeck-com";
-        user = "root";
+        HostName = "${host}.ts.billerbeck.one";
+        IdentityFile = "~/.ssh/id_thilo-billerbeck-com";
+        User = "root";
       };
     }) tailscaleHosts
   );
@@ -96,8 +94,8 @@ let
       (host: {
         name = "build${host}.darmstadt.ccc.de";
         value = {
-          user = "avocadoom";
-          identityFile = "~/.ssh/id_darmstadt-ccc-de";
+          User = "avocadoom";
+          IdentityFile = "~/.ssh/id_darmstadt-ccc-de";
         };
       })
       [
@@ -112,7 +110,7 @@ in
   programs.ssh = {
     enableDefaultConfig = false;
     enable = true;
-    matchBlocks =
+    settings =
       manualMatchBlocks // catchAlls // hostnameAliasses // tailscaleAliasses // buildersCCCDA;
   };
 }

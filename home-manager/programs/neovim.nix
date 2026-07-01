@@ -7,6 +7,8 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+    withRuby = true;
+    withPython3 = true;
     coc = {
       enable = true;
     };
