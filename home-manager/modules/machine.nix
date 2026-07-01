@@ -39,6 +39,7 @@ with lib;
     ./../programs/btop.nix
     ./../services/tldr-update.nix
     ./../services/ludusavi.nix
+    ./../programs/opencode.nix
     ./../../nix.nix
     ./packages.nix
     ./flatpaks.nix

@@ -143,7 +143,6 @@ in
             inputs.scopebuddy.packages.x86_64-linux.default
             # boo, he is playing around with these pesky ai tools
             lmstudio
-            opencode
             claude-code
             drawio
 
