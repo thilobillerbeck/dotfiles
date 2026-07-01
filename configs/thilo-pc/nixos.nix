@@ -13,37 +13,12 @@
     ./../../nixos/home.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   networking.hostName = "thilo-pc";
 
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
-
-  hardware.graphics = {
-    extraPackages = with pkgs; [
-      libva-vdpau-driver
-      libvdpau-va-gl
-    ];
-  };
-
-  /*
-    specialisation = {
-      game-console.configuration = {
-        services.displayManager.sddm.enable = lib.mkForce false;
-        jovian = {
-          steam = {
-            autoStart = true;
-            enable = true;
-            user = "thilo";
-            desktopSession = "plasma";
-          };
-        };
-      };
-    };
-  */
 
   programs.gamescope.enable = true;
 

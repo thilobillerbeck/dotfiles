@@ -62,7 +62,6 @@ in
         kubectl
         ncdu
         devenv
-        inputs.nixpkgs-update.packages.x86_64-linux.nixpkgs-update
         nixpkgs-review
         unzip
         nil

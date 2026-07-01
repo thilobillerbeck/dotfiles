@@ -8,7 +8,6 @@
     ./../../nixos/home.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [ "amd_pstate=guided" ];
 
   powerManagement.enable = true;
@@ -19,13 +18,6 @@
   services.xserver.xkb = {
     layout = "de";
     variant = "";
-  };
-
-  hardware.graphics = {
-    extraPackages = with pkgs; [
-      libva-vdpau-driver
-      libvdpau-va-gl
-    ];
   };
 
   system.stateVersion = "25.11";

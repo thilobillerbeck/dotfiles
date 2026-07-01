@@ -42,6 +42,7 @@ in
       efi.canTouchEfiVariables = true;
     };
     plymouth.enable = true;
+    kernelPackages = pkgs.linuxPackages_latest;
     kernel.sysctl = {
       "fs.inotify.max_user_watches" = 1048576;
       "fs.inotify.max_user_instances" = 524288;
@@ -207,6 +208,10 @@ in
     graphics = {
       enable = true;
       enable32Bit = true;
+      extraPackages = with pkgs; [
+        libva-vdpau-driver
+        libvdpau-va-gl
+      ];
     };
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
