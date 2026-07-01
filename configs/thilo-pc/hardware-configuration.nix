@@ -21,6 +21,7 @@
   fileSystems."/" =
     { device = "/dev/mapper/luks-0b8e9c8a-692e-45be-ad20-cda9df7092ea";
       fsType = "ext4";
+      options = [ "noatime" ];
     };
 
   boot.initrd.luks.devices."luks-0b8e9c8a-692e-45be-ad20-cda9df7092ea".device = "/dev/disk/by-uuid/0b8e9c8a-692e-45be-ad20-cda9df7092ea";

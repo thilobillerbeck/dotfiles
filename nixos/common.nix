@@ -41,6 +41,7 @@ in
       efi.canTouchEfiVariables = true;
     };
     plymouth.enable = true;
+    loader.timeout = 1;
     kernelPackages = pkgs.linuxPackages_latest;
     kernel.sysctl = {
       "fs.inotify.max_user_watches" = 1048576;
@@ -50,8 +51,10 @@ in
       "quiet"
       "udev.log_level=3"
       "systemd.show_status=auto"
+      "nowatchdog"
     ];
     initrd.systemd.enable = true;
+    initrd.systemd.network.wait-online.enable = false;
   };
 
   time.timeZone = "Europe/Berlin";
@@ -201,6 +204,7 @@ in
     };
     bamf.enable = true;
     fwupd.enable = true;
+    fstrim.enable = true;
   };
 
   hardware = {
