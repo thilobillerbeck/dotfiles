@@ -37,7 +37,6 @@ in
       grub = {
         efiSupport = true;
         device = "nodev";
-        useOSProber = true;
       };
       efi.canTouchEfiVariables = true;
     };
