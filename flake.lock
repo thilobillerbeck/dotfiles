@@ -35,26 +35,6 @@
         "type": "github"
       }
     },
-    "home-manager-fork": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1762978030,
-        "narHash": "sha256-I9TOYLEjIULe12XfSQCcxRiMj4jS/gV6ySQ6Nrh08cE=",
-        "owner": "thilobillerbeck",
-        "repo": "home-manager",
-        "rev": "0865b0978f24d6a96a6268026d210f3a9cbbb8c6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "thilobillerbeck",
-        "repo": "home-manager",
-        "type": "github"
-      }
-    },
     "nix-alien": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -146,7 +126,6 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "home-manager-fork": "home-manager-fork",
         "nix-alien": "nix-alien",
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs_2",

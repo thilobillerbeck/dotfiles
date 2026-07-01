@@ -3,19 +3,11 @@
   pkgs,
   config,
   inputs,
-  modulesPath,
   ...
 }:
 with lib;
 {
-  disabledModules = [
-    # disable because of own module fork
-    "${modulesPath}/targets/generic-linux/gpu"
-  ];
-
   imports = [
-    "${inputs.home-manager-fork}/modules/targets/generic-linux/gpu/default.nix"
-
     ./../programs/atuin.nix
     ./../programs/bat.nix
     ./../programs/bun.nix
