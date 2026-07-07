@@ -141,9 +141,7 @@ in
             picard
             orca-slicer
             inputs.scopebuddy.packages.x86_64-linux.default
-            # boo, he is playing around with these pesky ai tools
             lmstudio
-            claude-code
             drawio
 
             # games
