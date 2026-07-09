@@ -22,6 +22,7 @@
       "emmet"
       "zed-docker-compose"
       "xy-zed"
+      "exquisite"
     ];
     userSettings = {
       telemetry = {
@@ -29,8 +30,8 @@
       };
       theme = {
         mode = "system";
-        dark = "XY-Zed";
-        light = "XY-Zed";
+        dark = "Exquisite Blue";
+        light = "Exquisite Blue";
       };
       ui_font_family = "JetBrainsMono Nerd Font";
       ui_font_size = 17;

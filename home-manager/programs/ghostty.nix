@@ -13,5 +13,6 @@
       theme = "Sunset Drive";
       mouse-reporting = true;
     };
+    enableZshIntegration = true;
   };
 }
