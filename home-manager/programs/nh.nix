@@ -2,7 +2,7 @@
 
 let
   hmPath = "${config.home.homeDirectory}/.config/home-manager/flake.nix";
-  nixosPath = "${config.home.homeDirectory}/.nixos-config/flake.nix";
+  nixosPath = "${config.home.homeDirectory}/.nixos-config";
 in
 {
   programs.nh = {

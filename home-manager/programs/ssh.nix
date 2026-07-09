@@ -110,7 +110,6 @@ in
   programs.ssh = {
     enableDefaultConfig = false;
     enable = true;
-    settings =
-      manualMatchBlocks // catchAlls // hostnameAliasses // tailscaleAliasses // buildersCCCDA;
+    settings = manualMatchBlocks // catchAlls // hostnameAliasses // tailscaleAliasses // buildersCCCDA;
   };
 }

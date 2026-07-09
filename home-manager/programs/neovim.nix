@@ -1,53 +1,55 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
-  programs.neovim = {
-    defaultEditor = true;
+  imports = [
+    inputs.nixvim.homeModules.nixvim
+  ];
+
+  programs.nixvim = {
     enable = true;
+    defaultEditor = true;
+
+    nixpkgs.useGlobalPackages = true;
+
     viAlias = true;
     vimAlias = true;
-    vimdiffAlias = true;
-    withRuby = true;
-    withPython3 = true;
-    coc = {
-      enable = true;
+
+    colorschemes.nightfox.enable = true;
+    colorschemes.nightfox.flavor = "carbonfox";
+
+    opts = {
+      fileencoding = "utf-8";
+      number = true;
+      relativenumber = true;
+      shiftwidth = 2;
+      breakindent = true;
+      undofile = true;
+      signcolumn = "yes";
+      timeoutlen = 300;
+      splitbelow = true;
+      splitright = true;
+      list = true;
+      cursorline = true;
+      scrolloff = 2;
     };
-    extraConfig = ''
-      set title
-      set ignorecase
-      set number
-      set relativenumber
-      set cursorline
-      set mouse=a
 
-      set undodir=~/.cache/vim/
-      set undofile
-      set undolevels=100
-      set undoreload=1000
-
-      set foldmethod=expr
-      set foldexpr=nvim_treesitter#foldexpr()
-      set foldnestmax=0
-    '';
-    initLua = ''
-      -- disable netrw at the very start of your init.lua
-      vim.g.loaded_netrw = 1
-      vim.g.loaded_netrwPlugin = 1
-
-      -- set termguicolors to enable highlight groups
-      vim.opt.termguicolors = true
-      vim.opt.background = "dark"
-
-      -- empty setup using defaults
-      require("nvim-tree").setup()
-    '';
-
-    plugins = with pkgs.vimPlugins; [
-      editorconfig-vim
-      nvim-tree-lua
-      nvim-treesitter.withAllGrammars
-      vim-nix
-      nvim-lspconfig
-    ];
+    plugins = {
+      lspconfig = {
+        enable = true;
+        autoLoad = true;
+      };
+      neo-tree = {
+        enable = true;
+        autoLoad = true;
+      };
+      web-devicons = {
+        enable = true;
+        autoLoad = true;
+      };
+      lazygit = {
+        enable = true;
+        autoLoad = true;
+      };
+    };
   };
 }

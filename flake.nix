@@ -16,6 +16,7 @@
       url = "github:OpenGamingCollective/ScopeBuddy";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim.url = "github:nix-community/nixvim";
   };
 
   nixConfig = {
@@ -35,6 +36,7 @@
     {
       nixpkgs,
       home-manager,
+      nixvim,
       ...
     }@inputs:
     let

@@ -19,7 +19,7 @@ with lib;
     ./../programs/fzf.nix
     ./../programs/git.nix
     ./../programs/htop.nix
-    ./../programs/kitty.nix
+    ./../programs/ghostty.nix
     ./../programs/neovim.nix
     ./../programs/nextcloud-client.nix
     ./../programs/starship.nix
@@ -123,6 +123,14 @@ with lib;
         package = pkgs.discord.override {
           withOpenASAR = true;
           withVencord = true;
+        };
+      };
+      ghostty = {
+        enable = true;
+        settings = {
+          font-size = 14;
+          theme = "Sunset Drive";
+          mouse-reporting = true;
         };
       };
     };
