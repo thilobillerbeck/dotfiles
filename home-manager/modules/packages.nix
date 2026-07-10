@@ -119,7 +119,7 @@ in
             trayscale
             gnome-disk-utility
             inkscape
-            musescore
+            # musescore
             obsidian
             reaper
             # yabridge
