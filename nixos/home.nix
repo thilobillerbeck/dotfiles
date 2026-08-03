@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  config,
   lib,
   ...
 }:
@@ -22,6 +23,7 @@
         username = "thilo";
         isGeneric = false;
         isGnome = false;
+        isPersonal = config.machine.isPersonal;
         noiseSuppression.enable = true;
         isGraphical = true;
         nixVersion = pkgs.lix;

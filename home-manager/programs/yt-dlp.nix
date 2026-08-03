@@ -1,5 +1,7 @@
+{ config, ... }:
+
 {
   programs.yt-dlp = {
-    enable = true;
+    enable = config.machine.isPersonal;
   };
 }

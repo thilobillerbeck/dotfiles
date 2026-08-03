@@ -23,11 +23,9 @@ in
         tldr
         flutter
         nurl
-        hcloud
         tea
         nix-init
         nodemon
-        pocketbase
         httpie
         manix
         (pkgs.writeShellScriptBin "ssh-fix-permissions" (
@@ -73,16 +71,25 @@ in
         air
         uv
         ruff
-        yosys
-        # nextpnr
-        icestorm
-        icebreaker
         php
         (lib.hiPrio phpPackages.composer)
         git-pages-cli
         python3
         dig
       ]
+      ++ (
+        if (config.machine.isPersonal) then
+          [
+            yosys
+            # nextpnr
+            icestorm
+            icebreaker
+            hcloud
+            pocketbase
+          ]
+        else
+          [ ]
+      )
       ++ (
         if (!config.machine.isGeneric) then
           [
@@ -108,48 +115,54 @@ in
       ++ (
         if (config.machine.isGraphical && !config.machine.isGeneric) then
           [
-            android-studio
             onlyoffice-desktopeditors
-            spotify
-            supersonic-wayland
-            protontricks
-            heroic
-            muse-sounds-manager
-            mumble
-            trayscale
             gnome-disk-utility
             inkscape
-            # musescore
-            obsidian
-            reaper
-            # yabridge
-            kdePackages.kdenlive
-            audacity
-            signal-desktop
-            telegram-desktop
             thunderbird
             gearlever
             easyeffects
-            ossia-score
             podman-desktop
             antares
-            mixxx
-            zotero
-            grayjay
             sly
-            eden
-            picard
-            orca-slicer
-            inputs.scopebuddy.packages.x86_64-linux.default
-            lmstudio
             drawio
-
-            # games
-            faugus-launcher
-            gamemode
-            mangohud
-            goverlay
           ]
+          ++ (
+            if config.machine.isPersonal then
+              [
+                android-studio
+                spotify
+                supersonic-wayland
+                protontricks
+                heroic
+                muse-sounds-manager
+                mumble
+                trayscale
+                musescore
+                obsidian
+                reaper
+                yabridge
+                kdePackages.kdenlive
+                audacity
+                signal-desktop
+                telegram-desktop
+                ossia-score
+                mixxx
+                zotero
+                grayjay
+                eden
+                picard
+                orca-slicer
+                inputs.scopebuddy.packages.x86_64-linux.default
+                lmstudio
+                # games
+                faugus-launcher
+                gamemode
+                mangohud
+                goverlay
+              ]
+            else
+              [ ]
+          )
         else
           [ ]
       )

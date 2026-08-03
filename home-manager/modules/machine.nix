@@ -62,6 +62,11 @@ with lib;
         default = false;
         description = "Whether the system is graphical or not";
       };
+      isPersonal = mkOption {
+        type = types.bool;
+        default = true;
+        description = "Whether the system is for private use or not";
+      };
       isGnome = mkOption {
         type = types.bool;
         default = false;
@@ -97,19 +102,26 @@ with lib;
       homeDirectory = "/home/${config.machine.username}";
       stateVersion = "22.11";
       file = {
-        ".local/share/flutter".source = pkgs.flutter;
         ".config/nano/nanorc".text = ''
           set linenumbers
         '';
-        ".config/scopebuddy/scb.conf".text = ''
-          SCB_AUTO_RES=1
-          SCB_AUTO_HDR=1
-          SCB_AUTO_VRR=1
-          SCB_AUTO_REFRESH=1
-          SCB_AUTO_FRAME_LIMIT=1
-        '';
         ".gitignore".source = ./../dotfiles/.gitignore;
-      };
+      }
+      // (
+        if config.machine.isPersonal then
+          {
+            ".local/share/flutter".source = pkgs.flutter;
+            ".config/scopebuddy/scb.conf".text = ''
+              SCB_AUTO_RES=1
+              SCB_AUTO_HDR=1
+              SCB_AUTO_VRR=1
+              SCB_AUTO_REFRESH=1
+              SCB_AUTO_FRAME_LIMIT=1
+            '';
+          }
+        else
+          { }
+      );
       sessionPath = [ "${config.home.homeDirectory}/.node-global/bin" ];
       sessionVariables.CHROME_EXECUTABLE = "${pkgs.google-chrome}/bin/google-chrome-stable";
     };
@@ -119,7 +131,7 @@ with lib;
       element-desktop.enable = !config.machine.isGeneric;
       distrobox.enable = !config.machine.isGeneric;
       discord = {
-        enable = !config.machine.isGeneric;
+        enable = !config.machine.isGeneric && config.machine.isPersonal;
         package = pkgs.discord.override {
           withOpenASAR = true;
           withVencord = true;

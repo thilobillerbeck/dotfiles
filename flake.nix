@@ -85,5 +85,10 @@
           inherit inputs;
         };
       };
+
+      nixosModules = {
+        common = import ./nixos/common.nix;
+        home = import ./nixos/home.nix;
+      };
     };
 }

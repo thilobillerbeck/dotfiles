@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 
 let
   ownDomains = [
@@ -110,6 +110,10 @@ in
   programs.ssh = {
     enableDefaultConfig = false;
     enable = true;
-    settings = manualMatchBlocks // catchAlls // hostnameAliasses // tailscaleAliasses // buildersCCCDA;
+    settings =
+      if config.machine.isPersonal then
+        manualMatchBlocks // catchAlls // hostnameAliasses // tailscaleAliasses // buildersCCCDA
+      else
+        { };
   };
 }
