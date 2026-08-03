@@ -111,9 +111,14 @@ in
     enableDefaultConfig = false;
     enable = true;
     settings =
-      if config.machine.isPersonal then
+      {
+        "*" = {
+          AddKeysToAgent = "yes";
+        };
+      } //
+      (if config.machine.isPersonal then
         manualMatchBlocks // catchAlls // hostnameAliasses // tailscaleAliasses // buildersCCCDA
       else
-        { };
+        {  });
   };
 }
