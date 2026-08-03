@@ -116,4 +116,6 @@ in
       else
         { };
   };
+
+  services.ssh-agent.enable = true;
 }
