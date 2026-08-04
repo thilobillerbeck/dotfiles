@@ -1,16 +1,10 @@
-{ ... }:
+{ config, ... }:
 
 {
   programs.git = {
     enable = true;
     lfs.enable = true;
-    signing.key = "E07F80D7D80BE9D364F2029A77B4535A08DCD774";
-    signing.signByDefault = true;
     settings = {
-      user = {
-        email = "thilo.billerbeck@officerent.de";
-        name = "Thilo Billerbeck";
-      };
       color = {
         diff = "auto";
         status = "auto";
@@ -40,7 +34,16 @@
         defaultBranch = "main";
       };
     };
-  };
+  } // (if config.machine.isPersonal then {
+    signing.key = "E07F80D7D80BE9D364F2029A77B4535A08DCD774";
+    signing.signByDefault = true;
+    settings = {
+      user = {
+        email = "thilo.billerbeck@officerent.de";
+        name = "Thilo Billerbeck";
+      };
+    };
+  } else {});
   programs.git-credential-oauth = {
     enable = true;
   };
