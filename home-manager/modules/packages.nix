@@ -125,12 +125,14 @@ in
             antares
             sly
             drawio
+            spotify
+            bitwarden-desktop
+            pdfarranger
           ]
           ++ (
             if config.machine.isPersonal then
               [
                 android-studio
-                spotify
                 supersonic-wayland
                 protontricks
                 heroic
