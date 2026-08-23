@@ -76,6 +76,7 @@ in
         git-pages-cli
         python3
         dig
+        bubblewrap
       ]
       ++ (
         if (config.machine.isPersonal) then
@@ -119,7 +120,7 @@ in
             gnome-disk-utility
             inkscape
             thunderbird
-            gearlever
+            # gearlever
             easyeffects
             podman-desktop
             antares
@@ -133,7 +134,7 @@ in
             if config.machine.isPersonal then
               [
                 android-studio
-                supersonic-wayland
+                supersonic
                 protontricks
                 heroic
                 muse-sounds-manager
@@ -147,7 +148,7 @@ in
                 audacity
                 signal-desktop
                 telegram-desktop
-                ossia-score
+                # ossia-score
                 mixxx
                 zotero
                 grayjay
