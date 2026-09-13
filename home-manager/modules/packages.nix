@@ -47,8 +47,8 @@ in
         '')
         # (callPackage ./../pkgs/toggl-time-grouper/package.nix { inherit python3Packages; })
         (callPackage ./../pkgs/extract.nix { inherit pkgs; })
-        (pkgs.writeShellScriptBin "kitty-term-fix" ''
-          infocmp -a xterm-kitty | ssh $1 tic -x -o \~/.terminfo /dev/stdin
+        (pkgs.writeShellScriptBin "ghostty-term-fix" ''
+          infocmp -a xterm-ghostty | ssh $1 tic -x -o \~/.terminfo /dev/stdin
         '')
         (pkgs.writeShellScriptBin "nixos-deepclean" ''
           	  sudo rm /nix/var/nix/gcroots/auto/\*
@@ -120,7 +120,7 @@ in
             gnome-disk-utility
             inkscape
             thunderbird
-            # gearlever
+            gearlever
             easyeffects
             podman-desktop
             antares
@@ -153,7 +153,7 @@ in
                 zotero
                 grayjay
                 eden
-                picard
+                # picard
                 orca-slicer
                 inputs.scopebuddy.packages.x86_64-linux.default
                 lmstudio
@@ -162,6 +162,7 @@ in
                 gamemode
                 mangohud
                 goverlay
+                lutris
               ]
             else
               [ ]
