@@ -27,6 +27,7 @@ in
           "brew_cask"
           "brew_formula"
           "waydroid"
+          "claude_code"
         ]
         ++ (
           if (!config.machine.isGeneric) then
