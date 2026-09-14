@@ -37,7 +37,6 @@ in
             [ ]
         );
       };
-      git.repos = [ configPath ];
       firmware = {
         upgrade = true;
       };
