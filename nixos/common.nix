@@ -46,6 +46,8 @@ in
       };
     };
 
+    hardware.enableRedistributableFirmware = true;
+
     boot = {
       loader = {
         grub = {
@@ -229,10 +231,6 @@ in
       graphics = {
         enable = true;
         enable32Bit = true;
-        extraPackages = with pkgs; [
-          libva-vdpau-driver
-          libvdpau-va-gl
-        ];
       };
       bluetooth.enable = true;
       bluetooth.powerOnBoot = true;
