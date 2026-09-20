@@ -8,20 +8,22 @@
     ./../../nixos/home.nix
   ];
 
-  boot.kernelParams = [
-    "amd_pstate=guided"
-    "pcie_aspm=powersupersave"
-  ];
+  services.tlp = {
+    enable = true;
+    pd.enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      RUNTIME_PM_ON_AC = "auto";
+      RUNTIME_PM_ON_BAT = "auto";
+      USB_AUTOSUSPEND = 1;
+      USB_DENYLIST = "046d:c52b";
+      SOUND_POWER_SAVE_ON_AC = 0;
+      SOUND_POWER_SAVE_ON_BAT = 1;
+    };
+  };
 
-  networking.networkmanager.wifi.powersave = true;
-
-  powerManagement.enable = true;
-  powerManagement.cpuFreqGovernor = "schedutil";
-
-  home-manager.users.thilo.xdg.configFile."baloofilerc".text = ''
-    [Basic Settings]
-    Indexing-Enabled=false
-  '';
+  services.power-profiles-daemon.enable = false;
 
   networking.hostName = "thilo-laptop";
 

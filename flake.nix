@@ -11,7 +11,10 @@
     };
     nix-alien.url = "github:thiagokokada/nix-alien";
     nix-flatpak.url = "github:gmodena/nix-flatpak/";
-
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     scopebuddy = {
       url = "github:OpenGamingCollective/ScopeBuddy";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,6 +39,7 @@
     {
       nixpkgs,
       home-manager,
+      nixos-hardware,
       nixvim,
       ...
     }@inputs:
@@ -62,6 +66,7 @@
         system = "x86_64-linux";
         modules = [
           home-manager.nixosModules.home-manager
+          nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen3 # T14 Gen3 is eq to T16 Gen1
           ./configs/thilo-laptop/nixos.nix
           ./nixos/home.nix
         ];
