@@ -1,5 +1,0 @@
-{
-  programs.hstr = {
-    enable = true;
-  };
-}

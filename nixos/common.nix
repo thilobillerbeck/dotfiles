@@ -273,6 +273,7 @@ in
       bamf.enable = true;
       fwupd.enable = true;
       fstrim.enable = true;
+      journald.settings.Journal.SystemMaxUse = "250M";
     };
 
     hardware = {
