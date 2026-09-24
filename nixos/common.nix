@@ -179,7 +179,47 @@ in
       konsole
     ];
 
-    networking.networkmanager.enable = true;
+    networking.networkmanager = {
+      enable = true;
+
+      settings.connectivity = {
+        uri = "http://connectivity-check.fedoraproject.org/online";
+        interval = 100;
+      };
+
+      # Pause tailscale while a captive portal has no real internet, so
+      # portal login and the portal page work via the physical interface;
+      # restore it once connectivity is back.
+      dispatcherScripts = [
+        {
+          source = pkgs.writeShellScript "portal-pause-tailscale" ''
+            [ "$2" = connectivity-change ] || exit 0
+
+            ts="${config.services.tailscale.package}/bin/tailscale"
+            nmcli="${pkgs.networkmanager}/bin/nmcli"
+            flag=/run/portal-tailscale-was-up
+
+            conn="$($nmcli -t -f CONNECTIVITY general status | cut -d: -f2)"
+
+            case "$conn" in
+              portal | none | local)
+                # only record + pause if tailscale is actually enabled right now
+                if $ts status >/dev/null 2>&1; then
+                  touch "$flag"
+                  $ts down
+                fi
+                ;;
+              full)
+                if [ -e "$flag" ]; then
+                  $ts up
+                  rm -f "$flag"
+                fi
+                ;;
+            esac
+          '';
+        }
+      ];
+    };
 
     services = {
       xserver = {
