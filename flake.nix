@@ -56,7 +56,6 @@
         modules = [
           home-manager.nixosModules.home-manager
           ./configs/thilo-pc/nixos.nix
-          ./nixos/home.nix
         ];
         specialArgs = {
           inherit inputs;
@@ -68,7 +67,6 @@
           home-manager.nixosModules.home-manager
           nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen3 # T14 Gen3 is eq to T16 Gen1
           ./configs/thilo-laptop/nixos.nix
-          ./nixos/home.nix
         ];
         specialArgs = {
           inherit inputs;
@@ -79,13 +77,6 @@
         modules = [
           ./configs/fedora/home.nix
         ];
-        extraSpecialArgs = {
-          inherit inputs;
-        };
-      };
-      homeConfigurations."thilo@thilo-laptop" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./configs/fedora/home.nix ];
         extraSpecialArgs = {
           inherit inputs;
         };

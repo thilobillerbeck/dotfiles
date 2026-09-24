@@ -27,8 +27,10 @@
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."luks-db70e51d-9139-4f7f-97af-852acbb8f469".device =
-    "/dev/disk/by-uuid/db70e51d-9139-4f7f-97af-852acbb8f469";
+  boot.initrd.luks.devices."luks-db70e51d-9139-4f7f-97af-852acbb8f469" = {
+    device = "/dev/disk/by-uuid/db70e51d-9139-4f7f-97af-852acbb8f469";
+    allowDiscards = true;
+  };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/EB14-AECA";
