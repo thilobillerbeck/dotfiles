@@ -17,6 +17,7 @@
       CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
       CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
       CPU_BOOST_ON_BAT = 0;
+      PCIE_ASPM_ON_BAT = "powersupersave";
       RUNTIME_PM_ON_AC = "auto";
       RUNTIME_PM_ON_BAT = "auto";
       USB_AUTOSUSPEND = 1;
@@ -28,7 +29,6 @@
 
   networking.networkmanager.wifi.powersave = true;
 
-  # TODO: remove if it does not reduce power draw on battery
   boot.extraModprobeConfig = "options amdgpu sg_display=0";
 
   services.udev.extraRules = ''

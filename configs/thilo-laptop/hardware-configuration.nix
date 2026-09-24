@@ -18,13 +18,14 @@
     "usbhid"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
     device = "/dev/mapper/luks-db70e51d-9139-4f7f-97af-852acbb8f469";
     fsType = "ext4";
+    options = [ "noatime" ];
   };
 
   boot.initrd.luks.devices."luks-db70e51d-9139-4f7f-97af-852acbb8f469" = {

@@ -2,7 +2,7 @@
 
 {
   nix = {
-    package = lib.mkDefault pkgs.nixVersions.latest;
+    package = lib.mkDefault pkgs.lix;
     extraOptions = ''
       experimental-features = nix-command flakes
       sandbox = relaxed

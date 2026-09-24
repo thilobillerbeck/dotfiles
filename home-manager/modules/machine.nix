@@ -29,7 +29,6 @@ with lib;
     ./../programs/go.nix
     ./../programs/firefox.nix
     ./../programs/mpv.nix
-    ./../programs/syncthing.nix
     ./../programs/hstr.nix
     ./../programs/ssh.nix
     ./../programs/vscode.nix

@@ -227,6 +227,8 @@ in
       ];
     };
 
+    systemd.services.NetworkManager-wait-online.wantedBy = mkForce [ ];
+
     services = {
       xserver = {
         enable = true;
