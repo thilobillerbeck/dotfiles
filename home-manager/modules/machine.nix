@@ -35,6 +35,7 @@ with lib;
     ./../programs/gpg.nix
     ./../programs/nh.nix
     ./../programs/btop.nix
+    ./../programs/claude-code.nix
     ./../services/tldr-update.nix
     ./../services/ludusavi.nix
     ./../programs/opencode.nix
