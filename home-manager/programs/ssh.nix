@@ -11,7 +11,17 @@ let
     "marge"
     "krusty"
     "flanders"
+    "skinner"
   ];
+  thiloBillerbeckHostOverrides = {
+    krusty = {
+      User = "opc";
+      AddressFamily = "inet";
+    };
+    skinner = {
+      User = "opc";
+    };
+  };
   tailscaleHosts = [
     "moe"
     "abe"
@@ -69,14 +79,26 @@ let
       };
     }) ownDomains
   );
-  hostnameAliasses = builtins.listToAttrs (
+  bareApex = builtins.listToAttrs (
     builtins.map (host: {
-      name = "${host}";
-      value = lib.hm.dag.entryBefore [ "*.thilo-billerbeck.com" ] {
-        HostName = "${host}.thilo-billerbeck.com";
+      name = host;
+      value = {
         IdentityFile = "~/.ssh/id_thilo-billerbeck-com";
         User = "root";
       };
+    }) ownDomains
+  );
+  hostnameAliasses = builtins.listToAttrs (
+    builtins.map (host: {
+      name = "${host}";
+      value = lib.hm.dag.entryBefore [ "*.thilo-billerbeck.com" ] (
+        {
+          HostName = "${host}.thilo-billerbeck.com";
+          IdentityFile = "~/.ssh/id_thilo-billerbeck-com";
+          User = "root";
+        }
+        // (thiloBillerbeckHostOverrides.${host} or { })
+      );
     }) thiloBillerbeckHosts
   );
   tailscaleAliasses = builtins.listToAttrs (
@@ -114,10 +136,16 @@ in
       {
         "*" = {
           AddKeysToAgent = "yes";
+          ServerAliveInterval = 60;
+          ServerAliveCountMax = 30;
+          ControlMaster = "auto";
+          ControlPath = "~/.ssh/control-%r@%h:%p";
+          ControlPersist = "10m";
+          HashKnownHosts = "yes";
         };
       } //
       (if config.machine.isPersonal then
-        manualMatchBlocks // catchAlls // hostnameAliasses // tailscaleAliasses // buildersCCCDA
+        manualMatchBlocks // catchAlls // bareApex // hostnameAliasses // tailscaleAliasses // buildersCCCDA
       else
         {  });
   };
