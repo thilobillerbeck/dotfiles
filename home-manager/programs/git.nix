@@ -1,10 +1,10 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 {
   programs.git = {
     enable = true;
     lfs.enable = true;
-    settings = {
+    settings = lib.recursiveUpdate {
       color = {
         diff = "auto";
         status = "auto";
@@ -33,17 +33,31 @@
       init = {
         defaultBranch = "main";
       };
-    };
-  } // (if config.machine.isPersonal then {
-    signing.key = "E07F80D7D80BE9D364F2029A77B4535A08DCD774";
-    signing.signByDefault = true;
-    settings = {
+      pull = {
+        rebase = true;
+      };
+      fetch = {
+        prune = true;
+      };
+      rebase = {
+        autoStash = true;
+      };
+      push = {
+        autoSetupRemote = true;
+      };
+      merge = {
+        conflictstyle = "diff3";
+      };
+    } (lib.optionalAttrs config.machine.isPersonal {
       user = {
         email = "thilo.billerbeck@officerent.de";
         name = "Thilo Billerbeck";
       };
-    };
-  } else {});
+    });
+  } // lib.optionalAttrs config.machine.isPersonal {
+    signing.key = "E07F80D7D80BE9D364F2029A77B4535A08DCD774";
+    signing.signByDefault = true;
+  };
   programs.git-credential-oauth = {
     enable = true;
   };
