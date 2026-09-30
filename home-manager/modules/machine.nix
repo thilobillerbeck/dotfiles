@@ -8,6 +8,7 @@
 with lib;
 {
   imports = [
+    ./../programs/anki.nix
     ./../programs/atuin.nix
     ./../programs/bat.nix
     ./../programs/bun.nix
