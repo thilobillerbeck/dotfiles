@@ -5,7 +5,6 @@
     package = lib.mkDefault pkgs.lix;
     extraOptions = ''
       experimental-features = nix-command flakes
-      sandbox = relaxed
     '';
     settings = {
       trusted-users = [

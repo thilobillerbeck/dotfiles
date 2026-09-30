@@ -2,7 +2,7 @@
 
 {
   programs.zed-editor = {
-    enable = if config.machine.isGraphical then true else false;
+    enable = config.machine.isGraphical;
     package = pkgs.zed-editor;
     extensions = [
       "astro"

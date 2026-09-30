@@ -28,7 +28,7 @@ with lib;
     ./../programs/yt-dlp.nix
     ./../programs/zsh.nix
     ./../programs/go.nix
-    ./../programs/firefox.nix
+    ./../programs/floorp.nix
     ./../programs/mpv.nix
     ./../programs/ssh.nix
     ./../programs/vscode.nix
@@ -80,6 +80,15 @@ with lib;
       nixVersion = mkOption {
         type = types.package;
         default = pkgs.nixVersions.latest;
+      };
+      configPath = mkOption {
+        type = types.str;
+        default =
+          if config.machine.isGeneric then
+            "${config.home.homeDirectory}/.config/home-manager"
+          else
+            "${config.home.homeDirectory}/.nixos-config";
+        description = "Path to the home-manager/nixos flake checkout";
       };
     };
   };
@@ -135,14 +144,6 @@ with lib;
         package = pkgs.discord.override {
           withOpenASAR = true;
           withVencord = true;
-        };
-      };
-      ghostty = {
-        enable = true;
-        settings = {
-          font-size = 14;
-          theme = "Sunset Drive";
-          mouse-reporting = true;
         };
       };
     };

@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 
 let
-  isEnabled = if (!config.machine.isGeneric && config.machine.isGraphical) then true else false;
+  isEnabled = !config.machine.isGeneric && config.machine.isGraphical;
 in
 {
   programs.chromium = {

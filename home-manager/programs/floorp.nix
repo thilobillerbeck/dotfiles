@@ -2,7 +2,7 @@
 
 {
   programs.floorp = {
-    enable = if (config.machine.isGraphical && !config.machine.isGeneric) then true else false;
+    enable = config.machine.isGraphical && !config.machine.isGeneric;
     languagePacks = [
       "en-US"
       "de"

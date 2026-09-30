@@ -1,13 +1,13 @@
-{ pkgs, config, ... }:
+{ config, ... }:
 
-let
-  hmPath = "${config.home.homeDirectory}/.config/home-manager/flake.nix";
-  nixosPath = "${config.home.homeDirectory}/.nixos-config";
-in
 {
   programs.nh = {
     enable = true;
-    homeFlake = if (!config.machine.isGeneric) then nixosPath else hmPath;
-    flake = if (!config.machine.isGeneric) then nixosPath else null;
+    homeFlake =
+      if (!config.machine.isGeneric) then
+        config.machine.configPath
+      else
+        "${config.machine.configPath}/flake.nix";
+    flake = if (!config.machine.isGeneric) then config.machine.configPath else null;
   };
 }

@@ -2,7 +2,7 @@
 
 {
   services.nextcloud-client = {
-    enable = if (config.machine.isGraphical && config.machine.isPersonal) then true else false;
+    enable = config.machine.isGraphical && config.machine.isPersonal;
     package = pkgs.nextcloud-client;
     startInBackground = true;
   };

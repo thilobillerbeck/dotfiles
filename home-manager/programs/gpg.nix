@@ -11,6 +11,6 @@
     maxCacheTtl = 43200;
 
     pinentry.package =
-      if (config.machine.isGraphical) then pkgs.pinentry-qt else false pkgs.pinentry-curses;
+      if (config.machine.isGraphical) then pkgs.pinentry-qt else pkgs.pinentry-curses;
   };
 }

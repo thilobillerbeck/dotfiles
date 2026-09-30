@@ -11,7 +11,7 @@
     dotDir = "${config.xdg.configHome}/zsh";
     shellAliases = {
       pub-ipv4 = "curl ip4.clerie.de";
-      serve = "python -m SimpleHTTPServer 8080";
+      serve = "python3 -m http.server 8080";
       week = "date +%V";
       path = "echo -e \${PATH//:/\\n}";
       distro = "cat /etc/*-release";

@@ -1,12 +1,5 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
-let
-  configPath =
-    if config.machine.isGeneric then
-      "${config.home.homeDirectory}/.config/home-manager"
-    else
-      "${config.home.homeDirectory}/.nixos-config";
-in
 {
   programs.topgrade = {
     enable = true;
@@ -15,8 +8,8 @@ in
         assume_yes = true;
         ignore_failures = [ "git_repos" ];
         no_retry = true;
-        pre_sudo = if (config.machine.isGeneric) then false else true;
-        cleanup = if (config.machine.isGeneric) then true else false;
+        pre_sudo = !config.machine.isGeneric;
+        cleanup = config.machine.isGeneric;
         skip_notify = true;
         disable = [
           "bun"
@@ -42,7 +35,7 @@ in
         upgrade = true;
       };
       pre_commands = {
-        flakeUpgrade = "cd ${configPath} && ${config.machine.nixVersion}/bin/nix flake update --verbose --repair";
+        flakeUpgrade = "cd ${config.machine.configPath} && ${config.machine.nixVersion}/bin/nix flake update --verbose --repair";
       };
     };
   };

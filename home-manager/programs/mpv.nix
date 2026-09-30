@@ -2,7 +2,7 @@
 
 {
   programs.mpv = {
-    enable = if (config.machine.isGraphical && !config.machine.isGeneric) then true else false;
+    enable = config.machine.isGraphical && !config.machine.isGeneric;
     scripts = with pkgs.mpvScripts; [
       autoload
       mpris

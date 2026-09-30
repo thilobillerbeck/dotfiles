@@ -45,15 +45,10 @@ in
         (pkgs.writeShellScriptBin "nix-build-default" ''
           nix-build -E 'with import <nixpkgs> { }; callPackage ./default.nix { }'
         '')
-        # (callPackage ./../pkgs/toggl-time-grouper/package.nix { inherit python3Packages; })
         (callPackage ./../pkgs/extract.nix { inherit pkgs; })
         (pkgs.writeShellScriptBin "ghostty-term-fix" ''
           infocmp -a xterm-ghostty | ssh $1 tic -x -o \~/.terminfo /dev/stdin
         '')
-        (pkgs.writeShellScriptBin "nixos-deepclean" ''
-          	  sudo rm /nix/var/nix/gcroots/auto/\*
-          	  sudo nix-collect-garbage -d
-          	'')
         ddev
         act
         mkcert
@@ -82,7 +77,6 @@ in
         if (config.machine.isPersonal) then
           [
             yosys
-            # nextpnr
             icestorm
             icebreaker
             hcloud
@@ -148,12 +142,10 @@ in
                 audacity
                 signal-desktop
                 telegram-desktop
-                # ossia-score
                 mixxx
                 zotero
                 grayjay
                 eden
-                # picard
                 orca-slicer
                 inputs.scopebuddy.packages.x86_64-linux.default
                 lmstudio
