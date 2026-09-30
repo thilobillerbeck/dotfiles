@@ -121,6 +121,15 @@ in
       ];
     };
 
+    services.openssh = {
+      enable = config.machine.isPersonal;
+      settings = {
+        PasswordAuthentication = false;
+        PermitRootLogin = "no";
+        KbdInteractiveAuthentication = false;
+      };
+    };
+
     virtualisation = {
       podman = {
         enable = true;
@@ -139,7 +148,6 @@ in
     };
 
     documentation.nixos.enable = false;
-    # environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
     programs = {
       steam = {
