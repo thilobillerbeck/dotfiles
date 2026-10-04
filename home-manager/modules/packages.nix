@@ -143,7 +143,6 @@ in
                 signal-desktop
                 telegram-desktop
                 mixxx
-                zotero
                 grayjay
                 eden
                 orca-slicer
