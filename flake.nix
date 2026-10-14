@@ -19,6 +19,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim.url = "github:nix-community/nixvim";
+    jovian = {
+      url = "github:Jovian-Experiments/Jovian-NixOS";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -56,6 +60,7 @@
         system = "x86_64-linux";
         modules = [
           home-manager.nixosModules.home-manager
+          inputs.jovian.nixosModules.default
           ./configs/thilo-pc/nixos.nix
         ];
         specialArgs = {

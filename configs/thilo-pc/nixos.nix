@@ -11,6 +11,7 @@
     ./../../nixos/common.nix
     ./../../nixos/builders.nix
     ./../../nixos/home.nix
+    ./game-console.nix
   ];
 
   networking.hostName = "thilo-pc";

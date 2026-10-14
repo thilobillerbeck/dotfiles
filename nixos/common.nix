@@ -63,7 +63,7 @@ in
         efi.canTouchEfiVariables = true;
       };
       plymouth.enable = true;
-      loader.timeout = 1;
+      loader.timeout = 4;
       kernelPackages = pkgs.linuxPackages_latest;
       kernel.sysctl = {
         "fs.inotify.max_user_watches" = 1048576;
