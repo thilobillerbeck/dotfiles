@@ -19,8 +19,8 @@ let
     "dbaeumer.vscode-eslint"
     "denoland.vscode-deno"
     "docker.docker"
+    "editorconfig.editorconfig"
     "esbenp.prettier-vscode"
-    "github.vscode-github-actions"
     "golang.go"
     "jnoortheen.nix-ide"
     "mkhl.direnv"
@@ -34,6 +34,7 @@ let
     "pandy.bun"
     "pinage404.nix-extension-pack"
     "pkief.material-icon-theme"
+    "redhat.vscode-yaml"
     "sissel.shopify-liquid"
     "solomonkinard.git-blame"
     "sst-dev.opencode"
@@ -41,6 +42,7 @@ let
     "syler.sass-indented"
     "tamasfe.even-better-toml"
     "unifiedjs.vscode-mdx"
+    "usernamehw.errorlens"
     "vue.volar"
   ];
   prettier = {
@@ -59,8 +61,6 @@ in
       mutableUserSettings = true;
       userSettings = {
         "workbench.activityBar.location" = "top";
-        "window.customTitleBarVisibility" = "auto";
-        "window.titleBarStyle" = "custom";
         "workbench.iconTheme" = "material-icon-theme";
         "editor.fontSize" = 18;
         "editor.mouseWheelZoom" = true;
@@ -71,15 +71,19 @@ in
 
         "git.openRepositoryInParentFolders" = "never";
         "git.confirmSync" = false;
+        "git.terminalAuthentication" = false;
+        "github.gitAuthentication" = false;
 
         "chat.disableAIFeatures" = true;
 
         "claudeCode.preferredLocation" = "panel";
         "claudeCode.hideOnboarding" = true;
 
-        "languageTool.language" = "de";
-        "ltex.language" = "de-DE";
-        "lushay.OssCadSuite.path" = "${config.home.homeDirectory}/oss-cad-suite/bin";
+        "telemetry.telemetryLevel" = "off";
+        "workbench.enableExperiments" = false;
+        "workbench.startupEditor" = "none";
+        "workbench.welcomePage.walkthroughs.openOnInstall" = false;
+        "extensions.ignoreRecommendations" = true;
 
         "json.schemaDownload.trustedDomains" = {
           "https://schemastore.azurewebsites.net/" = true;
@@ -98,10 +102,9 @@ in
         "[css]" = prettier;
         "[yaml]" = prettier;
         "[jsonc]" = prettier;
-        "[twig]"."editor.defaultFormatter" = "artagnon.vstwig";
         "[vue]"."editor.defaultFormatter" = "Vue.volar";
         "[liquid]"."editor.defaultFormatter" = "sissel.shopify-liquid";
-        "[astro]"."editor.defaultFormatter" = "denoland.vscode-deno";
+        "[astro]"."editor.defaultFormatter" = "astro-build.astro-vscode";
       };
     };
   };
