@@ -12,6 +12,7 @@
       font-family = "JetBrainsMono Nerd Font Mono";
       theme = "Sunset Drive";
       mouse-reporting = true;
+      shell-integration-features = "ssh-env,ssh-terminfo";
     };
     enableZshIntegration = true;
   };
