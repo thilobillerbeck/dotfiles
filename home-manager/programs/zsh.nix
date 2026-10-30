@@ -17,8 +17,6 @@
       distro = "cat /etc/*-release";
       reload = "source ~/.zshrc";
       undo-git-reset-head = "git reset 'HEAD@{1}'";
-      update-local = "bash $HOME/.dotfiles/install";
-      sudo = "sudo --preserve-env=PATH env";
     };
     antidote = {
       enable = true;
@@ -28,7 +26,6 @@
     };
     initContent = lib.mkBefore ''
       ZSH_DOTENV_PROMPT=false
-      export PATH=~/.npm-global/bin:$PATH
     '';
   };
 }

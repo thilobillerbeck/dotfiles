@@ -38,12 +38,6 @@ in
       # Making legacy nix commands consistent as well, awesome!
       nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
-      gc = {
-        automatic = true;
-        dates = "weekly";
-        options = "--delete-older-than 30d";
-      };
-
       optimise.automatic = true;
     };
 
@@ -62,6 +56,7 @@ in
         grub = {
           efiSupport = true;
           device = "nodev";
+          configurationLimit = 20;
         };
         efi.canTouchEfiVariables = true;
       };
@@ -79,6 +74,7 @@ in
         "nowatchdog"
       ];
       initrd.systemd.network.wait-online.enable = false;
+      tmp.cleanOnBoot = true;
     };
 
     time.timeZone = "Europe/Berlin";
@@ -160,6 +156,13 @@ in
         ];
       };
       zsh.enable = true;
+      nh = {
+        enable = true;
+        clean = {
+          enable = true;
+          extraArgs = "--keep 5 --keep-since 14d";
+        };
+      };
       kdeconnect.enable = true;
       kde-pim = {
         enable = true;
@@ -284,6 +287,8 @@ in
       };
       bluetooth.enable = true;
       bluetooth.powerOnBoot = true;
+      # show battery levels of headsets/controllers
+      bluetooth.settings.General.Experimental = true;
     };
 
     security.rtkit.enable = true;

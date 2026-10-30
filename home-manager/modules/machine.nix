@@ -110,6 +110,9 @@ with lib;
           set linenumbers
         '';
         ".gitignore".source = ./../dotfiles/.gitignore;
+        ".npmrc".text = ''
+          prefix=${config.home.homeDirectory}/.npm-global
+        '';
       }
       // (
         if config.machine.isPersonal then
@@ -126,7 +129,7 @@ with lib;
         else
           { }
       );
-      sessionPath = [ "${config.home.homeDirectory}/.node-global/bin" ];
+      sessionPath = [ "${config.home.homeDirectory}/.npm-global/bin" ];
       sessionVariables.CHROME_EXECUTABLE = "${pkgs.google-chrome}/bin/google-chrome-stable";
     };
 
