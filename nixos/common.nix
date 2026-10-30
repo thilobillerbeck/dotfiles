@@ -43,6 +43,8 @@ in
         dates = "weekly";
         options = "--delete-older-than 30d";
       };
+
+      optimise.automatic = true;
     };
 
     nixpkgs = {
@@ -113,11 +115,9 @@ in
         "video"
         "audio"
         "wheel"
-        "docker"
+        "podman"
         "libvirtd"
-        "libvirt"
         "networkmanager"
-        "qemu-libvirtd"
       ];
     };
 
@@ -160,9 +160,6 @@ in
         ];
       };
       zsh.enable = true;
-      dconf = {
-        enable = true;
-      };
       kdeconnect.enable = true;
       kde-pim = {
         enable = true;
@@ -275,11 +272,6 @@ in
         enable = config.machine.isPersonal;
         gui.enable = true;
       };
-      dbus = {
-        enable = true;
-        packages = [ pkgs.dconf ];
-      };
-      bamf.enable = true;
       fwupd.enable = true;
       fstrim.enable = true;
       journald.settings.Journal.SystemMaxUse = "250M";
@@ -294,7 +286,6 @@ in
       bluetooth.powerOnBoot = true;
     };
 
-    security.polkit.enable = true;
     security.rtkit.enable = true;
 
     fonts.packages =

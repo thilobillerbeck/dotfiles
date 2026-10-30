@@ -23,7 +23,13 @@
 
   programs.gamescope.enable = true;
 
-  networking.firewall.enable = false;
+  networking.firewall.trustedInterfaces = [ "tailscale0" ];
+
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 50;
+  };
 
   system.stateVersion = "24.11";
 }

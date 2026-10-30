@@ -72,11 +72,6 @@ with lib;
         default = false;
         description = "Whether the system is gnome or not";
       };
-      noiseSuppression.enable = mkOption {
-        type = types.bool;
-        default = false;
-        description = "Whether to enable noise suppression or not";
-      };
       nixVersion = mkOption {
         type = types.package;
         default = pkgs.nixVersions.latest;

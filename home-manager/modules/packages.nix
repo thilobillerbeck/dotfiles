@@ -58,7 +58,6 @@ in
         nixpkgs-review
         unzip
         nil
-        nixd
         unrar
         nix-output-monitor
         pnpm
@@ -88,7 +87,6 @@ in
       ++ (
         if (!config.machine.isGeneric) then
           [
-            distrobox
             rustc
             cargo
           ]
@@ -129,7 +127,6 @@ in
               [
                 android-studio
                 supersonic
-                protontricks
                 heroic
                 muse-sounds-manager
                 mumble

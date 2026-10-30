@@ -13,7 +13,6 @@
     username = "thilo";
     isGeneric = true;
     isGnome = false;
-    noiseSuppression.enable = false;
     isGraphical = true;
   };
 
