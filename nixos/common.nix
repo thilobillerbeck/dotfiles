@@ -76,7 +76,6 @@ in
         "systemd.show_status=auto"
         "nowatchdog"
       ];
-      initrd.systemd.enable = true;
       initrd.systemd.network.wait-online.enable = false;
     };
 
