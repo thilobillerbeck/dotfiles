@@ -112,6 +112,7 @@ in
         "audio"
         "wheel"
         "podman"
+        "gamemode"
         "libvirtd"
         "networkmanager"
       ];
@@ -156,6 +157,7 @@ in
         ];
       };
       zsh.enable = true;
+      gamemode.enable = config.machine.isPersonal;
       nh = {
         enable = true;
         clean = {

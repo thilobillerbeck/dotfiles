@@ -40,6 +40,9 @@ with lib;
     ./../services/tldr-update.nix
     ./../services/ludusavi.nix
     ./../programs/opencode.nix
+    ./../programs/npm.nix
+    ./../services/easyeffects.nix
+    ./../services/trayscale.nix
     ./../../nix.nix
     ./packages.nix
     ./flatpaks.nix
@@ -110,9 +113,6 @@ with lib;
           set linenumbers
         '';
         ".gitignore".source = ./../dotfiles/.gitignore;
-        ".npmrc".text = ''
-          prefix=${config.home.homeDirectory}/.npm-global
-        '';
       }
       // (
         if config.machine.isPersonal then

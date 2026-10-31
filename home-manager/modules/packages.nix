@@ -46,9 +46,6 @@ in
           nix-build -E 'with import <nixpkgs> { }; callPackage ./default.nix { }'
         '')
         (callPackage ./../pkgs/extract.nix { inherit pkgs; })
-        (pkgs.writeShellScriptBin "ghostty-term-fix" ''
-          infocmp -a xterm-ghostty | ssh $1 tic -x -o \~/.terminfo /dev/stdin
-        '')
         ddev
         act
         mkcert
@@ -113,7 +110,6 @@ in
             inkscape
             thunderbird
             # gearlever
-            easyeffects
             podman-desktop
             antares
             sly
@@ -130,7 +126,6 @@ in
                 heroic
                 muse-sounds-manager
                 mumble
-                trayscale
                 musescore
                 obsidian
                 reaper
@@ -147,7 +142,6 @@ in
                 lmstudio
                 # games
                 faugus-launcher
-                gamemode
                 mangohud
                 goverlay
                 lutris
