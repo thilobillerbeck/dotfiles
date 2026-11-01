@@ -42,7 +42,10 @@ in
     };
 
     nixpkgs = {
-      overlays = [ inputs.nix-vscode-extensions.overlays.default ];
+      overlays = [
+        (import ./../overlays)
+        inputs.nix-vscode-extensions.overlays.default
+      ];
       config = {
         allowUnfree = true;
         android_sdk.accept_license = true;
