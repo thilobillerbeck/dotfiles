@@ -180,6 +180,7 @@ in
           extraPkgs = pkgs: [
             pkgs.webkitgtk_4_1
             pkgs.icu # .NET apps (e.g. QuiverLauncher) need libicu
+            pkgs.libgpg-error
           ];
         };
       };

@@ -12,6 +12,7 @@ let
     "krusty"
     "flanders"
     "skinner"
+    "lisa"
   ];
   thiloBillerbeckHostOverrides = {
     krusty = {

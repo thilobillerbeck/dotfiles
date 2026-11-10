@@ -2,6 +2,6 @@
 
 {
   programs.anki = {
-    enable = config.machine.isGraphical && config.machine.isPersonal;
+    # enable = config.machine.isGraphical && config.machine.isPersonal;
   };
 }

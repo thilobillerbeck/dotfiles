@@ -98,6 +98,8 @@ in
           [
             comma
             scrcpy
+            wl-clipboard
+            xclip
           ]
         else
           [ ]
