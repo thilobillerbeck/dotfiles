@@ -112,7 +112,7 @@ in
             gnome-disk-utility
             inkscape
             thunderbird
-            gearlever
+            # gearlever
             easyeffects
             podman-desktop
             antares
