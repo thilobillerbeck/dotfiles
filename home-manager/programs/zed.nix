@@ -4,6 +4,13 @@
   programs.zed-editor = {
     enable = config.machine.isGraphical;
     package = pkgs.zed-editor;
+    mutableUserSettings = true;
+    extraPackages = with pkgs; [
+      go
+      gopls
+      delve
+      gofumpt
+    ];
     extensions = [
       "astro"
       "dockerfile"
@@ -39,8 +46,10 @@
       buffer_font_size = 18;
       restore_on_startup = "none";
       auto_update = false;
+      mouse_wheel_zoom = true;
       icon_theme = "Material Icon Theme";
       hour_format = "hour24";
+      code_lens = "on";
       tabs = {
         file_icons = true;
         git_status = true;
@@ -72,6 +81,9 @@
           settings = {
             require_config_file = true;
           };
+        };
+        gopls = {
+          binary.path = "${pkgs.gopls}/bin/gopls";
         };
       };
       collaboration_panel.button = false;

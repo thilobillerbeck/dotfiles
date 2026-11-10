@@ -29,6 +29,7 @@ let
     "ms-python.python"
     "ms-python.vscode-pylance"
     "ms-python.vscode-python-envs"
+    "astral-sh.ty"
     "ms-vscode.makefile-tools"
     "oscarotero.vento-syntax"
     "pandy.bun"
