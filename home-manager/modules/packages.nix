@@ -62,6 +62,7 @@ in
         air
         uv
         ruff
+        ty
         php
         (lib.hiPrio phpPackages.composer)
         git-pages-cli
@@ -105,11 +106,12 @@ in
       ++ (
         if (config.machine.isGraphical && !config.machine.isGeneric) then
           [
-            onlyoffice-desktopeditors
+            # onlyoffice-desktopeditors
             gnome-disk-utility
             inkscape
             thunderbird
-            # gearlever
+            gearlever
+            easyeffects
             podman-desktop
             antares
             sly
