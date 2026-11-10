@@ -108,7 +108,7 @@ in
       ++ (
         if (config.machine.isGraphical && !config.machine.isGeneric) then
           [
-            # onlyoffice-desktopeditors
+            onlyoffice-desktopeditors
             gnome-disk-utility
             inkscape
             thunderbird
