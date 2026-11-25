@@ -10,6 +10,11 @@
       gopls
       delve
       gofumpt
+      nodejs
+      vue-language-server
+      tailwindcss-language-server
+      vtsls
+      prettier
     ];
     extensions = [
       "astro"
@@ -63,6 +68,65 @@
         enable = true;
       };
       languages = {
+        "Vue.js" = {
+          tab_size = 2;
+          language_servers = [
+            "vue-language-server"
+            "vtsls"
+            "tailwindcss-language-server"
+            "eslint"
+            "emmet-language-server"
+            "..."
+          ];
+          formatter = "prettier";
+          prettier.allowed = true;
+          format_on_save = "on";
+          code_actions_on_format = {
+            "source.fixAll.eslint" = true;
+          };
+          show_edit_predictions = true;
+          linked_edits = true;
+        };
+        TypeScript = {
+          tab_size = 2;
+          formatter = "prettier";
+          prettier.allowed = true;
+          format_on_save = "on";
+          language_servers = [
+            "vtsls"
+            "tailwindcss-language-server"
+            "eslint"
+            "!typescript-language-server"
+            "..."
+          ];
+        };
+        JavaScript = {
+          tab_size = 2;
+          formatter = "prettier";
+          prettier.allowed = true;
+          format_on_save = "on";
+          language_servers = [
+            "vtsls"
+            "tailwindcss-language-server"
+            "eslint"
+            "..."
+          ];
+        };
+        CSS = {
+          language_servers = [
+            "tailwindcss-language-server"
+            "..."
+          ];
+          prettier.allowed = true;
+        };
+        HTML = {
+          language_servers = [
+            "tailwindcss-language-server"
+            "emmet-language-server"
+            "..."
+          ];
+          prettier.allowed = true;
+        };
         Nix = {
           formatter = {
             external = {
@@ -76,7 +140,39 @@
         };
       };
       formatter = "language_server";
+      inlay_hints.enabled = true;
       lsp = {
+        tailwindcss-language-server = {
+          settings = {
+            includeLanguages = {
+              vue = "html";
+              html = "html";
+              css = "css";
+              javascript = "javascript";
+              typescript = "typescript";
+            };
+            classAttributes = [
+              "class"
+              "className"
+              ":class"
+              "ngClass"
+            ];
+            experimental.classRegex = [
+              [
+                "cva\\(([^)]*)\\)"
+                "[\"'`]([^\"'`]*).*?[\"'`]"
+              ]
+              [
+                "cx\\(([^)]*)\\)"
+                "(?:'|\"|`)([^']*)(?:'|\"|`)"
+              ]
+              [
+                "clsx\\(([^)]*)\\)"
+                "(?:'|\"|`)([^']*)(?:'|\"|`)"
+              ]
+            ];
+          };
+        };
         biome = {
           settings = {
             require_config_file = true;
